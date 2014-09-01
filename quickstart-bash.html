@@ -247,14 +247,22 @@ Gemini
 The Alfred Bundler is open source, released under the <a href="http://opensource.org/licenses/MIT">MIT</a> license.
 
 
-<footer>
-  <div class="top-footer"></div>
-  <div class="bottom-footer"></div>
-</footer>
-
-
+    <footer>
+      <div class="top-footer"></div>
+      <div class="bottom-footer">
+        <div class="row">
+          <div class="right footer">
+            <p>The Alfred Bundler is open source, released under the <a href="http://opensource.org/licenses/MIT">MIT</a> license.</p>
+            <p>(C) The Alfred Bundler Team, 2014</p>
+          </div>
+        </div>
+      </div>
+    </footer>
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
     <script src="bower_components/foundation/js/foundation.min.js"></script>
     <script src="js/app.js"></script>
+    <script>
+      $(document).foundation();
+    </script>
   </body>
 </html>
