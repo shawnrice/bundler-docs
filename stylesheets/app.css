@@ -4534,3 +4534,13 @@ footer {
   height: 36px;
   margin-right: 0.5em;
 }
+
+/* line 173, ../scss/_bundler.scss */
+.features ul {
+  list-style-type: none;
+}
+
+/* line 177, ../scss/_bundler.scss */
+.features ul ul {
+  font-size: 0.9em;
+}

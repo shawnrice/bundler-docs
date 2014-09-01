@@ -91,39 +91,60 @@
     </div>
     <div class="clear-fix"> </div>
 
-    <div class="row">
-      <div class="large-12 columns">
-        <div class="panel callout">
-          <h5>Best Practices</h5>
-          <p>The bundler makes it easy to follow best practices for workflow development. It installs all assets in Alfred's data directory instead of the system directory, including Python packages and Ruby gems, making workflows easy to uninstall.</p>
-          <p>Further, Ruby gems will always be compatible with the user's system, so you don't have to worry about bundling all of the versions for the user's system.</p>
+    <div class="row features" data-equalizer>
+      <div class="small-12 columns">
+        <div class="small-6 columns">
+          <div class="panel" data-equalizer-watch>
+            <h4>Best Practices</h4>
+            <p>The bundler makes it easy to follow best practices for workflow development. It installs all assets in Alfred's data directory instead of the system directory, including Python packages and Ruby gems, making workflows easy to uninstall.</p>
+            <p>Further, Ruby gems will always be compatible with the user's system, so you don't have to worry about bundling all of the versions for the user's system.</p>
+          </div>
+        </div>
+        <div class="small-6 columns">
+          <div class="panel callout" data-equalizer-watch>
+          <h4>Features</h4>
+          <ul>
+            <li><strong>Utilities</strong></li>
+            <li>
+              <ul>
+                <li>like CocoaDialog and Pashua.</li>
+              </ul>
+            </li>
+            <li><strong>Wrappers</strong></li>
+            <li>
+              <ul>
+                <li>to make CocoaDialog and Terminal-Notifier easier to implement.</li>
+              </ul>
+            </li>
+            <li><strong>Libraries</strong></li>
+            <li>
+              <ul>
+                <li>General libraries</li>
+                <li>Composer for PHP</li>
+                <li>PyPi for Python</li>
+                <li>Gems for Ruby</li>
+              </ul>
+            </li>
+            <li><strong>Icons</strong></li>
+
+            <li><strong>Logging</strong></li>
+            <li>
+              <ul>
+                <li>Log to a file or to the console with no effort.</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
         </div>
       </div>
     </div>
+    <div class="clear-fix"> </div>
+    <div class="row">
 
-
-<div class="row">
-
-<h5>Features</h5>
-General features
-
-Utilities
-
-Wrappers
-
-Libraries
--> Including...
-Composer for PHP
-PyPi for Python
-Gems for Ruby
-
-Icons
-
-Logging
+    </div>
 
 
 
-</div>
 
       <div class="row">
         <h4>The Bundler comes in different languages</h4>
@@ -132,44 +153,54 @@ Logging
       <div class="row">
         <div class="small-12 small-centered">
           <div class="panel small-2 medium-2 columns prog-icon-panel">
-            <figure>
-              <img src="images/apple.svg" class="prog-icon">
-              <figcaption>
-                <h4>AppleScript</h4>
-              </figcaption>
-            </figure>
-          </div>
-          <div class="panel small-2 medium-2 columns prog-icon-panel">
-            <figure>
-              <img src="images/prog-bash02.svg" class="prog-icon">
-              <figcaption>
-                <h4>Bash</h4>
-              </figcaption>
-            </figure>
-          </div>
-          <div class="panel small-2 medium-2 columns prog-icon-panel">
-            <figure>
-              <img src="images/prog-php01.svg" class="prog-icon">
-              <figcaption>
-                <h4>PHP</h4>
-              </figcaption>
-            </figure>
-          </div>
-          <div class="panel small-2 medium-2 columns prog-icon-panel">
-            <figure>
-              <img src="images/prog-python.svg" class="prog-icon">
+            <a href="quickstart-applescript.html">
+              <figure>
+                <img src="images/apple.svg" class="prog-icon">
                 <figcaption>
-                <h4>Python</h4>
-              </figcaption>
-            </figure>
+                  <h4>AppleScript</h4>
+                </figcaption>
+              </figure>
+            </a>
           </div>
           <div class="panel small-2 medium-2 columns prog-icon-panel">
-            <figure>
-              <img src="images/prog-ruby.svg" class="prog-icon">
-              <figcaption>
-                <h4>Ruby</h4>
-              </figcaption>
-            </figure>
+            <a href="quickstart-bash.html">
+              <figure>
+                <img src="images/prog-bash02.svg" class="prog-icon">
+                <figcaption>
+                  <h4>Bash</h4>
+                </figcaption>
+              </figure>
+            </a>
+          </div>
+          <div class="panel small-2 medium-2 columns prog-icon-panel">
+            <a href="quickstart-php.html">
+              <figure>
+                <img src="images/prog-php01.svg" class="prog-icon">
+                <figcaption>
+                  <h4>PHP</h4>
+                </figcaption>
+              </figure>
+            </a>
+          </div>
+          <div class="panel small-2 medium-2 columns prog-icon-panel">
+            <a href="quickstart-python.html">
+              <figure>
+                <img src="images/prog-python.svg" class="prog-icon">
+                  <figcaption>
+                  <h4>Python</h4>
+                </figcaption>
+              </figure>
+            </a>
+          </div>
+          <div class="panel small-2 medium-2 columns prog-icon-panel">
+            <a href="quickstart-ruby.html">
+              <figure>
+                <img src="images/prog-ruby.svg" class="prog-icon">
+                <figcaption>
+                  <h4>Ruby</h4>
+                </figcaption>
+              </figure>
+            </a>
           </div>
         </div>
       </div>
@@ -276,6 +307,10 @@ The Alfred Bundler is open source, released under the <a href="http://opensource
 
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
     <script src="bower_components/foundation/js/foundation.min.js"></script>
+    <script src="bower_components/foundation/js/foundation/foundation.equalizer.js"></script>
     <script src="js/app.js"></script>
+    <script>
+      $(document).foundation();
+    </script>
   </body>
 </html>
