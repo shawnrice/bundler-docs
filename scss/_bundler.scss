@@ -202,3 +202,16 @@ footer {
 .usage code {
     font-size: 0.85em;
 }
+
+
+.features-table img {
+    width: 24px;
+}
+
+.features-table td, .features-table th {
+    text-align: center;
+}
+
+.features-table td:first-child, .features-table th:first-child {
+    text-align: left;
+}

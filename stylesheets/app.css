@@ -4573,3 +4573,18 @@ footer {
 .usage code {
   font-size: 0.85em;
 }
+
+/* line 207, ../scss/_bundler.scss */
+.features-table img {
+  width: 24px;
+}
+
+/* line 211, ../scss/_bundler.scss */
+.features-table td, .features-table th {
+  text-align: center;
+}
+
+/* line 215, ../scss/_bundler.scss */
+.features-table td:first-child, .features-table th:first-child {
+  text-align: left;
+}
