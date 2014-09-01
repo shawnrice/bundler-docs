@@ -4479,3 +4479,58 @@ footer {
   border: none;
   width: 100%;
 }
+
+/* line 124, ../scss/_bundler.scss */
+.release-header {
+  font-weight: 900;
+}
+
+/* line 128, ../scss/_bundler.scss */
+.release-version {
+  padding-left: 1em;
+  font-size: 0.9em;
+}
+
+/* line 133, ../scss/_bundler.scss */
+.version-deprecated {
+  color: red;
+  font-size: 0.75em;
+  margin-left: 1em;
+}
+
+/* line 139, ../scss/_bundler.scss */
+.version-deprecated:before {
+  content: '<';
+}
+
+/* line 142, ../scss/_bundler.scss */
+.version-deprecated:after {
+  content: '>';
+}
+
+/* line 146, ../scss/_bundler.scss */
+.version-list {
+  list-style-type: none;
+}
+
+/* line 154, ../scss/_bundler.scss */
+.clear-fix {
+  content: ' ';
+  width: 100%;
+  clear: both;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  border: 1px solid transparent;
+}
+
+/* line 163, ../scss/_bundler.scss */
+.person {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+/* line 168, ../scss/_bundler.scss */
+.person img {
+  height: 36px;
+  margin-right: 0.5em;
+}

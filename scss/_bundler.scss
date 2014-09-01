@@ -119,3 +119,53 @@ footer {
     width: 100%;
 
 }
+
+
+.release-header {
+    font-weight: 900;
+}
+
+.release-version {
+    padding-left: 1em;
+    font-size: 0.9em;
+}
+
+.version-deprecated {
+    color: red;
+    font-size: 0.75em;
+    margin-left: 1em;
+}
+
+.version-deprecated:before {
+    content: '<';
+}
+.version-deprecated:after {
+    content: '>';
+}
+
+.version-list {
+    list-style-type: none;
+}
+
+.large-icon {
+
+}
+
+.clear-fix {
+    content: ' ';
+    width: 100%;
+    clear: both;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    border: 1px solid rgba(0,0,0,0);
+}
+
+.person {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+.person img {
+    height: 36px;
+    margin-right: 0.5em;
+}
