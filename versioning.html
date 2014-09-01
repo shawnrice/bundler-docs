@@ -1,0 +1,113 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Alfred Bundler</title>
+    <link rel="stylesheet" href="stylesheets/app.css" />
+    <script src="bower_components/modernizr/modernizr.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    </head>
+    <body>
+      <header>
+        <nav class="top-bar" data-topbar role="navigation">
+          <ul class="title-area">
+            <li class="name">
+              <h1><a href="index.html">The Alfred Bundler</a></h1>
+            </li>
+            <li class="toggle-topbar menu-icon"><a href="#"><span> </span></a></li>
+          </ul>
+          <section class="top-bar-section">
+            <ul class="right">
+              <li class="has-dropdown active">
+                <a href="quickstart.html">Quickstart</a>
+                <ul class="dropdown">
+                  <li><a href="quickstart-applescript.html">AppleScript</a></li>
+                  <li><a href="quickstart-bash.html">Bash</a></li>
+                  <li><a href="quickstart-php.html">PHP</a></li>
+                  <li class="active"><a href="quickstart-python.html">Python</a></li>
+                  <li><a href="quickstart-ruby.html">Ruby</a></li>
+                </ul>
+              </li>
+              <li class="has-dropdown">
+                <a href="#">Documentation</a>
+                <ul class="dropdown">
+                  <li><a href="docs/php/" target="_blank">PHP</a></li>
+                  <li><a href="#" target="_blank">Python</a></li>
+                  <li><a href="docs/ruby/frames.html" target="_blank">Ruby</a></li>
+                </ul>
+              </li>
+            </ul>
+          </section>
+        </nav>
+      </header>
+      <div class="separator">&nbsp;</div>
+      <div class="clear-fix"></div>
+      <div class="row">
+        <h1>Versioning</h1>
+      </div>
+      <div class="row">
+        <div class="small-12 columns usage">
+          <p>The Alfred Bundler is divided into <em>major</em> releases and <em>minor</em> releases. All the major releases are named (see below), and the minor releases are numbered.</p>
+          <p>The newest version of a major release will always be found under the git tag <code>-latest</code>. Releases will also be tagged <code>-{minor-version}</code>. Upgrades in the minor releases are automatically done in the background.</p>
+          <p>Each major release also has its own home in Alfred's data directory. The naming scheme is: <code>alfred.bundler-{major-release}</code>.</p>
+          <p>Hence, two or more versions of the Alfred Bundler might live next to each other, depending on which wrappers the workflows use.</p>
+          <h4>Major Releases</h4>
+          <p>I hate astrology, so I'm using the Zodiac signs for major releases. Hence, the schedule, which I don't expect to get far down will be</p>
+          <div class="panel callout">
+          <ol>
+            <li>Aries (deprecated) released: 15 April 2014</li>
+            <li>Taurus (current)</li>
+            <li>Gemini</li>
+            <li>Cancer</li>
+            <li>Leo</li>
+            <li>Virgo</li>
+            <li>Libra</li>
+            <li>Scorpio</li>
+            <li>Sagittarius</li>
+            <li>Capricorn</li>
+            <li>Aquarius</li>
+            <li>Pisces</li>
+          </ol>
+        </div>
+          <p>Each major version will have its own Git branch.</p>
+          <p>Development will always take place in the <code>devel</code> branch, which should never be used in production.</p>
+          <h4>Minor Releases</h4>
+          <p>Minor releases are integers. So, the initial version of a major release is <code>Major-1</code> These minor releases will optimize the bundler backend and provide bug fixes but will not change how it functions for the user and will not alter the accumulated data.</p>
+        </div>
+      </div>
+      <div class="clear-fix"></div>
+      <div class="row">
+        <div class="medium-6 columns">
+          <div class="callout panel">
+            <h4><strong>Questions?</strong></h4>
+            <p>
+            Post on the <a href="http://www.alfredforum.com/topic/4255-alfred-dependency-downloader-framework/">Alfred Forum thread</a>.
+            </p>
+          </div>
+        </div>
+        <div class="medium-6 columns">
+          <div class="callout panel">
+            <h4><strong>Bug Reports?</strong></h4>
+            <p>
+            Open an issue in the <a href="https://github.com/shawnrice/alfred-bundler/issues">Github queue</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+      <footer>
+        <div class="top-footer"></div>
+        <div class="bottom-footer">
+          <div class="row">
+            <div class="right footer">
+              <p>The Alfred Bundler is open source, released under the <a href="http://opensource.org/licenses/MIT">MIT</a> license.</p>
+              <p>(C) The Alfred Bundler Team, 2014</p>
+            </div>
+          </div>
+        </div>
+      </footer>
+      <script src="bower_components/jquery/dist/jquery.min.js"></script>
+      <script src="bower_components/foundation/js/foundation.min.js"></script>
+      <script src="js/app.js"></script>
+    </body>
+  </html>
