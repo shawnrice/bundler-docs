@@ -104,12 +104,24 @@ footer {
     min-height: 5em;
     background-color: black;
     color: white;
+
 }
 
 .top-footer {
     height: 3em;
     width: 100%;
     background-color: orange;
+}
+
+.bottom-footer {
+    padding-top: 2em;
+    padding-bottom: 2em;
+}
+
+.footer p {
+    text-align: right;
+    font-size: 0.75em;
+    margin: 0;
 }
 
 
@@ -163,6 +175,7 @@ footer {
 .person {
     margin-top: 0.5em;
     margin-bottom: 0.5em;
+    font-size: 0.9em;
 }
 
 .person img {
@@ -176,4 +189,16 @@ footer {
 
 .features ul ul {
     font-size: 0.9em;
+}
+
+.usage ul {
+    list-style-type: none;
+}
+
+.usage h5 {
+    margin-top: 1.25em;
+}
+
+.usage code {
+    font-size: 0.85em;
 }

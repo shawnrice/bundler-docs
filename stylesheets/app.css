@@ -4467,7 +4467,7 @@ footer {
   color: white;
 }
 
-/* line 109, ../scss/_bundler.scss */
+/* line 110, ../scss/_bundler.scss */
 .top-footer {
   height: 3em;
   width: 100%;
@@ -4475,45 +4475,58 @@ footer {
 }
 
 /* line 116, ../scss/_bundler.scss */
+.bottom-footer {
+  padding-top: 2em;
+  padding-bottom: 2em;
+}
+
+/* line 121, ../scss/_bundler.scss */
+.footer p {
+  text-align: right;
+  font-size: 0.75em;
+  margin: 0;
+}
+
+/* line 128, ../scss/_bundler.scss */
 .iframe-content {
   border: none;
   width: 100%;
 }
 
-/* line 124, ../scss/_bundler.scss */
+/* line 136, ../scss/_bundler.scss */
 .release-header {
   font-weight: 900;
 }
 
-/* line 128, ../scss/_bundler.scss */
+/* line 140, ../scss/_bundler.scss */
 .release-version {
   padding-left: 1em;
   font-size: 0.9em;
 }
 
-/* line 133, ../scss/_bundler.scss */
+/* line 145, ../scss/_bundler.scss */
 .version-deprecated {
   color: red;
   font-size: 0.75em;
   margin-left: 1em;
 }
 
-/* line 139, ../scss/_bundler.scss */
+/* line 151, ../scss/_bundler.scss */
 .version-deprecated:before {
   content: '<';
 }
 
-/* line 142, ../scss/_bundler.scss */
+/* line 154, ../scss/_bundler.scss */
 .version-deprecated:after {
   content: '>';
 }
 
-/* line 146, ../scss/_bundler.scss */
+/* line 158, ../scss/_bundler.scss */
 .version-list {
   list-style-type: none;
 }
 
-/* line 154, ../scss/_bundler.scss */
+/* line 166, ../scss/_bundler.scss */
 .clear-fix {
   content: ' ';
   width: 100%;
@@ -4523,24 +4536,40 @@ footer {
   border: 1px solid transparent;
 }
 
-/* line 163, ../scss/_bundler.scss */
+/* line 175, ../scss/_bundler.scss */
 .person {
   margin-top: 0.5em;
   margin-bottom: 0.5em;
+  font-size: 0.9em;
 }
 
-/* line 168, ../scss/_bundler.scss */
+/* line 181, ../scss/_bundler.scss */
 .person img {
   height: 36px;
   margin-right: 0.5em;
 }
 
-/* line 173, ../scss/_bundler.scss */
+/* line 186, ../scss/_bundler.scss */
 .features ul {
   list-style-type: none;
 }
 
-/* line 177, ../scss/_bundler.scss */
+/* line 190, ../scss/_bundler.scss */
 .features ul ul {
   font-size: 0.9em;
+}
+
+/* line 194, ../scss/_bundler.scss */
+.usage ul {
+  list-style-type: none;
+}
+
+/* line 198, ../scss/_bundler.scss */
+.usage h5 {
+  margin-top: 1.25em;
+}
+
+/* line 202, ../scss/_bundler.scss */
+.usage code {
+  font-size: 0.85em;
 }
