@@ -1,0 +1,121 @@
+.language-icons {
+    margin-top: 2em;
+    margin-bottom: 2em;
+}
+
+// .prog-icon {
+//     height: 6em;
+//     transition: height .4s, transform .4s;
+// }
+
+// .prog-icon:hover {
+//     height: 5.5em;
+//     transform: translateY(-2em);
+//     transition: height .4s, transform .4s;
+// }
+
+ .prog-icon-panel {
+     height: 10em;
+     text-align: center;
+     margin-left: 1em;
+     margin-right: 1em;
+ }
+
+ // .prog-icon-panel:hover {
+ //     background-color: orange;
+ // }
+
+.prog-icon-panel {
+    text-align: center;
+    overflow: hidden;
+    padding: 0;
+}
+
+.prog-icon-panel figure {
+    margin: 0;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.4s, opacity 0.1s 0.3s;
+    -webkit-transition: -webkit-transform 0.4s, opacity 0.1s 0.3s;
+}
+
+ .prog-icon-panel figure img {
+     display: block;
+     position: relative;
+     margin-bottom: 0;
+     text-align: center;
+     transition: transform 0.4s, opacity 0.1s 0.3s;
+     max-width: 40%;
+     margin: 20% 30%;
+     -webkit-transition: -webkit-transform 0.4s, opacity 0.1s 0.3s;
+ }
+
+ .prog-icon-panel figcaption {
+    background-color: black;
+    padding: 1em;
+    position: relative;
+    margin-top: -1em;
+    width: 100%;
+    top: auto;
+    bottom: 0;
+    opacity: 0;
+    transform: translateY(175%);
+    transition: transform 0.2s, opacity 0.6s;
+    -webkit-transform: translateY(175%);
+    -webkit-transition: -webkit-transform 0.2s, opacity 0.6s;
+ }
+
+ .prog-icon-panel figcaption h4 {
+     color: white;
+ }
+
+ .prog-icon-panel figure:hover img, .prog-icon-panel figure:hover figcaption {
+    opacity: 1;
+    -webkit-transform: translateY(-35%);
+    transform: translateY(-35%);
+    -webkit-transition: -webkit-transform 0.4s, opacity 0.6s;
+    transition: transform 0.4s, opacity 0.6s;
+ }
+
+
+
+
+
+
+
+
+
+
+ .top-bar {
+     position: fixed;
+     width: 100%;
+     z-index: 9999;
+ }
+
+.separator {
+    height: 64px;
+    background-color: orange;
+    width: 100%;
+}
+
+
+footer {
+    margin-top: 2em;
+    min-height: 5em;
+    background-color: black;
+    color: white;
+}
+
+.top-footer {
+    height: 3em;
+    width: 100%;
+    background-color: orange;
+}
+
+
+.iframe-content {
+
+    border: none;
+    width: 100%;
+
+}

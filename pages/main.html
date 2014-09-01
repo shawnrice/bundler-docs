@@ -1,0 +1,266 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Alfred Bundler</title>
+    <link rel="stylesheet" href="../stylesheets/app.css" />
+    <script src="../bower_components/modernizr/modernizr.js"></script>
+    <link href='http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+  </head>
+  <body>
+
+                   <!-- <li><a>
+<div style="background:white  !important; -webkit-mask:url(../images/github-01.svg) left / contain no-repeat !important;  width: 36px; z-index: 10000;">
+      a</div></a></li> -->
+
+    <div class="row">
+      <div class="large-12 columns">
+        <h1>Alfred Bundler</h1>
+      </div>
+      <div class="large-12 columns" style='text-align: right'>
+        <h3>your dependency downloader framework
+      </div>
+    </div>
+
+    <div class="row">
+      <img src="../images/bundler.png" style="width: 384px;">
+    </div>
+
+    <div class="row">
+      <div class="large-12 columns">
+        <div class="panel">
+   Dude.
+        </div>
+      </div>
+    </div>
+
+
+
+      <div class="row">
+        <h4>The Bundler comes in different languages</h4>
+      </div>
+    <div class="row language-icons">
+      <div class="row">
+        <div class="small-12 small-centered">
+          <div class="panel small-2 medium-2 columns prog-icon-panel">
+            <figure>
+              <img src="../images/apple.svg" class="prog-icon">
+              <figcaption>
+                <h4>AppleScript</h4>
+              </figcaption>
+            </figure>
+          </div>
+          <div class="panel small-2 medium-2 columns prog-icon-panel">
+            <figure>
+              <img src="../images/prog-bash02.svg" class="prog-icon">
+              <figcaption>
+                <h4>Bash</h4>
+              </figcaption>
+            </figure>
+          </div>
+          <div class="panel small-2 medium-2 columns prog-icon-panel">
+            <figure>
+              <img src="../images/prog-php01.svg" class="prog-icon">
+              <figcaption>
+                <h4>PHP</h4>
+              </figcaption>
+            </figure>
+          </div>
+          <div class="panel small-2 medium-2 columns prog-icon-panel">
+            <figure>
+              <img src="../images/prog-python.svg" class="prog-icon">
+                <figcaption>
+                <h4>Python</h4>
+              </figcaption>
+            </figure>
+          </div>
+          <div class="panel small-2 medium-2 columns prog-icon-panel">
+            <figure>
+              <img src="../images/prog-ruby.svg" class="prog-icon">
+              <figcaption>
+                <h4>Ruby</h4>
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+<div class="row">
+
+The short answer is that it lets Alfred 2 Workflows download and install needed assets to offer more functionality. That might sound scary, but read below for more information.
+
+The Alfred Bundler has two main apparent drawbacks:
+
+it installs things on your computer kind of silently, and
+it makes workflows laggy.
+Let me address these.
+
+Why/where/how does the Bundler install software?
+
+Alfred provides a specific data directory and cache directory for each workflow. Everything that the bundler downloads is placed into this directory, so it is separate from the rest of your system, making all of it easy to uninstall.
+
+Each workflow should use any stored data in the following path:
+
+~/Library/Application Support/Alfred 2/Workflow Data/{bundleid}
+(What is a Bundle ID?)
+
+The Bundler stores almost all of its data in:
+
+~/Library/Application Support/Alfred 2/Workflow Data/alfred.bundler-{[[Versioning][major_version]]}
+(What are major versions?)
+
+For the rest of this post, we'll use "Taurus" as the major version.
+
+In that data, you'll find many files that are dynamically generated to make the Bundler run faster, but you'll find all of the installed assets under
+
+~/Library/Application Support/Alfred 2/Workflow Data/alfred.bundler-taurus/data/assets
+Within the data directory, you'll also see a directory called bundler. This directory contains the Bundler itself.
+
+A few other files that the Alfred Bundler uses are stored in the appropriate cache directory. For Taurus, this path is:
+
+~/Library/Caches/com.runningwithcrayons.Alfred-2/Workflow Data/alfred.bundler-taurus
+Why does the Bundler work this way?
+
+There are two main reasons:
+
+Everything installed / data produced by any workflow should be contained in either the data directory or the cache directory; and
+the assets that the Bundler downloads can be used by any workflow.
+There has been a consensus by workflow develops on the Alfred Forums that workflows should not install anything that cannot easily be uninstalled.
+
+Hence, the Bundler sandboxes workflow data and reuses it.
+
+Sandboxing
+
+Scripts written in Python and Ruby most often use packages from PyPi and Gems. When a Python developer use import to bring in a library/module/package, Python looks to the system path, and Ruby Gems default to the System path as well. So, the easiest way to install these is for the workflow to install them directly into your system. The result is that if you delete the workflow, then those files are still there. They might also upgrade the packages/gems, breaking other scripts.
+
+The Bundler keeps all of these in one directory, away from the system. Again, this allows for an easy way to remove them, but it also allows for different versions of the packages/gems to exist on your system, not breaking those other scripts.
+
+Reuse
+
+The other way to sandbox the packages/gems is to bundle them within the workflow file itself. Some of these packages are big, and so that makes the workflow file bigger. Besides that, you might end up with several copies of the same packages in your workflow directory, and for those of us who sync our workflows with Dropbox, that means less valuable space there.
+
+Since the Bundler installs these outside of the sync folder, they don't go on Dropbox, saving you that space.
+
+One problem with the Ruby gems comes from OS X having multiple versions of Ruby installed. If a workflow developer needs a Gem to run, then they need to include the gems for Ruby 1.8/1.9/2.0, depending on compatibility. It's easy to forget to bundle those extra versions when the author uses only one version of Ruby.
+
+The bundler installs the gems using your system and using your version of Ruby, which means you always have the right Gems installed.
+
+The last point about space is that the Bundler lets people use the same asset, saving hard drive space (which might really matter on SSDs where space is expensive).
+
+The Bundler makes my workflows slow
+
+The first time a user invokes a workflow that uses an asset, the Bundler will install it. So, the first time the asset is loaded, then the workflow will run slower because the asset has to be downloaded. However, once downloaded, the time to load the asset is negligible.
+
+Further, the asset isn't necessarily downloaded the first time a particular workflow calls it because the assets are shared. The upshot of that is if workflow A loads and installs an asset, then workflow B does not need to download the same asset, just load it.
+
+Hence, as more workflows use Alfred Bundler, the faster Alfred Bundler will work.
+
+Other Notes
+
+The Alfred Bundler also makes it easy to load and include assets for a workflow author. Simply put: less code is required. So, workflow authors can write their workflows faster and offer more helpful (and maybe flashy) features. Further, the Alfred Bundler also includes a few APIs that make some tools easier to use. Lastly, since the Bundler provides all of these methods, workflows using it will have the better optimized and better tested code.
+
+The first major version of the Alfred Bundler (Aries) is very much a first version. The second major version, which is actively being developed and should be out soon, not only offers many more features, but development has focused on optimizing performance (faster), implementing better tests (more stable), and being more transparent as to what it is doing (this page helps). We have also worked on providing as much error handling as possible in order to help workflow authors find bugs, show the users what is happening on their system, and creating fallbacks so that the Bundler doesn't break a workflow; however, certain implementations of the Bundler might break it. Also, we've created multiple places to download the Bundler and the icons (new in Taurus) in case one server is down.
+
+Conclusion
+
+Overall, the Alfred Bundler is not scary nor is it slow. It runs faster with use, it ensures that assets are exactly where they should be, and it saves you hard drive and Dropbox space.
+
+</div>
+<div class="row">
+  <div class="small-8 columns medium-offset-4">
+    <div class="panel">
+      <h4>The Bundler Team</h4>
+      <div>
+        <img src="https://avatars0.githubusercontent.com/u/3452150?v=2&s=48" />
+        Shawn Patrick Rice
+        (<a href="https://github.com/shawnrice">Github</a> |
+        <a href="http://www.alfredforum.com/user/1041-shawn-rice/">Alfred Forums</a> |
+        <a href="http://www.packal.org/users/shawn-patrick-rice">Packal</a>)
+      </div>
+      <div>
+        <img src="https://avatars0.githubusercontent.com/u/747913?v=2&s=48" />
+        Dean Jackson
+        (<a href="https://github.com/deanishe">Github</a> |
+        <a href="http://www.alfredforum.com/user/5235-deanishe/">Alfred Forums</a> |
+        <a href="http://www.packal.org/users/deanishe">Packal</a> |
+        <a href="http://www.deanishe.net/">Website</a>)
+      </div>
+      <div>
+        <img src="https://avatars0.githubusercontent.com/u/4956855?v=2&s=48" />
+        Stephen Bunn
+        (<a href="https://github.com/Ritashugisha">Github</a> |
+        <a href="http://www.alfredforum.com/user/5520-ritashugisha/">Alfred Forums</a> |
+        <a href="http://www.packal.org/users/ritashugisha">Packal</a>)
+      </div>
+      <div>
+        <img src="https://avatars0.githubusercontent.com/u/5077225?v=2&s=48" />
+        Stephen Margheim
+        (<a href="https://github.com/smargh">Github</a> |
+        <a href="http://www.alfredforum.com/user/4103-smarg19/">Alfred Forums</a> |
+        <a href="http://www.packal.org/users/hackademic">Packal</a> |
+        <a href="http://hackademic.postach.io/">Website</a>)
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+<div class="medium-6 columns">
+  <div class="callout panel">
+    <h4><strong>Questions?</strong></h4>
+    <p>
+      Post on the <a href="http://www.alfredforum.com/topic/4255-alfred-dependency-downloader-framework/">Alfred Forum thread</a>.
+    </p>
+  </div>
+</div>
+
+<div class="medium-6 columns">
+  <div class="callout panel">
+    <h4><strong>Bug Reports?</strong></h4>
+    <p>
+      Open an issue in the <a href="https://github.com/shawnrice/alfred-bundler/issues">Github queue</a>.
+    </p>
+  </div>
+</div>
+
+</div>
+
+<div class="row">
+  <div class="large-12 columns">
+
+    <div class="large-4 columns">
+      <h5>Learn more about the bundler</h5>
+      <ul>
+        <li>
+          What is the bundler?
+        </li>
+        <li>
+          Versioning
+        </li>
+        <li>
+          Terminology
+        </li>
+
+      </ul>
+    </div>
+
+    <div class="large-4 columns">
+      <h5>Learn how to implement the bundler</h5>
+    </div>
+
+    <div class="large-4 columns">
+      <h5>Learn how to code the bundler</h5>
+    </div>
+
+
+  </div>
+</div>
+    <script src="../bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="../bower_components/foundation/js/foundation.min.js"></script>
+    <script src="../js/app.js"></script>
+</body>
