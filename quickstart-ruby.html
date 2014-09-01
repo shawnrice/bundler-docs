@@ -74,41 +74,61 @@
       <h3>Using the Bundler</h3>
       <p>The Alfred Bundler is implemented, in Ruby, as a class.</p>
 
-<h2 id="using-the-bundler">Using the Bundler</h2>
+      <h2>Using the Bundler</h2>
+      <h4>Load a Utility</h4>
+        <ul>
+      		<li>
+      			<code>
+              tn = b.utility('Terminal-Notifier')
+      			</code>
+      		</li>
+      	</ul>
 
-<h4 id="load-a-utility">Load a Utility</h4>
+      <h4>Load an Icon</h4>
 
-<pre>
-tn = b.utility('Terminal-Notifier')
-</pre>
+        <ul>
+      		<li>
+      			<code>
+              icon = b.icon('elusive', 'fire', '000000')
+      			</code>
+      		</li>
+      	</ul>
 
-<h4 id="load-an-icon">Load an Icon</h4>
+      <h4>Load a gem</h4>
 
-<pre>
-icon = b.icon('elusive', 'fire', '000000')
-</pre>
+        <ul>
+      		<li>
+      			<code>
+              b.gems(['plist'])
+      			</code>
+      		</li>
+      	</ul>
 
-<h4 id="load-a-gem">Load a gem</h4>
+      <div class="panel callout">
+        Note: Do <em>not</em> use the bundler framework to install any gems that require compiling. You can and should expect that some users will not have the tools installed to compile the Gems. Requiring those will result in many errors and bug reports. If you do need to use gems that need to be compiled, then you should compile them on your system and make sure that they work with Ruby 1.9 and Ruby 2.0 at minimum.
+      </div>
 
-<pre>
-b.gems(['plist'])
-</pre>
+      <h4>Load a Wrapper</h4>
+      <ul>
+      		<li>
+      			<code>
+      $cd = $b-&gt;wrapper('cocoadialog');
+      			</code>
+      		</li>
+      	</ul>
 
-<p><em>Note: Do <strong>not</strong> use the bundler framework to install any gems that require compiling. You can and should expect that some users will not have the tools installed to compile the Gems. Requiring those will result in many errors and bug reports. If you do need to use gems that need to be compiled, then you should compile them on your system and make sure that they work with Ruby 1.9 and Ruby 2.0 at minimum.</em></p>
+      <h4>Send a Notification</h4>
+      <ul>
+      		<li>
+      			<code>
+      $b-&gt;notify('Message', 'Title', '/path/to/icon')
+      			</code>
+      		</li>
+      	</ul>
 
-<h4 id="load-a-wrapper">Load a Wrapper</h4>
-
-<pre>
-$cd = $b-&gt;wrapper('cocoadialog');
-</pre>
-
-<h4 id="send-a-notification">Send a Notification</h4>
-
-<pre>
-$b-&gt;notify('Message', 'Title', '/path/to/icon')
-</pre>
-
-<p><em>Note: the icon argument falls back to the workflow icon’s</em> <code>icon.png</code> <em>if it is available.</em></p>
+        <div class="panel callout">
+          Note: the icon argument falls back to the workflow icon's <code>icon.png</code> if it is available.
+        </div>
       </div>
     </div>
 
