@@ -6,6 +6,9 @@
     <title>Alfred Bundler</title>
     <link rel="stylesheet" href="stylesheets/app.css" />
     <script src="bower_components/modernizr/modernizr.js"></script>
+    <link rel="stylesheet" href="highlight/foundation.css" />
+    <script src="highlight/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
     <link href='https://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
   </head>
   <body>
@@ -75,11 +78,11 @@
       <p>If you want to implement the bundler with another language, then just use the Bash bundlet as an executable. Read below for more information.</p>
 
       <h4>Assets</h4>
-      <p>Most assets are defined through a JSON file. The bundler includes several <a href="defaults.html">defaults</a> to use, but you can add your own if necessary.</p>
+      <p>Most assets are defined through a JSON file. The bundler includes several <a href="defaults.html">defaults</a> to use, but you can <a href="custom-assets.html">add your own</a> if necessary.</p>
 
       <h4>Updates</h4>
       <p>For minor updates, the Bundler will update itself automatically. These updates will include security and bug fixes, yet they might also introduce new features; however, no minor update will ever change the Bundler's API, so you needn't worry about updating your workflow to account for changes in a new minor versions.</p>
-      <p>The bundlet should never need updating; however, if a major bugfix is needed, then a post will be made, and you will need to update the bundlet in your workflow. The bundlet will work with the bundler for all minor updates of a major version (Aries, Taurus, Gemini, etc...)</p>
+      <p>The bundlet should never need updating; however, if a major bugfix is needed, then a post will be made, and you will need to update the bundlet in your workflow. The bundlet will work with the bundler for all minor updates of a major <a href="versioning.html">version</a> (Aries, Taurus, Gemini, etc...)</p>
 
     </div>
 
@@ -146,19 +149,30 @@
     <div class="row">
     <h4>Implementing the Bundler in another language</h4>
     <ol>
-      <li>Download the Bash bundlet,</li>
-      <li>Place the bundlet in your workflow's root directory, and</li>
+      <li><a href="https://raw.githubusercontent.com/shawnrice/alfred-bundler/taurus/bundler/bundlets/alfred.bundler.sh" target="_blank">Download</a> the Bash bundlet, and place it in your workflow's root directory.</li>
       <li>Use the bundler as a system executable.</li>
     </ol>
-
+    <h5>Load a Utility</h5>
+    <p><pre><code class="bash">./alfred.bundler.sh 'utility' 'Pashua' 'latest'</code></pre></p>
+    <h5>Load an Icon</h5>
+    <p><pre><code class="bash">./alfred.bundler.sh 'icon' 'elusive' 'fire' 'abcdef' 'true'</code></pre></p>
+    <div class="clear-fix"></div>
+    <p>See the Bash documentation for more information about the arguments for loading assets and <a href="icons.html">icons</a>.</p>
+    <div class="panel callout">
+    <p>When using the Bash bundlet as an executable, pass four arguments at most to load an asset: <code>type</code> <code>name</code> <code>version</code> <code>json_path</code>. <a href="defaults.html">Read more about default assets</a>.</p>
+      <p>For icons, pass five at most. Whenever you load an icon, the first argument needs to be <code>icon</code>. So, if you were to pass all five, they would be
+        <code>icon</code> <code>font</code> <code>name</code> <code>color</code> <code>alter</code>. <a href="icons.html">Read more about icon arguments</a>.</p>
+    </div>
     </div>
 
+
+    <div class="clear-fix"></div>
     <div class="row">
       <div class="medium-6 columns">
         <div class="callout panel">
           <h4><strong>Questions?</strong></h4>
           <p>
-            Post on the <a href="http://www.alfredforum.com/topic/4255-alfred-dependency-downloader-framework/">Alfred Forum thread</a>.
+            Post on the <a href="http://www.alfredforum.com/topic/4255-alfred-dependency-downloader-framework/" target="_blank">Alfred Forum thread</a>.
           </p>
         </div>
       </div>
@@ -167,7 +181,7 @@
         <div class="callout panel">
           <h4><strong>Bug Reports?</strong></h4>
           <p>
-            Open an issue in the <a href="https://github.com/shawnrice/alfred-bundler/issues">Github queue</a>.
+            Open an issue in the <a href="https://github.com/shawnrice/alfred-bundler/issues" target="_blank">Github queue</a>.
           </p>
         </div>
       </div>
@@ -179,7 +193,7 @@
       <div class="bottom-footer">
         <div class="row">
           <div class="right footer">
-            <p>The Alfred Bundler is open source, released under the <a href="http://opensource.org/licenses/MIT">MIT</a> license.</p>
+            <p>The Alfred Bundler is open source, released under the <a href="http://opensource.org/licenses/MIT" target="_blank">MIT</a> license.</p>
             <p>(C) The Alfred Bundler Team, 2014</p>
           </div>
         </div>
