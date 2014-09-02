@@ -6,6 +6,9 @@
     <title>Alfred Bundler</title>
     <link rel="stylesheet" href="stylesheets/app.css" />
     <script src="bower_components/modernizr/modernizr.js"></script>
+    <link rel="stylesheet" href="highlight/foundation.css" />
+    <script src="highlight/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
     <link href='https://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
   </head>
   <body>
@@ -72,9 +75,9 @@
       <div class="small-8 columns">
         <p>1. <a href="https://raw.githubusercontent.com/shawnrice/alfred-bundler/taurus/bundler/bundlets/alfred.bundler.php" target="_blank">Download the bundlet</a>, and place it in your workflow's root directory.</p>
         <p>2. Include the bundlet<br />
-        <code>require_once('alfred.bundler.php');</code></p>
+        <pre><code class="php">require_once('alfred.bundler.php');</code></pre>
         <p>3. Instantiate a Bundler object.<br />
-        <code>$b = new AlfredBundler;</code></p>
+        <pre><code class="php">$b = new AlfredBundler;</code></p>
       </div>
     </div>
 
@@ -87,36 +90,28 @@
 <h5>Load a library</h5>
 <ul>
 <li>
-<code>
-$b-&gt;library('Workflows.php');
-</code>
+<pre><code class="php">$b-&gt;library('Workflows.php');</code></pre>
 </li>
 </ul>
 
 <h5>Load a Utility</h5>
 <ul>
 <li>
-<code>
-$tn = $b-&gt;utility('Terminal-Notifier');
-</code>
+<pre><code class="php">$tn = $b-&gt;utility('Terminal-Notifier');</code></pre>
 </li>
 </ul>
 
 <h5>Load an Icon</h5>
 <ul>
 <li>
-<code>
-$icon = $b-&gt;icon('elusive', 'fire', '000000');
-</code>
+<pre><code class="php">$icon = $b-&gt;icon('elusive', 'fire', '000000');</code></pre>
 </li>
 </ul>
 
 <h5>Load a Composer Package</h5>
 <ul>
 <li>
-<code>
-$b-&gt;composer(['monolog/monolog' =&gt; '1.0.*']);
-</code>
+<pre><code class="php">$b-&gt;composer(['monolog/monolog' =&gt; '1.0.*']);</code></pre>
 </li>
 </ul>
 
@@ -124,18 +119,14 @@ $b-&gt;composer(['monolog/monolog' =&gt; '1.0.*']);
 
 <ul>
 <li>
-<code>
-$cd = $b-&gt;wrapper('cocoadialog');
-</code>
+<pre><code class="php">$cd = $b-&gt;wrapper('cocoadialog');</code></pre>
 </li>
 </ul>
 
 <h5>Send a Notification</h5>
 <ul>
 <li>
-<code>
-$b-&gt;notify('Message', 'Title', '/path/to/icon');
-</code>
+<pre><code class="php">$b-&gt;notify('Message', 'Title', '/path/to/icon');</code></pre>
 </li>
 </ul>
 
@@ -147,10 +138,8 @@ $b-&gt;notify('Message', 'Title', '/path/to/icon');
 
 <ul>
   <li>
-    <code>require_once('alfred.bundler.php');</code>
-  </li>
-  <li>
-    <code>$b = new AlfredBundler(['wf_log' =&gt; true]);</code>
+    <pre><code class="php">require_once('alfred.bundler.php');
+$b = new AlfredBundler(['wf_log' =&gt; true]);</code></pre>
   </li>
 </ul>
 
@@ -160,9 +149,7 @@ $b-&gt;notify('Message', 'Title', '/path/to/icon');
 <p>After that, to log a message, you can use</p>
 <ul>
 <li>
-<code>
-$b-&gt;log('My log message', 'info', 'both');
-</code>
+<pre><code class="php">$b-&gt;log('My log message', 'info', 'both');</code></pre>
 </li>
 </ul>
 
@@ -175,9 +162,7 @@ $b-&gt;log('My log message', 'info', 'both');
 <h5>Log a message to the console:</h5>
 <ul>
 <li>
-<code>
-$b-&gt;console('My log message', 'critical');
-</code>
+<pre><code class="php">$b-&gt;console('My log message', 'critical');</code></pre>
 </li>
 </ul>
 
@@ -186,45 +171,35 @@ $b-&gt;console('My log message', 'critical');
 <h5>Log a debug message</h5>
 <ul>
 <li>
-<code>
-$b-&gt;debug('My debug message');
-</code>
+<pre><code class="php">$b-&gt;debug('My debug message');</code></pre>
 </li>
 </ul>
 
 <h5>Log an info message to a file</h5>
 <ul>
 <li>
-<code>
-$b-&gt;info('My info message', 'file');
-</code>
+<pre><code class="php">$b-&gt;info('My info message', 'file');</code></pre>
 </li>
 </ul>
 
 <h5>Log a warning to the console:</h5>
 <ul>
 <li>
-<code>
-$b-&gt;warning('My warning message', 'console');
-</code>
+<pre><code class="php">$b-&gt;warning('My warning message', 'console');</code></pre>
 </li>
 </ul>
 
 <h5>Log an error</h5>
 <ul>
 <li>
-<code>
-$b-&gt;error('My error message');
-</code>
+<pre><code class="php">$b-&gt;error('My error message');</code></pre>
 </li>
 </ul>
 
 <h5>Log a critical error to the console and the file log</h5>
 <ul>
 <li>
-<code>
-$b-&gt;critical('My critical error message', 'both');
-</code>
+<pre><code class="php">$b-&gt;critical('My critical error message', 'both');</code></pre>
 </li>
 </ul>
 

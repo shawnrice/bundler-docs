@@ -1,0 +1,125 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Alfred Bundler</title>
+    <link rel="stylesheet" href="stylesheets/app.css" />
+
+    <script src="bower_components/modernizr/modernizr.js"></script>
+    <link rel="stylesheet" href="highlight/github.css" />
+    <script src="highlight/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    <link href='https://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+  </head>
+  <body>
+
+    <header>
+      <nav class="top-bar" data-topbar role="navigation">
+        <ul class="title-area">
+          <li class="name">
+            <h1><a href="index.html">The Alfred Bundler</a></h1>
+          </li>
+          <li class="toggle-topbar menu-icon"><a href="#"><span> </span></a></li>
+        </ul>
+        <section class="top-bar-section">
+          <ul class="right">
+            <li class="has-dropdown">
+              <a href="quickstart.html">Quickstart</a>
+              <ul class="dropdown">
+                <li><a href="quickstart-applescript.html">AppleScript</a></li>
+                <li><a href="quickstart-bash.html">Bash</a></li>
+                <li><a href="quickstart-php.html">PHP</a></li>
+                <li><a href="quickstart-python.html">Python</a></li>
+                <li><a href="quickstart-ruby.html">Ruby</a></li>
+              </ul>
+            </li>
+            <li class="has-dropdown">
+              <a href="#">Documentation</a>
+              <ul class="dropdown">
+                <li><a href="docs/php/" target="_blank">PHP</a></li>
+                <li><a href="#" target="_blank">Python</a></li>
+                <li><a href="docs/ruby/frames.html" target="_blank">Ruby</a></li>
+              </ul>
+            </li>
+          </ul>
+        </section>
+      </nav>
+    </header>
+
+    <div class="separator">&nbsp;</div>
+
+    <div class="row">
+      <h2>Custom Assets</h2>
+      <pre><code class="json">
+{
+    "name": "ASSETNAME",
+    "type": "TYPE",
+    "description": "short description — all lowercase, no end punctuation",
+    "versions": {
+        "latest": {
+            "invoke": "COMMAND",
+            "files": [
+                {
+                    "url": "URL",
+                    "method": "METHOD"
+                }
+            ],
+            "install": [
+                "cp -f '__CACHE__/FILE' '__DATA__'"
+            ]
+        }
+    }
+}
+</code></pre>
+
+methods:
+direct
+zip
+tgz
+
+<div class="panel callout">
+  Note: the name of the asset must match the filename, which also must the be name that you call the asset with. So, if you have <code>custom-asset</code> as the name, then the filename must be <code>custom-asset.json</code>, and you must load the asset with <code>$b->load('type', 'custom-asset', 'version', '/path/to/json');
+</div>
+    </div>
+
+    <div class="clear-fix"></div>
+
+    <div class="row">
+      <div class="medium-6 columns">
+        <div class="callout panel">
+          <h4><strong>Questions?</strong></h4>
+          <p>
+            Post on the <a href="http://www.alfredforum.com/topic/4255-alfred-dependency-downloader-framework/">Alfred Forum thread</a>.
+          </p>
+        </div>
+      </div>
+
+      <div class="medium-6 columns">
+        <div class="callout panel">
+          <h4><strong>Bug Reports?</strong></h4>
+          <p>
+            Open an issue in the <a href="https://github.com/shawnrice/alfred-bundler/issues">Github queue</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+
+
+    <footer>
+      <div class="top-footer"></div>
+      <div class="bottom-footer">
+        <div class="row">
+          <div class="right footer">
+            <p>The Alfred Bundler is open source, released under the <a href="http://opensource.org/licenses/MIT">MIT</a> license.</p>
+            <p>(C) The Alfred Bundler Team, 2014</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/foundation/js/foundation.min.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>

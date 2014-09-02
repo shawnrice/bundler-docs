@@ -215,3 +215,8 @@ footer {
 .features-table td:first-child, .features-table th:first-child {
     text-align: left;
 }
+
+.code {
+    padding: 1em 3em;
+    background-color: $vapor;
+}

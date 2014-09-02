@@ -4588,3 +4588,9 @@ footer {
 .features-table td:first-child, .features-table th:first-child {
   text-align: left;
 }
+
+/* line 219, ../scss/_bundler.scss */
+.code {
+  padding: 1em 3em;
+  background-color: #f6f6f6;
+}
