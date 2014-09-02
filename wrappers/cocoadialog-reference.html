@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>Alfred Bundler | CocoaDialog Reference</title>
+        <link rel="stylesheet" href="../stylesheets/app.css"/>
+        <script src="../bower_components/modernizr/modernizr.js"></script>
+        <link href="https://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="../highlight/foundation.css">
+    </head>
+    <body>
+        <header>
+            <nav class="top-bar" data-topbar role="navigation">
+                <ul class="title-area">
+                    <li class="name">
+                        <h1><a href="../index.html">The Alfred Bundler</a></h1>
+                    </li>
+                    <li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li>
+                </ul>
+                <section class="top-bar-section">
+                    <!--<ul class="left">
+                        <li><a href="#">Left Button</a></li>
+                    </ul>-->
+                    <ul class="right">
+                        <!--<li class="active"><a href="#">Right Button Active</a></li>-->
+                        <li class="has-dropdown">
+                            <a href="../features.html">Features</a>
+                            <ul class="dropdown">
+                              <li><a href="../icons.html">Icons</a></li>
+                              <li><a href="../utilities.html">Utilities</a></li>
+                              <li><a href="../wrappers.html">Wrappers</a></li>
+                              <li><a href="../logs.html">Logging</a></li>
+                              <li><a href="../defaults.html">Defaults</a></li>
+                              <li><a href="../custom-assets.html">Custom</a></li>
+                            </ul>
+                        </li>
+                        <li class="has-dropdown">
+                            <a href="../quickstart.html">Quickstart</a>
+                            <ul class="dropdown">
+                                <li><a href="../quickstart-applescript.html">AppleScript</a></li>
+                                <li><a href="../quickstart-bash.html">Bash</a></li>
+                                <li><a href="../quickstart-php.html">PHP</a></li>
+                                <li><a href="../quickstart-python.html">Python</a></li>
+                                <li><a href="../quickstart-ruby.html">Ruby</a></li>
+                            </ul>
+                        </li>
+                        <li class="has-dropdown">
+                        <a href="#">Documentation</a>
+                            <ul class="dropdown">
+                                <li><a href="../docs/php/" target="_blank">PHP</a></li>
+                                <li><a href="../#" target="_blank">Python</a></li>
+                                <li><a href="../docs/ruby/frames.html" target="_blank">Ruby</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="https://github.com/shawnrice/alfred-bundler/tree/taurus">Github</a></li>
+                    </ul>
+                </section>
+            </nav>
+        </header>
+        <div class="separator">&nbsp;</div>
+        <div class="row">
+            <div class="large-12 columns">
+                <h1>CocoaDialog Reference</h1>
+            </div>
+            <div class="large-12 columns">
+                <h3>Global Icons</h3>
+                <p>The CocoaDialog application comes with several built in icons for your use</p>
+                <table class="wrappers-icon-table">
+                    <thead>
+                        <tr>
+                            <th>Icon</th>
+                            <th>Icon Name</th>
+                            <th>Available</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><center><img src="http://mstratman.github.io/cocoadialog/icons/addressbook.jpg"></center></td>
+                            <td><center><code>addressbook</code></center></td>
+                            <td><center><img src="../images/yes.png" style="width: 24px;"></center></td>
+                        <tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="panel">
+            <p>To view implementation of any specific dialog, please click on the dialog's image.</p>
+        </div>
+
+        <div class="row" style="padding-top: 30px;">
+            <div class="small-12 columns">
+                <div class="small-6 columns">
+                    <h2>msgbox</h2>
+                    <p>A message box dialog used to either present the user with important information or to allow the user to make a custom selection.</p>
+                </div>
+                <div class="small-6 columns">
+                    <a href="#" data-reveal-id="msgbox-modal"><img src="images/messagebox.png" align="right"></a>
+                    <div id="msgbox-modal" class="reveal-modal" data-reveal>
+                        <h2>msgbox</h2>
+                        <hr>
+                        <h5>Implementation</h5>
+                        <dl class="tabs vertical" data-tab style="padding-right: 30px;">
+                            <dd class="active"><a href="#build-dialogs-py">Python</a></dd>
+                            <dd><a href="#build-dialogs-php">PHP</a></dd>
+                            <dd><a href="#build-dialogs-rb">Ruby</a></dd>
+                        </dl>
+                        <div class="tabs-content">
+                            <div class="content active" id="build-dialogs-py">
+                                <pre><code class="python">my_message_box = client.msgbox(
+    title='My Message Box',
+    text='This is the heading of my message box',
+    informative_text='Informational text goes in here',
+    button1='Click Me!',
+    button2='Don\'t click me...',
+    icon='info'
+)</code></pre>
+                            </div>
+                            <div class="content" id="build-dialogs-php">
+                                <pre><code class="php">$my_message_box = $client->msgbox([
+    'title'=>'My Message Box',
+    'text'=>'This is the heading of my message box',
+    'informative_text'='Informational text goes in here',
+    'button1'=>'Click Me!',
+    'button2'=>"Don't click me...",
+    'icon'=>'info'
+]);</code></pre>
+                            </div>
+                            <div class="content" id="build-dialogs-rb">
+                                <pre><code class="ruby">my_message_box = @client.msgbox(
+    title:'My Message Box',
+    text:'This is the heading of my message box',
+    informative_text:'Informational text goes in here',
+    button1:'Click Me!',
+    button2:'Don\'t click me...',
+    icon:'info'
+)</code></pre>
+                            </div>
+                        </div>
+                        <h5>Returns</h5>
+                        <p>Unless the <code>string_output</code> parameter is set to true, the msgbox dialog returns the number of the button selected by the user as a string in an array. Suppose that the user clicks the button with the label <em>Click Me!</em><br></p>
+                        <p>The msgbox dialog would then return...</p>
+                        <pre><code>["0"]</code></pre>
+                        <a class="close-reveal-modal">&#215;</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <div class="top-footer"></div>
+            <div class="bottom-footer">
+                <div class="row">
+                    <div class="right footer">
+                        <p>The Alfred Bundler is open source, released under the <a href="http://opensource.org/licenses/MIT">MIT</a> license.</p>
+                        <p>&copy; The Alfred Bundler Team, 2014</p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <script src="../bower_components/jquery/dist/jquery.min.js"></script>
+        <script src="../bower_components/foundation/js/foundation.min.js"></script>
+        <script src="../bower_components/foundation/js/foundation/foundation.equalizer.js"></script>
+        <script src="../js/app.js"></script>
+        <script src="../highlight/highlight.pack.js"></script>
+        <script>$(document).foundation();</script>
+        <script>hljs.initHighlightingOnLoad();</script>
+    </body>
+</html>
