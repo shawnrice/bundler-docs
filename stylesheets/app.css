@@ -4606,3 +4606,48 @@ footer {
 .icon-display {
   text-align: center;
 }
+
+/* line 234, ../scss/_bundler.scss */
+.bundler-team h4 {
+  margin-bottom: 1.25em;
+  margin-top: 1.25em;
+}
+
+/* line 239, ../scss/_bundler.scss */
+.bundler-team img {
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  clear: both;
+}
+
+/* line 248, ../scss/_bundler.scss */
+.person-info {
+  text-align: center;
+}
+
+/* line 253, ../scss/_bundler.scss */
+.person-links {
+  display: table-cell;
+  vertical-align: bottom;
+}
+
+/* line 259, ../scss/_bundler.scss */
+.person-links ul {
+  list-style-type: none;
+  text-align: left;
+  margin-top: 1em;
+}
+
+/* line 267, ../scss/_bundler.scss */
+.person-links li {
+  margin-top: 0.35em;
+  margin-bottom: 0.35em;
+}
+
+/* line 272, ../scss/_bundler.scss */
+.person-credits p {
+  text-align: justify;
+}

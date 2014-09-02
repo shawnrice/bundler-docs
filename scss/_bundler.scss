@@ -230,3 +230,45 @@ footer {
 .icon-display {
     text-align: center;
 }
+
+.bundler-team h4 {
+    margin-bottom: 1.25em;
+    margin-top: 1.25em;
+}
+
+.bundler-team img {
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    clear: both;
+}
+
+.person-info {
+    text-align: center;
+
+}
+
+.person-links {
+    display: table-cell;
+    vertical-align: bottom;
+
+}
+
+.person-links ul {
+
+    list-style-type: none;
+    text-align: left;
+    margin-top: 1em;
+
+}
+
+.person-links li {
+    margin-top: 0.35em;
+    margin-bottom: 0.35em;
+}
+
+.person-credits p {
+    text-align: justify;
+}
