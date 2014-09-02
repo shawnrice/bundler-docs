@@ -1,0 +1,183 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Alfred Bundler | Bash Math</title>
+    <link rel="stylesheet" href="stylesheets/app.css" />
+    <script src="bower_components/modernizr/modernizr.js"></script>
+    <!-- Syntax Highlighting -->
+    <link rel="stylesheet" href="highlight/foundation.css" />
+    <script src="highlight/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <link href='https://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    </head>
+    <body>
+      <header>
+        <nav class="top-bar" data-topbar role="navigation">
+          <ul class="title-area">
+            <li class="name">
+              <h1><a href="index.html">The Alfred Bundler</a></h1>
+            </li>
+            <li class="toggle-topbar menu-icon"><a href="#"><span> </span></a></li>
+          </ul>
+          <section class="top-bar-section">
+            <ul class="right">
+              <li class="has-dropdown">
+                <a href="features.html">Features</a>
+                <ul class="dropdown">
+                  <li><a href="icons.html">Icons</a></li>
+                  <li><a href="utilities.html">Utilities</a></li>
+                  <li><a href="wrappers.html">Wrappers</a></li>
+                  <li><a href="logs.html">Logging</a></li>
+                  <li><a href="defaults.html">Defaults</a></li>
+                  <li><a href="custom-assets.html">Custom</a></li>
+                </ul>
+              </li>
+              <li class="has-dropdown">
+                <a href="quickstart.html">Quickstart</a>
+                <ul class="dropdown">
+                  <li><a href="quickstart-applescript.html">AppleScript</a></li>
+                  <li><a href="quickstart-bash.html">Bash</a></li>
+                  <li><a href="quickstart-php.html">PHP</a></li>
+                  <li><a href="quickstart-python.html">Python</a></li>
+                  <li><a href="quickstart-ruby.html">Ruby</a></li>
+                </ul>
+              </li>
+              <li class="has-dropdown">
+                <a href="#">Documentation</a>
+                <ul class="dropdown">
+                  <li><a href="docs/php/" target="_blank">PHP</a></li>
+                  <li><a href="docs/python/" target="_blank">Python</a></li>
+                  <li><a href="docs/ruby/frames.html" target="_blank">Ruby</a></li>
+                </ul>
+              </li>
+              <li><a href="https://github.com/shawnrice/alfred-bundler/tree/taurus">Github</a></li>
+            </ul>
+          </section>
+        </nav>
+      </header>
+      <div class="separator">&nbsp;</div>
+      <div class="clear-fix"></div>
+      <div class="row">
+        <h3>Bash Math Library</h3>
+        <p>We needed a floating point math library for the Bash bundler, so we wrote a very small one, but that means you have access to it when using the bundler.</p>
+      </div>
+      <div class="row">
+        <h4>Functions</h4>
+        <p></p>
+        <h5>Math::Plus</h5>
+        <p>Adds two floats.</p>
+<pre><code class="bash">result=$(Math::Plus 1.2 3.6)
+# 4.8</code></pre>
+        <div class="clear-fix"></div>
+        <h5>Math::Minus</h5>
+        <p>Subtracts one float from another.</p>
+<pre><code class="bash">result=$(Math::Minus 1.2 3.6)
+# -2.4</code></pre>
+        <div class="clear-fix"></div>
+        <h5>Math::Times</h5>
+        <p>Multiplies two floats.</p>
+<pre><code class="bash">result=$(Math::Times 1.2 3.6)
+# 4.32</code></pre>
+        <div class="clear-fix"></div>
+        <h5>Math::Divide</h5>
+        <p>Divides a float by another.</p>
+<pre><code class="bash">result=$(Math::Divide 1.2 2.43)
+# 0.493827</code></pre>
+        <div class="clear-fix"></div>
+        <h5>Math::Floor</h5>
+        <p>Floors a float.</p>
+<pre><code class="bash">result=$(Math::Floor 1.7)
+# 1</code></pre>
+        <div class="clear-fix"></div>
+        <h5>Math::Round</h5>
+        <p>Rounds a float.</p>
+<pre><code class="bash">result=$(Math::Round 1.7)
+# 2</code></pre>
+        <div class="clear-fix"></div>
+        <h5>Math::Mod</h5>
+        <p>Gets the modulus of two floats.</p>
+<pre><code class="bash">result=$(Math::Divide 3.7 0.3)
+# 12.3333333</code></pre>
+        <div class="clear-fix"></div>
+        <h5>Math::Abs</h5>
+        <p>Absolute value of a float.</p>
+<pre><code class="bash">result=$(Math::Abs -9.7)
+# 9.7</code></pre>
+        <div class="clear-fix"></div>
+        <h5>Math::LT</h5>
+        <p>Tests if one float is less than another.</p>
+<pre><code class="bash">result=$(Math::LT 1.2 3.7)
+# 1</code></pre>
+        <div class="clear-fix"></div>
+        <h5>Math::GT</h5>
+        <p>Tests if one float is greater than another.</p>
+<pre><code class="bash">result=$(Math::GT 1.2 3.7)
+# 0</code></pre>
+        <div class="clear-fix"></div>
+        <h5>Math::Equals</h5>
+        <p>Tests if one float is equal to another.</p>
+<pre><code class="bash">result=$(Math::Equals 2.54 2.54)
+# 1</code></pre>
+        <div class="clear-fix"></div>
+        <h5>Math::Min</h5>
+        <p>Get the minimum of a list of floats.</p>
+<pre><code class="bash">result=$(Math::Min 3.7 0.3 433 37.2)
+# 0.3</code></pre>
+        <div class="clear-fix"></div>
+        <h5>Math::Max</h5>
+        <p>Gets the maximum of a list of floats.</p>
+<pre><code class="bash">result=$(Math::Max 3.7 0.3 433 37.2)
+# 433</code></pre>
+        <div class="clear-fix"></div>
+        <h5>Math::Mean</h5>
+        <p>Averages a list of floats.</p>
+<pre><code class="bash">result=$(Math::Mean 3.7 0.3 433 37.2)
+# 118.55</code></pre>
+        <div class="clear-fix"></div>
+        <h5>Math::hex_to_dec</h5>
+        <p>Converts base16 to base10.</p>
+<pre><code class="bash">result=$(Math::hex_to_dec 3F)
+# 63</code></pre>
+        <div class="clear-fix"></div>
+        <h5>Math::dec_to_hex</h5>
+        <p>Converts base10 to base16.</p>
+<pre><code class="bash">result=$(Math::dec_to_hex 237)
+# ED</code></pre>
+        <div class="clear-fix"></div>
+      </div>
+      <div class="row">
+        <div class="medium-6 columns">
+          <div class="callout panel">
+            <h4><strong>Questions?</strong></h4>
+            <p>
+            Post on the <a href="http://www.alfredforum.com/topic/4255-alfred-dependency-downloader-framework/">Alfred Forum thread</a>.
+            </p>
+          </div>
+        </div>
+        <div class="medium-6 columns">
+          <div class="callout panel">
+            <h4><strong>Bug Reports?</strong></h4>
+            <p>
+            Open an issue in the <a href="https://github.com/shawnrice/alfred-bundler/issues">Github queue</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+      <footer>
+        <div class="top-footer"></div>
+        <div class="bottom-footer">
+          <div class="row">
+            <div class="right footer">
+              <p>The Alfred Bundler is open source, released under the <a href="http://opensource.org/licenses/MIT">MIT</a> license.</p>
+              <p>(C) The Alfred Bundler Team, 2014</p>
+            </div>
+          </div>
+        </div>
+      </footer>
+      <script src="bower_components/jquery/dist/jquery.min.js"></script>
+      <script src="bower_components/foundation/js/foundation.min.js"></script>
+      <script src="js/app.js"></script>
+    </body>
+  </html>
