@@ -4594,3 +4594,15 @@ footer {
   padding: 1em 3em;
   background-color: #f6f6f6;
 }
+
+/* line 224, ../scss/_bundler.scss */
+.icon-display img {
+  height: 64px;
+  width: 64px;
+  margin: 2em;
+}
+
+/* line 230, ../scss/_bundler.scss */
+.icon-display {
+  text-align: center;
+}

@@ -1,0 +1,146 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Alfred Bundler | Icons</title>
+    <link rel="stylesheet" href="stylesheets/app.css" />
+    <script src="bower_components/modernizr/modernizr.js"></script>
+
+    <!-- Syntax Highlighting -->
+    <link rel="stylesheet" href="highlight/foundation.css" />
+    <script src="highlight/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    <link href='https://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+  </head>
+  <body>
+    <header>
+      <nav class="top-bar" data-topbar role="navigation">
+        <ul class="title-area">
+          <li class="name">
+            <h1><a href="index.html">The Alfred Bundler</a></h1>
+          </li>
+          <li class="toggle-topbar menu-icon"><a href="#"><span> </span></a></li>
+        </ul>
+        <section class="top-bar-section">
+          <ul class="right">
+            <li class="has-dropdown">
+              <a href="quickstart.html">Quickstart</a>
+              <ul class="dropdown">
+                <li><a href="quickstart-applescript.html">AppleScript</a></li>
+                <li><a href="quickstart-bash.html">Bash</a></li>
+                <li><a href="quickstart-php.html">PHP</a></li>
+                <li><a href="quickstart-python.html">Python</a></li>
+                <li><a href="quickstart-ruby.html">Ruby</a></li>
+              </ul>
+            </li>
+            <li class="has-dropdown">
+              <a href="#">Documentation</a>
+              <ul class="dropdown">
+                <li><a href="docs/php/" target="_blank">PHP</a></li>
+                <li><a href="docs/python/" target="_blank">Python</a></li>
+                <li><a href="docs/ruby/frames.html" target="_blank">Ruby</a></li>
+              </ul>
+            </li>
+          </ul>
+        </section>
+      </nav>
+    </header>
+
+    <div class="separator">&nbsp;</div>
+
+    <div class="clear-fix"></div>
+
+    <div class="row">
+      <h3>Icons</h3>
+      <p>
+        The Bundler Team has put together a few servers that make it easy for you to get icons from a few popular icon fonts. (The code to run the server is <a href="https://github.com/deanishe/bundler-icon-server">available via Github</a>).
+      </p>
+
+    <div class="icon-display">
+      <img src="images/icons/anchor-outline-123456.png" />
+      <img src="images/icons/zap-d0a59a.png" />
+      <img src="images/icons/squirrel-def789.png" />
+      <img src="images/icons/beer-dfbf39.png" />
+      <img src="images/icons/twitter-459afe.png" />
+      <img src="images/icons/users-00feac.png" />
+      <img src="images/icons/angry-faa4c3.png" />
+      <img src="images/icons/recycle-9f2d7a.png" />
+      <img src="images/icons/code-cd90ef.png" />
+      <img src="images/icons/adjust-d2fe9a.png" />
+      <img src="images/icons/ok-sign-44ee3c.png" />
+      <img src="images/icons/dashboard-abcdef.png" />
+      <img src="images/icons/fire-444444.png" />
+      <img src="images/icons/off-ff000f.png" />
+    </div>
+
+    <p>You can get icons from <a href="http://shoestrap.org/downloads/elusive-icons-webfont/" target="_blank">Elusive</a>, <a href="http://fortawesome.github.io/Font-Awesome/" target="_blank">Fontawesome</a>, <a href="http://icomoon.io/" target="_blank">Icomoon</a>, <a href="https://octicons.github.com/" target="_blank">Octicons</a>, <a href="https://useiconic.com/open/" target="_blank">Open Iconic</a>, and <a href="http://typicons.com/" target="_blank">Typicons</a>. That's 2064 different icons available in 16 million colors (giving you about 34 billion options). If that's not enough, the Bundler also gives you easy access to the approxmately 200 <a href="http://icons.deanishe.net/preview-system" target="_blank">system icons</a> installed on everyone's computer. If you want to preview the icons, just look at some of the <a href="http://icons.deanishe.net/#fonts" target="_blank">preview pages</a> one of the icon servers.</p>
+
+    <h5>Arguments</h5>
+    <p>All the Bundlers can get you icons, and, to get one, you need to supply at the least first two of four arguments: <code>font</code>, <code>name</code>, <code>color</code>, and <code>alter</code>.</p>
+
+    <p><code>font</code> is the <em>lowercased</em> name of the font (use <code>system</code> for system icons). <code>name</code> is the name of the icon, which should be lowercase except for system icons. Use the exact case of the icon name. <code>color</code> should be a hex color (not a named color). <code>alter</code> should be either <code>true</code> or <code>false</code>. System icons come only in their original colors.</p>
+
+    <div class="panel callout">
+      If you do not specify a <code>color</code>, then it will default to <code>000000</code>. If you do not specify <code>alter</code>, then it will default to <code>false</code>. One exception: when you specify neither <code>color</code> nor <code>alter</code>, then they default to <code>000000</code> and <code>true</code> respectively.
+    </div>
+    <h5>Colors</h5>
+    <p>
+    If it's a hex color, then you can get it. When calling an icon, just call it with any three- or six-digit hex color.
+    </p>
+
+    <h5>Color Alteration</h5>
+    <p>
+      Flat icons don't work well when the background matches the icon. Since you can never tell what theme a user will have active, you can never know if your icons will be legible. But, the bundler can fix that for you, with magic.
+    </p>
+    <p>
+      Just set the <code>alter</code> argument to <code>true</code>, and the icon returned will be the color that contrasts with the user's background. Well, it'll be the same "hue" just darker or lighter.
+    </p>
+    <div class="panel callout">
+      To alter the color, we convert the hex color into an <a href="https://en.wikipedia.org/wiki/HSL_and_HSV">HSV colorspace</a>. The "V" in HSV is basically how dark or light the color is, and it is a value between 0 and 1 with 0.5 being neutral. To alter the color, we just subtract the current "V" from 1 and convert the color back to hex. So, if the "V" in your color is 0.7, then it will be converted to 0.3.
+    </div>
+    <p>
+      For more information about icons and to see previews, look at the <a href="http://icons.deanishe.net/">flagship icon server</a> hosted by Dean Jackson.
+    </p>
+    <p>
+      For particular syntax for icon calls, see the language-specific documentation.
+    </p>
+    </div>
+
+    <div class="row">
+      <div class="medium-6 columns">
+        <div class="callout panel">
+          <h4><strong>Questions?</strong></h4>
+          <p>
+            Post on the <a href="http://www.alfredforum.com/topic/4255-alfred-dependency-downloader-framework/">Alfred Forum thread</a>.
+          </p>
+        </div>
+      </div>
+
+      <div class="medium-6 columns">
+        <div class="callout panel">
+          <h4><strong>Bug Reports?</strong></h4>
+          <p>
+            Open an issue in the <a href="https://github.com/shawnrice/alfred-bundler/issues">Github queue</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <div class="top-footer"></div>
+      <div class="bottom-footer">
+        <div class="row">
+          <div class="right footer">
+            <p>The Alfred Bundler is open source, released under the <a href="http://opensource.org/licenses/MIT">MIT</a> license.</p>
+            <p>(C) The Alfred Bundler Team, 2014</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/foundation/js/foundation.min.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>
