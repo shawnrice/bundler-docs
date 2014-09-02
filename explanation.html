@@ -81,12 +81,11 @@ it makes workflows laggy.
 <p>Each workflow should use any stored data in the following path:</p>
 
 <pre>~/Library/Application Support/Alfred 2/Workflow Data/{bundleid}</pre>
-(What is a Bundle ID?)
 
 <p>The Bundler stores almost all of its data in:</p>
 
-<pre>~/Library/Application Support/Alfred 2/Workflow Data/alfred.bundler-{[[Versioning][major_version]]}</pre>
-(What are major versions?)
+<pre>~/Library/Application Support/Alfred 2/Workflow Data/alfred.bundler-{major_version}</pre>
+(<a href="versioning.html">What are major versions</a>?)
 
 <p>For the rest of this post, we'll use "Taurus" as the major version.</p>
 
@@ -112,21 +111,21 @@ There has been a consensus by workflow develops on the Alfred Forums that workfl
 
 <h4>Sandboxing</h4>
 
-<p>Scripts written in Python and Ruby most often use packages from PyPi and Gems. When a Python developer use import to bring in a library/module/package, Python looks to the system path, and Ruby Gems default to the System path as well. So, the easiest way to install these is for the workflow to install them directly into your system. The result is that if you delete the workflow, then those files are still there. They might also upgrade the packages/gems, breaking other scripts.</p>
+<p>Scripts written in Python and Ruby most often use packages from PyPi and Gems. When a Python developer uses import to bring in a library/module/package, Python looks to the system path, and Ruby Gems defaults to the system path as well. So, the easiest way to install these is for the workflow to install them directly into your system. The result is that if you delete the workflow, then those files are still there. They might also upgrade the packages/gems, breaking other scripts.</p>
 
-<p>The Bundler keeps all of these in one directory, away from the system. Again, this allows for an easy way to remove them, but it also allows for different versions of the packages/gems to exist on your system, not breaking those other scripts.</p>
+<p>The Bundler keeps all of these in one directory, <em>away</em> from the system. Again, this allows for an easy way to remove them, but it also allows for different versions of the packages/gems to exist on your system, not breaking those other scripts.</p>
 
 <h4>Reuse</h4>
 
-<p>The other way to sandbox the packages/gems is to bundle them within the workflow file itself. Some of these packages are big, and so that makes the workflow file bigger. Besides that, you might end up with several copies of the same packages in your workflow directory, and for those of us who sync our workflows with Dropbox, that means less valuable space there.</p>
+<p>The other way to sandbox the packages/gems is to bundle them within the workflow file itself. Some of these packages are big, and so that makes the workflow file bigger. Besides that, you might end up with several copies of the same packages in your workflow directory, and, for those of us who sync our workflows with Dropbox, that means less valuable space there.</p>
 
 <p>Since the Bundler installs these outside of the sync folder, they don't go on Dropbox, saving you that space.</p>
 
 <p>One problem with the Ruby gems comes from OS X having multiple versions of Ruby installed. If a workflow developer needs a Gem to run, then they need to include the gems for Ruby 1.8/1.9/2.0, depending on compatibility. It's easy to forget to bundle those extra versions when the author uses only one version of Ruby.</p>
 
-<p>The bundler installs the gems using your system and using your version of Ruby, which means you always have the right Gems installed.</p>
+<p>The bundler installs the gems using your system and using your version of Ruby, which means you always have the right gems installed.</p>
 
-<p>The last point about space is that the Bundler lets people use the same asset, saving hard drive space (which might really matter on SSDs where space is expensive).</p>
+<p>The last point about space is that the Bundler lets people reuse the same assets, saving hard drive space (which might really matter on SSDs where space is expensive).</p>
 
 <h4>The Bundler makes my workflows slow</h4>
 
@@ -140,9 +139,9 @@ There has been a consensus by workflow develops on the Alfred Forums that workfl
 
 <p>The Alfred Bundler also makes it easy to load and include assets for a workflow author. Simply put: less code is required. So, workflow authors can write their workflows faster and offer more helpful (and maybe flashy) features. Further, the Alfred Bundler also includes a few APIs that make some tools easier to use. Lastly, since the Bundler provides all of these methods, workflows using it will have the better optimized and better tested code.</p>
 
-<p>The first major version of the Alfred Bundler (Aries) is very much a first version. The second major version, which is actively being developed and should be out soon, not only offers many more features, but development has focused on optimizing performance (faster), implementing better tests (more stable), and being more transparent as to what it is doing (this page helps). We have also worked on providing as much error handling as possible in order to help workflow authors find bugs, show the users what is happening on their system, and creating fallbacks so that the Bundler doesn't break a workflow; however, certain implementations of the Bundler might break it. Also, we've created multiple places to download the Bundler and the icons (new in Taurus) in case one server is down.</p>
+<p>The first major version of the Alfred Bundler (Aries) was very much a first version. The second major version, which is actively being developed and should be out soon, not only offers many more features, but development has focused on optimizing performance (faster), implementing better tests (more stable), and being more transparent as to what it is doing (this page helps). We have also worked on providing as much error handling as possible in order to help workflow authors find bugs, show the users what is happening on their system, and creating fallbacks so that the Bundler doesn't break a workflow; however, certain implementations of the Bundler might break it. Also, we've created multiple places to download the Bundler and the icons (new in Taurus) in case one server is down.</p>
 
-<p>Overall, the Alfred Bundler is not scary nor is it slow. It runs faster with use, it ensures that assets are exactly where they should be, and it saves you hard drive and Dropbox space.</p>
+<p>Overall, the Alfred Bundler is not scary nor is it slow. It runs faster with use, it ensures that assets are exactly where they should be, and it saves you harddrive and Dropbox space.</p>
 
 </div>
 
