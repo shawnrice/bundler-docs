@@ -53,8 +53,27 @@
 
     <div class="row">
       <h2>Custom Assets</h2>
-      <p>You can declare custom assets to use if they are not already included in the <a href="defaults.html">defaults</a>. To do so, you need to make a json file that the bundler can read. Look at the template below.</p>
+      <p>You can declare custom assets to use if they are not already included in the <a href="defaults.html">defaults</a>.</p>
 
+      <div class="panel callout">
+        <h5>Why use the Bundler for custom assets?</h5>
+        <p>
+          If you are using a utility that might need to be whitelisted by Gatekeeper, then the Bundler will take care of that headache for you. If an application is not whitelisted, then opening it in a script will fail silently. Gatekeeper is a pain. Trust us on that, and let us handle it for you.
+        </p>
+        <p>
+          If the asset that you want to use is large then it might live in the users' Dropbox folder (if the user is set to use Dropbox to sync workflows). This will take up valuable space, but the Bundler will put it in a different directory that is not synced with Dropbox.
+        </p>
+        <p>
+          If you happen to reuse the same asset between workflows, then the Bundler will make it so that only one copy of the asset lives on the users' computers, cutting down code duplication.
+        </p>
+        <p>
+          If you think that there is a good asset that should be included in the Bundler's defaults, then put in a pull request in the Bundler's <a href="https://github.com/shawnrice/alfred-bundler/issues">Github repo</a>, and we might include it.
+        </p>
+      </div>
+
+      <p>
+        To define a custom asset, you need to make a json file that the bundler can read. Look at the template below.
+      </p>
 <pre><code class="json">{
     "name": "ASSETNAME",
     "type": "TYPE",
