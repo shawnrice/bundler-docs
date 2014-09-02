@@ -20,6 +20,16 @@
         </ul>
         <section class="top-bar-section">
           <ul class="right">
+            <li class="has-dropdown active">
+              <a href="features.html">Features</a>
+              <ul class="dropdown">
+                <li><a href="icons.html">Icons</a></li>
+                <li><a href="utilities.html">Utilities</a></li>
+                <li><a href="wrappers.html">Wrappers</a></li>
+                <li><a href="defaults.html">Defaults</a></li>
+                <li><a href="custom-assets.html">Custom</a></li>
+              </ul>
+            </li>
             <li class="has-dropdown">
               <a href="quickstart.html">Quickstart</a>
               <ul class="dropdown">
@@ -38,19 +48,41 @@
                 <li><a href="docs/ruby/frames.html" target="_blank">Ruby</a></li>
               </ul>
             </li>
+            <li><a href="https://github.com/shawnrice/alfred-bundler/tree/taurus">Github</a></li>
           </ul>
         </section>
       </nav>
     </header>
 
+
     <div class="separator">&nbsp;</div>
 
+    <div class="clear-fix"></div>
     <div class="row">
       <h2>Features</h2>
+      <div class="small-12 columns">
+        <div class="small-4 columns">
+          <h5><a href="icons.html">Icons</a></h5>
+          <p>Grab icons from <a href="http://fortawesome.github.io/Font-Awesome/">Fontawesome</a>, <a href="https://github.com/aristath/elusive-iconfont">Elusive</a>, <a href="https://octicons.github.com/">Octicons</a>, and more. Grab them in any color. Automatically alter the colors so that they always pop against a user's theme.</p>
+        </div>
+        <div class="small-4 columns">
+          <h5><a href="utilities.html">Utilities</a></h5>
+          Gatekeeper. See the defaults.
+        </div>
+        <div class="small-4 columns">
+          <h5>User Logs</h5>
+          Make an easy log.
+        </div>
+      </div>
+    </div>
+
+    <div class="clear-fix"></div>
+
+    <div class="row">
       <table class="features-table">
         <thead>
           <tr>
-            <th width="200">Feature</th>
+            <th width="">Feature</th>
             <th width="">AppleScript</th>
             <th width="">Bash</th>
             <th width="">PHP</th>
@@ -61,7 +93,7 @@
         </thead>
         <tbody>
           <tr>
-            <td>Utilities</td>
+            <td><a href="utilities.html">Utilities</a></td>
             <td><img src="images/yes.png" /></td>
             <td><img src="images/yes.png" /></td>
             <td><img src="images/yes.png" /></td>
@@ -159,19 +191,6 @@
       <p>
         Do not use the Bundler to load Python packages or Ruby Gems that have C extensions that need to be compiled on a user's system. Not all users will have the necessary dev-tools installed to compile these successfully, and so it will lead to many a failed installation and, thus, many a bug report.
       </p>
-    </div>
-    <div class="small-12 columns">
-      <div class="small-4 columns">
-      <h5>Icons</h5>
-      Grab icons from <a href="http://fortawesome.github.io/Font-Awesome/">Fontawesome</a>, <a href="https://github.com/aristath/elusive-iconfont">Elusive</a>, <a href="https://octicons.github.com/">Octicons</a>, and more. Grab them in any color. Automatically alter the colors so that they always pop against a user's theme.
-    </div>
-    <div class="small-4 columns">
-      <h5>Utilities</h5>
-      Gatekeeper. See the defaults.
-    </div>
-    <div class="small-4 columns">
-      <h5>User Logs</h5>
-      Make an easy log.
     </div>
   </div>
     <div class="clear-fix"></div>
