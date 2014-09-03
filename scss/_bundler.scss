@@ -273,3 +273,29 @@ footer {
 .person-credits p {
     text-align: justify;
 }
+
+.panel-center {
+    text-align: center;
+}
+
+.fix-tab-content {
+    padding-top: 0 !important;
+}
+
+.tabs-content {
+    margin-bottom: 0;
+}
+
+
+dl.vertical > dd {
+    border: 1px solid $snow;
+    border-bottom: none;
+}
+
+dl.vertical > dd:last-child {
+    border-bottom: 1px solid $snow;
+}
+
+.row {
+    text-align: justify;
+}

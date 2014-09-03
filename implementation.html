@@ -51,7 +51,6 @@
               <ul class="dropdown">
                 <li><a href="bash.html">Bash</a></li>
                 <li><a href="docs/php/" target="_blank">PHP</a></li>
-
                 <li><a href="docs/python/" target="_blank">Python</a></li>
                 <li><a href="docs/ruby/frames.html" target="_blank">Ruby</a></li>
               </ul>
@@ -71,7 +70,123 @@
     </div>
     <div class="row">
       <h4>Exceptions and Errors on Installation</h4>
-      <p></p>
+      <p>
+        Upon installation, the Bundler will ask the user for permission to install.
+        If the user presses the <code>More Info</code> button, the script will be
+        killed, and the <a href="explanation.html">explanation page</a> will be opened
+        in a browser. If the user presses <code>Cancel</code>, then the Bundler will
+        throw an exception (<code>AppleScript</code>, <code>PHP</code>,
+        <code>Python</code>, and <code>Ruby</code>) or will trigger an error
+        (<code>Bash</code>).
+      </p>
+      <p>
+        It is advised that you <code>catch</code> the exception so that you can either
+        (1) proceed without the Bundler, or (2) kill the script and notify the user
+        that the workflow will not work without the Bundler installed. If you are using
+        the Bash Bundler, then you should
+        <a href="http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_12_02.html">
+        <code>trap</code> the error</a>, which returns the error code <code>23</code>.
+        The error codes <code>21</code> and <code>22</code> indicate other installation
+        failures, respectively: (<code>21</code>) no Internet connection and
+        (<code>22</code>) corrupted installation file.
+      </p>
+    <div class="row">
+      <dl class="tabs vertical" data-tab style="padding-right: 30px;">
+        <dd class="active"><a href="#init-applescript">AppleScript</a></dd>
+        <dd><a href="#init-bash">Bash</a></dd>
+        <dd><a href="#init-php">PHP</a></dd>
+        <dd><a href="#init-python">Python</a></dd>
+        <dd><a href="#init-ruby">Ruby</a></dd>
+      </dl>
+      <div class="tabs-content">
+        <div class="fix-tab-content content active" id="init-applescript">
+          <pre><code class="applescript">INSERT CODE HERE FOR THE EXCEPTION</code></pre>
+        </div>
+        <div class="content fix-tab-content" id="init-bash">
+          <pre><code class="bash">INSERT CODE HERE FOR THE TRAP</code></pre>
+        </div>
+        <div class="content fix-tab-content" id="init-php">
+        <pre><code class="php">require_once( 'alfred.bundler.php' );
+try {
+  // Initialize the bundler object, which will install the bundler
+  // if necessary.
+  $b = new AlfredBundler( [ 'wf_log' => TRUE ] );
+} catch (Exception $e) {
+  // Do error handling here.
+  // Maybe set a global variable that indicates the bundler wasn't
+  // installed and try to continue.
+  $GLOBALS[ 'bundler' ] = FALSE;
+  // Or maybe send something to the console and exit.
+  file_put_contents( 'php://stderr',
+    'Cannot continue without the Alfred Bundler installed.' );
+  die();
+}
+// Continue with the code.</code></pre>
+        </div>
+        <div class="content fix-tab-content" id="init-python">
+          <pre><code class="python">INSERT CODE HERE TO CATCH THE EXCEPTION</code></pre>
+        </div>
+        <div class="content fix-tab-content" id="init-ruby">
+          <pre><code class="ruby">require_relative 'alfred.bundler.rb'
+begin
+  b = Alfred::Bundler.new
+rescue Alfred::BundlerInstallError
+  # Do error handling here.
+  # Maybe set a global variable that indicates the bundler wasn't
+  # installed and try to continue.
+  ENV['bundler'] = false
+  # Or maybe send something to the console and exit.
+  abort("Cannot continue without the Alfred Bundler installed.")
+end
+# Continue with the code.</code></pre>
+        </div>
+      </div>
+    </div>
+    <div class="clear-fix"></div>
+      <div class="panel callout">
+        <figure class="panel-center">
+          <p><img src="images/install-confirmation.png" /></p>
+          <figcaption>
+            <p>
+              An example AppleScript confirmation dialog.
+            </p>
+            <p>
+              Notice the workflow icon (just a testing icon) and the workflow name appearing in the dialog.
+            </p>
+          </figcaption>
+        </figure>
+      </div>
+
+      <h4>Loading Patterns</h4>
+      <p>
+        Obviously, the Bundler requires an Internet connection to download and install any needed assets.
+        In light of this, there are two main approaches exist for implementation.
+      </p>
+      <h5>Lazy Loading</h5>
+      <p>
+      <a href="https://en.wikipedia.org/wiki/Lazy_loading" target="_blank">Lazy Loading</a> calls assets
+        <em>only</em> just before they are needed and not sooner. The lazy pattern allows for a more performant
+        script; instead of a long load time at first run (because of downloading assets), the script will
+        distribute the download times across its execution. However, there is the possibility that the user
+        will not have an Internet connection when the asset is called, which will make the script run slower
+        (as it waits for timeouts) and might not load key assets for the workflow to run.
+      </p>
+      <h5>Eager Loading</h5>
+      <p>
+        Eager loading is the opposite of Lazy Loading in that it loads all of the assets immediately upon
+        execution. These assets might not be used (depending on the conditional logic of the script),
+        which will slow the script. Also, the first run of the script will take longer as it needs to download
+        more. After the first run, however, the aspects of the workflow that rely on the Bundler will not need
+        an Internet connection.
+      </p>
+      <h5>Recommendation</h5>
+      <p>
+        If your workflow requires an Internet connection to function (i.e. interacting with a remote API),
+        then you should implement a Lazy Loading pattern. Conversely, if your script is meant to function
+        completely offline, you should use the Eager Loading pattern.
+      </p>
+
+
     </div>
 
     <div class="row">

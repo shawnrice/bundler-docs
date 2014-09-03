@@ -67,9 +67,61 @@
 
     <div class="row">
       <h3>Logging</h3>
+      <p>
+        The Bundler has its own internal logging system (you can find its log
+        at <code>{bundler-data-dir}/data/logs/bundler-{major-version}.log</code>),
+        but, as a bonus, the logging functionality has been exposed for workflow authors.
+      </p>
       <h5>Console Log</h5>
+      <p>
+        The Bundlers will log to <code>STDERR</code> in the console so that you can
+        provide information and debug more easily. Output to <code>STDERR</code> will
+        appear in the Alfred workflow debugger, and it will not interfere with script
+        filter XML.
+      </p>
       <h5>File Log</h5>
+      <p>
+        There is also a file log available to you. Some bundlers initialize the log
+        regardless. For others, you have to initialize it when you load the Bundler.
+        By default, the log is at <code>{workflow-data-dir}/{workflow-bundle-id}.log</code>.
+        Some of the Bundlers let you customize this, and others do not.
+      </p>
+      <h5>Stack Trace</h5>
+      <p>
+        Each logger includes a stack trace, which will let you know the file and line
+        the log message comes from.
+      </p>
+      <h5>Dates</h5>
+      <p>
+        The console logs include the time in <code>HH:MM:SS</code> format. And the file
+        logs include the date in <code>YY-MM-DD HH:MM:SS</code> format.
+      </p>
+      <h5>Rotation</h5>
+      <p>
+        File logs are automatically rotated at <code>1 MB</code>, and one previous log
+        is kept.
+      </p>
       <h5>Log Levels</h5>
+      <p>Throughout the Bundler, there are five log levels.</p>
+      <ul>
+        <li>0 – DEBUG</li>
+        <li>1 – INFO</li>
+        <li>2 – WARNING</li>
+        <li>3 – ERROR</li>
+        <li>4 – CRITICAL</li>
+      </ul>
+      <p>Log levels can be called either by number or the string.</p>
+      <p>
+        These levels are simply informative, so a CRITICAL level will not halt the execution
+        of your script or throw an error. You must code that in manually. The Ruby bundler
+        allows you to set a minimum log level that will appear.
+      </p>
+
+      <div class="panel callout">
+        If you do not specify a log level, then the Bundler will default to <code>INFO</code>
+        ; and if you try to use an invalid log level, then the Bundler will send an error
+        message to the console and set the log level to <code>INFO</code>.
+      </div>
     </div>
 
     <div class="row">

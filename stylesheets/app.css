@@ -4651,3 +4651,34 @@ footer {
 .person-credits p {
   text-align: justify;
 }
+
+/* line 277, ../scss/_bundler.scss */
+.panel-center {
+  text-align: center;
+}
+
+/* line 281, ../scss/_bundler.scss */
+.fix-tab-content {
+  padding-top: 0 !important;
+}
+
+/* line 285, ../scss/_bundler.scss */
+.tabs-content {
+  margin-bottom: 0;
+}
+
+/* line 290, ../scss/_bundler.scss */
+dl.vertical > dd {
+  border: 1px solid #f9f9f9;
+  border-bottom: none;
+}
+
+/* line 295, ../scss/_bundler.scss */
+dl.vertical > dd:last-child {
+  border-bottom: 1px solid #f9f9f9;
+}
+
+/* line 299, ../scss/_bundler.scss */
+.row {
+  text-align: justify;
+}

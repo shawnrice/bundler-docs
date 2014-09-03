@@ -66,8 +66,50 @@
     <div class="clear-fix"></div>
     <div class="row">
       <h3>Utilities</h3>
-      <p>The wrappers are available only for PHP, Python, and Ruby.</p>
+      <p>
+        The Bundler has the ability to download and install certain utilities that can
+        add functionality to your workflow. Some <a href="defaults.html">defaults</a>
+        are included, and those are utilities that are commonly used in workflows to send
+        notifications or create interactive dialog boxes. The Bundler also comes with
+        <a href="wrappers.html">wrappers</a> for CocoaDialog and Terminal Notifier that
+        make using each of those easier. (Note: the wrappers are available only for the
+        PHP, Python, and Ruby Bundlers.) You can include other utilities by defining
+        a <a href="custom-assets.html">custom asset</a> via a JSON file.
+       </p>
+       <h4>Loading</h4>
+       <p>
+        Consult the language-specific documentation for the syntax on how to load a utility.
+       </p>
+       <p>
+        The Bundler will take care of downloading and installing any utility to the
+        Bundler data directory, but it will not automatically call the utility for you.
+        When you load a utility, the Bundler will return the full path to it. You should
+        then execute it just as you would with any regular system command in the language
+        you're using. Make sure you escape the utility path as it will have spaces in it.
+      </p>
     </div>
+
+    <div class="row">
+      <div class="panel callout">
+        <h4>Gatekeeper</h4>
+        <p>
+          In Lion (OS X 10.8), Apple introduced something called "Gatekeeper,"
+          which is that annoying thing that will warn you when opening up an unsigned
+          application. Since we can't rely on a user to relaxed their Gatekeeper
+          settings, we need to whitelist applications that would anger the Gatekeeper.
+          (Note: Gatekeeper is activated only when double-clicking on an app or when
+          opening it from the command line with the <code>open</code> command.)
+        </p>
+        <p>
+          When a utility is installed that might be blocked by Gatekeeper,
+          the Bundler will run a script that will ask the user's permission
+          before whitelisting the app with a command called <code>spctl</code>, which
+          requires an administrator password.
+        </p>
+      </div>
+    </div>
+
+    <div class="clear-fix"></div>
 
     <div class="row">
       <div class="medium-6 columns">
