@@ -1,0 +1,294 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Alfred Bundler | Wrappers</title>
+    <link rel="stylesheet" href="stylesheets/app.css" />
+    <script src="bower_components/modernizr/modernizr.js"></script>
+
+    <!-- Syntax Highlighting -->
+    <link rel="stylesheet" href="highlight/foundation.css" />
+    <script src="highlight/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    <link href='https://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+  </head>
+  <body>
+    <header>
+      <nav class="top-bar" data-topbar role="navigation">
+        <ul class="title-area">
+          <li class="name">
+            <h1><a href="index.html">The Alfred Bundler</a></h1>
+          </li>
+          <li class="toggle-topbar menu-icon"><a href="#"><span> </span></a></li>
+        </ul>
+        <section class="top-bar-section">
+          <ul class="right">
+            <li class="has-dropdown active">
+              <a href="features.html">Features</a>
+              <ul class="dropdown">
+                <li><a href="icons.html">Icons</a></li>
+                <li><a href="utilities.html">Utilities</a></li>
+                <li class="active"><a href="wrappers.html">Wrappers</a></li>
+                <li><a href="logs.html">Logging</a></li>
+                <li><a href="defaults.html">Defaults</a></li>
+                <li><a href="custom-assets.html">Custom</a></li>
+              </ul>
+            </li>
+            <li class="has-dropdown">
+              <a href="quickstart.html">Quickstart</a>
+              <ul class="dropdown">
+                <li><a href="quickstart-applescript.html">AppleScript</a></li>
+                <li><a href="quickstart-bash.html">Bash</a></li>
+                <li><a href="quickstart-php.html">PHP</a></li>
+                <li><a href="quickstart-python.html">Python</a></li>
+                <li><a href="quickstart-ruby.html">Ruby</a></li>
+              </ul>
+            </li>
+            <li class="has-dropdown">
+              <a href="#">Documentation</a>
+              <ul class="dropdown">
+                <li><a href="bash.html">Bash</a></li>
+                <li><a href="docs/php/" target="_blank">PHP</a></li>
+
+                <li><a href="docs/python/" target="_blank">Python</a></li>
+                <li><a href="docs/ruby/frames.html" target="_blank">Ruby</a></li>
+              </ul>
+            </li>
+            <li><a href="https://github.com/shawnrice/alfred-bundler/tree/taurus">Github</a></li>
+          </ul>
+        </section>
+      </nav>
+    </header>
+
+    <div class="separator">&nbsp;</div>
+    <div class="clear-fix"></div>
+
+    <div class="row">
+      <h3>Bash Documentation</h3>
+      <p>Documentation for Bash has not been automatically generated, so here it is by hand.</p>
+      <div class="panel callout">
+      All Bundler functions are prefixed by <code>AlfredBundler::</code>.
+      </div>
+    </div>
+    <div class="row">
+      <h3>Load Functions</h3>
+      <h5>AlfredBundler::load</h5>
+      <p>Loads an asset. Takes up to four arguments (minimum of two).
+      <div class="panel">
+        <ol>
+          <li>type</li>
+          <p>The type of asset. For libraries, use <code>bash</code>, for utilities, use <code>utility</code>.</p>
+          <li>name</li>
+          <p>The name of the asset.</p>
+          <li>version</li>
+          <p><em>(optional)</em> The version of the asset. If a version is not specified, then <code>latest</code> will be assumed.</p>
+          <li>json</li>
+          <p><em>(optional)</em> The path to the JSON file that defines the asset. The argument is needed <em>only</em> when loading a <a href="custom-assets.html">custom asset</a>.</p>
+        </ol>
+      </div>
+      </p>
+      <h5>AlfredBundler::library</h5>
+      <p>
+        Loads a library. A wrapper function around <code>AlfredBundler::load</code> that automatically fills in <code>type</code> as <code>bash</code>.
+        Thus, it requires one argument but will take three.
+        <div class="panel">
+        <ol>
+          <li>name</li>
+          <li>version</li>
+          <li>json</li>
+        </ol>
+        </div>
+      </p>
+      <h5>AlfredBundler::utility</h5>
+      <p>
+        Loads a utility. A wrapper function around <code>AlfredBundler::load</code> that automatically fills in <code>type</code> as <code>utility</code>.
+        Thus, it requires one argument but will take three.
+        <div class="panel">
+        <ol>
+          <li>name</li>
+          <li>version</li>
+          <li>json</li>
+        </ol>
+      </div>
+      </p>
+      <h3>Icon Functions</h3>
+      <h5>AlfredBundler::icon</h5>
+      <p>
+        Loads an icon. Takes up to four arguments, which are the standard ones described on the <a href="icons.html">icons</a> page.
+        <div class="panel">
+        <ol>
+          <li>font</li>
+          <p>
+            The icon font to use (see <a href="http://icons.deanishe.net/#fonts" target="_blank">the icon server</a> for a list of supported fonts).
+            Use <code>system</code> to get a system icon.
+          </p>
+          <li>name</li>
+          <p>
+            The name of the icon. If you're asking for a system icon, do not include <code>.icns</code>.
+          </p>
+          <li>color</li>
+          <p>
+            <em>(optional)</em> A three- or six-digit hex color. If not specified, then it will fallback to <code>000000</code> (black).
+          </p>
+          <li>alter</li>
+          <p>
+            <em>(optional)</em> Takes either <code>true</code> or <code>false</code>, indicating whether or not to dynamically adjust the
+            "lightness" of the icon based on the user's background. See the <a href="icons.html">icons page</a> for a better explanation.
+            Defaults to <code>false</code> unless the <code>color</code> argument is not given in which case the <code>alter</code> value defaults
+            to <code>true</code>.
+          </p>
+        </ol>
+      </div>
+      </p>
+      <h3>Logging Functions</h3>
+      <h5>AlfredBundler::log</h5>
+      <p>Logs to a file or the console (or both). Takes up to three arguments.
+      <div class="panel">
+      <ol>
+        <li>message</li>
+        <li>level</li>
+        <li>destination</li>
+      </ol>
+      </div>
+    </div>
+
+  <div class="row">
+    <h3>Other Functions</h3>
+    <p>There are several functions that the Bundler uses internally yet may be potentially helpful for a workflow author.</p>
+    <p>Among these is a small library for floating point math, which has an <a href="bash-math.html">individual documentation page</a>.</p>
+    <h5>AlfredBundler::check_hex</h5>
+    <p>Checks whether a string is a valid hex color.
+      <div class="panel">Arguments: a hex color.</div>
+    </p>
+    <h5>AlfredBundler::rgb_to_hsv</h5>
+    <p>Converts an RGB colorspace to an HSV colorspace.
+      <div class="panel">
+        Arguments
+        <ol>
+          <li><code>r</code></li>
+          <p>a red value (0–255)</p>
+          <li><code>g</code></li>
+          <p>a green value (0–255)</p>
+          <li><code>b</code></li>
+          <p>a blue value (0–255)</p>
+        </ol>
+      </div>
+    </p>
+    <h5>AlfredBundler::hsv_to_rgb</h5>
+    <p>Converts an HSV colorspace to an RGB colorspace.
+      <div class="panel">
+      Arguments
+        <ol>
+          <li><code>h</code></li>
+          <p>the hue, 0–360</p>
+          <li><code>s</code></li>
+          <p>the saturation, 0–1 (float)</p>
+          <li><code>v</code></li>
+          <p>the value, 0–1 (float)</p>
+        </ol>
+      </div>
+    </p>
+    <h5>AlfredBundler::hex_to_rgb</h5>
+    <p>Converts a hex color to an RGB colorspace
+      <div class="panel">
+        Arguments
+        <ol>
+          <li>hex</li>
+          <p>a hex color as a string</p>
+        </ol>
+      </div>
+    </p>
+    <h5>AlfredBundler::rgb_to_hex</h5>
+    <p>Converts an RGB colorspace to a hex string
+      <div class="panel">
+        Arguments
+        <ol>
+          <li><code>r</code></li>
+          <p>a red value (0–255)</p>
+          <li><code>g</code></li>
+          <p>a green value (0–255)</p>
+          <li><code>b</code></li>
+          <p>a blue value (0–255)</p>
+        </ol>
+      </div>
+    </p>
+    <h5>AlfredBundler::get_luminance</h5>
+    <p>Calculates the luminance of a color
+      <div class="panel">
+        Takes either a hex string or an RGB color.
+        <ol>
+          <li>hex</li>
+          <p>A hex color as a string</p>
+        </ol>
+        --Or--
+        <br /><br />
+        <ol>
+          <li><code>r</code></li>
+          <p>a red value (0–255)</p>
+          <li><code>g</code></li>
+          <p>a green value (0–255)</p>
+          <li><code>b</code></li>
+          <p>a blue value (0–255)</p>
+        </ol>
+      </div>
+    </p>
+    <h5>AlfredBundler::get_brightness</h5>
+    <p>Returns either <code>light</code> or <code>dark</code> based on a luminance calculation</p>
+      <div class="panel">
+        Takes either a hex string or an RGB color.
+        <ol>
+          <li>hex</li>
+          <p>A hex color as a string</p>
+        </ol>
+        --Or--
+        <br /><br />
+        <ol>
+          <li><code>r</code></li>
+          <p>a red value (0–255)</p>
+          <li><code>g</code></li>
+          <p>a green value (0–255)</p>
+          <li><code>b</code></li>
+          <p>a blue value (0–255)</p>
+        </ol>
+      </div>
+    </p>
+  </div>
+
+    <div class="row">
+      <div class="medium-6 columns">
+        <div class="callout panel">
+          <h4><strong>Questions?</strong></h4>
+          <p>
+            Post on the <a href="http://www.alfredforum.com/topic/4255-alfred-dependency-downloader-framework/">Alfred Forum thread</a>.
+          </p>
+        </div>
+      </div>
+
+      <div class="medium-6 columns">
+        <div class="callout panel">
+          <h4><strong>Bug Reports?</strong></h4>
+          <p>
+            Open an issue in the <a href="https://github.com/shawnrice/alfred-bundler/issues">Github queue</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <div class="top-footer"></div>
+      <div class="bottom-footer">
+        <div class="row">
+          <div class="right footer">
+            <p>The Alfred Bundler is open source, released under the <a href="http://opensource.org/licenses/MIT">MIT</a> license.</p>
+            <p>(C) The Alfred Bundler Team, 2014</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/foundation/js/foundation.min.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>
