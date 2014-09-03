@@ -49,6 +49,8 @@
               <a href="#">Documentation</a>
               <ul class="dropdown">
                 <li><a href="docs/php/" target="_blank">PHP</a></li>
+                <li><a href="bash.html">Bash</a></li>
+
                 <li><a href="#" target="_blank">Python</a></li>
                 <li><a href="docs/ruby/frames.html" target="_blank">Ruby</a></li>
               </ul>
@@ -78,7 +80,9 @@
       </div>
 
       <div class="small-8 columns usage">
-        <p>1. <a href="https://raw.githubusercontent.com/shawnrice/alfred-bundler/taurus/bundler/bundlets/alfred.bundler.sh" target="_blank">Download the bundlet</a>, and place it in your workflow's root directory.</p>
+        <p>1. <a href="https://raw.githubusercontent.com/shawnrice/alfred-bundler/taurus/bundler/bundlets/alfred.bundler.sh" target="_blank">
+         Download the bundlet</a>,
+         and place it in your workflow's root directory.</p>
         <p>2. Include the bundlet
           <pre><code class="bash">. alfred.bundler.sh</code></pre>
         </p>
@@ -89,15 +93,41 @@
       <div class="small-12 columns usage">
       <h3>Using the Bundler</h3>
       <h5>Load a Library</h5>
+      <pre><code class="bash">. "$(AlfredBundler::library BashWorkflowHandler)"</code></pre>
       <h5>Load a Utility</h5>
+      <pre><code class="bash">pashua="$(AlfredBundler::utility Pashua)"</code></pre>
+      <div class="clear-fix"></div>
+      <div class="panel callout">
+        Loading a utility returns the full path to the utility as it needs to be called. You still need to execute it
+        with the same arguments that you would do already.
+      </div>
       <h5>Load an Icon</h5>
+      <pre><code class="bash">icon="$(AlfredBundler::icon elusive fire 000000 true)"</code></pre>
+      <h5>Log a Message to the Console</h5>
+      <pre><code class="bash">AlfredBundler::log "This is a log message." INFO console</code></pre>
+      <div class="clear-fix"></div>
+      <div class="panel callout">
+      Log levels are <code>DEBUG</code>, <code>INFO</code>, <code>WARNING</code>, <code>ERROR</code>, <code>CRITICAL</code>.
+      </div>
+      <h5>Log a Message to the Log File</h5>
+      <pre><code class="bash">AlfredBundler::log "This is a log message." CRITICAL file</code></pre>
+      <div class="clear-fix"></div>
+      <div class="panel callout">
+        The log file will be in the <em>workflow's</em> data directory with the name <code>{workflow-bundle-id}.log</code>.
+        Unfortunately, this path cannot be changed when using the Bash Bundler.
+      </div>
+      <h5>Log a Message to the Console and the Log File</h5>
+      <pre><code class="bash">AlfredBundler::log "This is a log message." WARNING both</code></pre>
       </div>
     </div>
 
+    <div class="clear-fix"></div>
 
   <div class="row">
     <div class="panel callout">
-      Bonus: the Bash Bundler also ships with <a href="bash-math.html">a set of functions</a> to do floating point math. These functions were necessary to write for the icon color conversion algorithms, but that means that they're available for you to use.
+      Bonus: the Bash Bundler also ships with <a href="bash-math.html">a set of functions</a> to do floating point math.
+      These functions were necessary to write for the icon color conversion algorithms,
+      but that means that they're available for you to use.
     </div>
   </div>
   <div class="row">
