@@ -216,18 +216,6 @@ footer {
     text-align: left;
 }
 
-.wrappers-icon-table img {
-    width: 50px;
-}
-
-.wrappers-icon-table td, .wrapers-icon-table th {
-    text-align: center;
-}
-
-.wrappers-icon-table td:first-child, .wrappers-icon-table th:first-child {
-    text-align: center;
-}
-
 .code {
     padding: 1em 3em;
     background-color: $vapor;
@@ -280,6 +268,7 @@ footer {
     margin-top: 0.35em;
     margin-bottom: 0.35em;
 }
+
 
 .person-credits p {
     text-align: justify;
