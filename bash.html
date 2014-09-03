@@ -145,13 +145,26 @@
       <h3>Logging Functions</h3>
       <h5>AlfredBundler::log</h5>
       <p>Logs to a file or the console (or both). Takes up to three arguments.
+        <div class="panel">
+        <ol>
+          <li>message</li>
+          <li>level</li>
+          <li>destination</li>
+        </ol>
+        </div>
+      </p>
+      <h5>AlfredBundler::notify</h5>
+      <p>Sends a system notification with CocoaDialog
       <div class="panel">
       <ol>
         <li>message</li>
-        <li>level</li>
-        <li>destination</li>
       </ol>
       </div>
+      <div class="panel callout">
+      The workflow name will be the title of the notification, and the workflow's icon will be used as well. If the
+      workflow's <code>icon.png</code> file does not exist, then the bundler's icon will be used instead.
+      </div>
+      </p>
     </div>
 
   <div class="row">
