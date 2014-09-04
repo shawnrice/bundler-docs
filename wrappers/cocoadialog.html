@@ -159,12 +159,12 @@
             <p><strong>Note</strong> that the Python variant of the CocoaDialog wrapper handles spawning progress bars differently from the PHP, and Ruby variants.</p>
             <div class="row" style="padding-top: 1px;">
                 <dl class="tabs vertical" data-tab style="padding-right: 30px;">
-                    <dd class="active"><a href="#init-client-py">Python</a></dd>
-                    <dd><a href="#init-client-php">PHP</a></dd>
-                    <dd><a href="#init-client-rb">Ruby</a></dd>
+                    <dd class="active"><a href="#init-prog-py">Python</a></dd>
+                    <dd><a href="#init-prog-php">PHP</a></dd>
+                    <dd><a href="#init-prog-rb">Ruby</a></dd>
                 </dl>
                 <div class="tabs-content">
-                    <div class="content active" id="init-client-py">
+                    <div class="content active" id="init-prog-py">
                         <pre><code class="python">my_progress_bar = client.progressbar(
     title='My Progress Bar',
     percent=0,
@@ -172,7 +172,7 @@
     icon='finder'
 )</code></pre>
                     </div>
-                    <div class="content" id="init-client-php">
+                    <div class="content" id="init-prog-php">
                         <pre><code class="php">$my_progress_bar = new ProgressBar($client, [
     'title'=>'My Progress Bar',
     'percent'=>0,
@@ -180,13 +180,41 @@
     'icon'=>'finder'
 ]);</code></pre>
                     </div>
-                    <div class="content" id="init-client-rb">
+                    <div class="content" id="init-prog-rb">
                         <pre><code class="ruby">my_progress_bar = Alfred::ProgressBar.new(@client, 
     title:'My Progress Bar',
     percent:0,
     text:'[0 of 100] Processing stuff...',
     icon:'finder'
 )</code></pre>
+                    </div>
+                </div>
+            </div>
+            <p>Updating the progress bar is also very easy to implement. Simply call the <em>update</em> method in the progress bar class.<br>For this example implementation I'll use a random wait time to simmulate some process where you might need to use a progress bar.</p>
+            <div class="row" style="padding-top: 1px;">
+                <dl class="tabs vertical" data-tab style="padding-right: 30px;">
+                    <dd class="active"><a href="#init-prog-client-py">Python</a></dd>
+                    <dd><a href="#init-prog-client-php">PHP</a></dd>
+                    <dd><a href="#init-prog-client-rb">Ruby</a></dd>
+                </dl>
+                <div class="tabs-content">
+                    <div class="content active" id="init-prog-client-py">
+                        <pre><code class="python">import time
+for n in range(101):
+    my_progress_bar.update(percent=n, text='[%d of 100] Processing stuff...' % n)
+    time.sleep(0.1)</code></pre>
+                    </div>
+                    <div class="content" id="init-prog-client-php">
+                        <pre><code class="php">foreach(range(0, 101) as $n) {
+    $my_progress_bar->update(percent=n, text=sprintf('[%d of 100] Processing stuff...', n));
+    time_nanosleep(0, 100000000);
+}</code></pre>
+                    </div>
+                    <div class="content" id="init-prog-client-rb">
+                        <pre><code class="ruby">(0..100).step(1) do |n|
+    my_progress_bar.update(percent=n, text='[%d of 100] Processing stuff...' % n)
+    sleep(0.1)
+end</code></pre>
                     </div>
                 </div>
             </div>
