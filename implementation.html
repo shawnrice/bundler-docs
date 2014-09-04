@@ -103,7 +103,26 @@
           <pre><code class="applescript">INSERT CODE HERE FOR THE EXCEPTION</code></pre>
         </div>
         <div class="content fix-tab-content" id="init-bash">
-          <pre><code class="bash">INSERT CODE HERE FOR THE TRAP</code></pre>
+          <pre><code class="bash">function bundler_installation_error() {
+    # The line number that had the error
+    line_number=$1
+    # The exit status (to check between 21, 22, and 23)
+    exit_status=$2
+
+    # Do more error handling here.
+    # Maybe send an error message to STDERR
+    echo "There was an error" >&2
+}
+
+# Capture error codes 21, 22, and 23
+trap 'bundler_installation_refused ${LINENO} ${$?}' 21 22 23
+
+# Initialize the Bundler; if there is an error, then the error
+# handler will catch it.
+. alfred.bundler.sh
+
+# Remove the traps; you might not even worry about this
+trap - 21 22 23</code></pre>
         </div>
         <div class="content fix-tab-content" id="init-php">
         <pre><code class="php">require_once( 'alfred.bundler.php' );
