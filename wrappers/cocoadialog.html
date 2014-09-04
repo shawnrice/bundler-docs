@@ -68,7 +68,11 @@
             <div class="small columns">
                 <div class="clear-fix"></div>
                 <div class="panel">
-                    <p>In order for you to use the wrappers, you must already have initialized an object for the bundler.<br>For instructions on how to initialize the bundler please see the documentation <a href="#">here</a>.</p>
+                    <p>In order for you to use the wrappers, you must already have initialized an object for the bundler.<br>For instructions on how to initialize the bundler please see either the Python, PHP, or Ruby quickstart page.</p>
+                </div>
+                <div class="panel">
+                    <img align="left" src="../images/info.png" width="100" style="margin-right: 20px;">
+                    <p>This page is a simple introduction into using the CocoaDialog wrappers supplied in The Alfred Bundler.<br>Although they are not shown here, there are many default icons and dialog types to choose from in the CocoaDialog application. To see the full documentation of icons and dialog types supported by these wrappers please see the <a href="cocoadialog-reference.html">CocoaDialog Reference</a> page.</p>
                 </div>
             </div>
         </div>
@@ -193,26 +197,101 @@
             <p>Updating the progress bar is also very easy to implement. Simply call the <em>update</em> method in the progress bar class.<br>For this example implementation I'll use a random wait time to simmulate some process where you might need to use a progress bar.</p>
             <div class="row" style="padding-top: 1px;">
                 <dl class="tabs vertical" data-tab style="padding-right: 30px;">
-                    <dd class="active"><a href="#init-prog-client-py">Python</a></dd>
-                    <dd><a href="#init-prog-client-php">PHP</a></dd>
-                    <dd><a href="#init-prog-client-rb">Ruby</a></dd>
+                    <dd class="active"><a href="#prog-update-py">Python</a></dd>
+                    <dd><a href="#prog-update-php">PHP</a></dd>
+                    <dd><a href="#prog-update-rb">Ruby</a></dd>
                 </dl>
                 <div class="tabs-content">
-                    <div class="content active" id="init-prog-client-py">
+                    <div class="content active" id="prog-update-py">
                         <pre><code class="python">import time
 for n in range(101):
+    #...< your process here >...
     my_progress_bar.update(percent=n, text='[%d of 100] Processing stuff...' % n)
     time.sleep(0.1)</code></pre>
                     </div>
-                    <div class="content" id="init-prog-client-php">
+                    <div class="content" id="prog-update-php">
                         <pre><code class="php">foreach(range(0, 101) as $n) {
+    //...< your process here >...
     $my_progress_bar->update(percent=n, text=sprintf('[%d of 100] Processing stuff...', n));
     time_nanosleep(0, 100000000);
 }</code></pre>
                     </div>
-                    <div class="content" id="init-prog-client-rb">
+                    <div class="content" id="prog-update-rb">
                         <pre><code class="ruby">(0..100).step(1) do |n|
+    #...< your process here >...
     my_progress_bar.update(percent=n, text='[%d of 100] Processing stuff...' % n)
+    sleep(0.1)
+end</code></pre>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <img align="right" src="images/stoppableprogressbar.png">
+            <p>If you want to allow your progress bar to be stopped, you will have to set your loop to check if the progress bar is still alive.</p><p>By default, the progress bar <em>update</em> method will return the integer 1 if the progress bar is still alive. If the user presses the <em>stop</em> button, the progress bar will die and the next update method will return the integer 0 instead.</p>
+            <p>To catch the output of the <em>update</em> method, format your loop similar to the following example.</p>
+            <div class="row" style="padding-top: 1px;">
+                <dl class="tabs vertical" data-tab style="padding-right: 30px;">
+                    <dd class="active"><a href="#stop-prog-py">Python</a></dd>
+                    <dd><a href="#stop-prog-php">PHP</a></dd>
+                    <dd><a href="#stop-prog-rb">Ruby</a></dd>
+                </dl>
+                <div class="tabs-content">
+                    <div class="content active" id="stop-prog-py">
+                        <pre><code class="python">my_stoppable_progress_bar = client.progressbar(
+    title='My Progress Bar',
+    percent=0,
+    text='[0 of 100] Syncing...',
+    icon='sync',
+    stoppable=True
+)
+import time
+for n in range(101):
+    #...< your process here >...
+    if my_stoppable_progress_bar.update(
+        percent=n,
+        text='[%d of 100] Syncing...' % n
+    ) == 0:
+        # User stopped progress bar...
+        break
+    time.sleep(0.1)</code></pre>
+                    </div>
+                    <div class="content" id="stop-prog-php">
+                        <pre><code class="php">$my_stoppable_progress_bar = new ProgressBar($client, [
+    'title'=>'My Progress Bar',
+    'percent'=>0,
+    'text'=>'[0 of 100] Syncing...',
+    'icon'=>'sync',
+    'stoppable'=>true
+]);
+foreach(range(0, 101) as $n) {
+    //...< your process here >...
+    if($my_stoppable_progress_bar->update(
+        percent=n, 
+        text=sprintf('[%d of 100] Syncing...', n)
+    ) == 0) {
+        // User stopped progress bar...
+        break;
+    }
+    time_nanosleep(0, 100000000);
+}</code></pre>
+                    </div>
+                    <div class="content" id="stop-prog-rb">
+                        <pre><code class="ruby">my_stoppable_progress_bar = Alfred::ProgressBar.new(@client,
+    title:'My Progress Bar',
+    percent:0,
+    text:'[0 of 100] Syncing...',
+    icon:'sync',
+    stoppable:true
+)
+(0..100).step(1) do |n|
+    #...< your process here >...
+    if my_stoppable_progress_bar.update(
+        percent=n,
+        text='[%d of 100] Syncing...' % n
+    ) == 0
+        # User stopped progress bar...
+        break
+    end
     sleep(0.1)
 end</code></pre>
                     </div>
