@@ -14,25 +14,21 @@
             <nav class="top-bar" data-topbar role="navigation">
                 <ul class="title-area">
                     <li class="name">
-                        <h1><a href="../index.html">The Alfred Bundler</a></h1>
+                        <h1><a href="index.html">The Alfred Bundler</a></h1>
                     </li>
-                    <li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li>
+                    <li class="toggle-topbar menu-icon"><a href="#"><span> </span></a></li>
                 </ul>
                 <section class="top-bar-section">
-                    <!--<ul class="left">
-                        <li><a href="#">Left Button</a></li>
-                    </ul>-->
                     <ul class="right">
-                        <!--<li class="active"><a href="#">Right Button Active</a></li>-->
-                        <li class="has-dropdown">
+                        <li class="has-dropdown active">
                             <a href="../features.html">Features</a>
                             <ul class="dropdown">
-                              <li><a href="../icons.html">Icons</a></li>
-                              <li><a href="../utilities.html">Utilities</a></li>
-                              <li><a href="../wrappers.html">Wrappers</a></li>
-                              <li><a href="../logs.html">Logging</a></li>
-                              <li><a href="../defaults.html">Defaults</a></li>
-                              <li><a href="../custom-assets.html">Custom</a></li>
+                                <li><a href="../icons.html">Icons</a></li>
+                                <li><a href="../utilities.html">Utilities</a></li>
+                                <li class="active"><a href="../wrappers.html">Wrappers</a></li>
+                                <li><a href="../logs.html">Logging</a></li>
+                                <li><a href="../defaults.html">Defaults</a></li>
+                                <li><a href="../custom-assets.html">Custom</a></li>
                             </ul>
                         </li>
                         <li class="has-dropdown">
@@ -46,10 +42,11 @@
                             </ul>
                         </li>
                         <li class="has-dropdown">
-                        <a href="#">Documentation</a>
+                            <a href="#">Documentation</a>
                             <ul class="dropdown">
+                                <li><a href="../bash.html">Bash</a></li>
                                 <li><a href="../docs/php/" target="_blank">PHP</a></li>
-                                <li><a href="../#" target="_blank">Python</a></li>
+                                <li><a href="../docs/python/" target="_blank">Python</a></li>
                                 <li><a href="../docs/ruby/frames.html" target="_blank">Ruby</a></li>
                             </ul>
                         </li>
@@ -58,21 +55,30 @@
                 </section>
             </nav>
         </header>
+
         <div class="separator">&nbsp;</div>
+
         <div class="row">
             <div class="large-12 columns">
                 <h1>CocoaDialog Wrapper</h1>
+                <a href="#" data-reveal-id="disclaimer-modal"><span class="alert round label" style="float: right;"><strong>Wrapper Disclaimer</strong></span></a>
+                <div id="disclaimer-modal" class="reveal-modal xlarge" data-reveal>
+                    <h1>Disclaimer here</h1>
+                    <a class="close-reveal-modal">&#215;</a>
+                </div>
             </div>
         </div>
+
         <div class="row">
             <div class="small columns">
                 <div class="clear-fix"></div>
-                <div class="panel">
-                    <p>In order for you to use the wrappers, you must already have initialized an object for the bundler.<br>For instructions on how to initialize the bundler please see either the Python, PHP, or Ruby quickstart page.</p>
-                </div>
+
                 <div class="panel">
                     <img align="left" src="../images/info.png" width="100" style="margin-right: 20px;">
                     <p>This page is a simple introduction into using the CocoaDialog wrappers supplied in The Alfred Bundler.<br>Although they are not shown here, there are many default icons and dialog types to choose from in the CocoaDialog application. To see the full documentation of icons and dialog types supported by these wrappers please see the <a href="cocoadialog-reference.html">CocoaDialog Reference</a> page.</p>
+                </div>
+                <div class="panel">
+                    <p>In order for you to use the wrappers, you must already have initialized an object for the bundler.<br>For instructions on how to initialize the bundler please see either the Python, PHP, or Ruby quickstart page.</p>
                 </div>
             </div>
         </div>
@@ -313,6 +319,7 @@ end</code></pre>
         <script src="../bower_components/jquery/dist/jquery.min.js"></script>
         <script src="../bower_components/foundation/js/foundation.min.js"></script>
         <script src="../bower_components/foundation/js/foundation/foundation.equalizer.js"></script>
+        <script src="../bower_components/foundation/js/foundation/foundation.alert.js"></script>
         <script src="../js/app.js"></script>
         <script src="../highlight/highlight.pack.js"></script>
         <script>$(document).foundation();</script>
