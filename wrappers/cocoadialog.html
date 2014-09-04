@@ -97,7 +97,7 @@
                         <pre><code class="ruby">@client = @bundler.wrapper('cocoadialog')</code></pre>
                         <br>
                         <p>If you wish to enabled debugging, set the debug parameter to true.</p>
-                        <pre><code class="ruby">@client = @bundler.wrapper('cocoadialog', @debug=true)</code></pre>
+                        <pre><code class="ruby">@client = @bundler.wrapper('cocoadialog', debug=true)</code></pre>
                     </div>
                 </div>
             </div>
@@ -181,7 +181,7 @@
 ]);</code></pre>
                     </div>
                     <div class="content" id="init-client-rb">
-                        <pre><code class="ruby">@client = ProgressBar.new(@client, 
+                        <pre><code class="ruby">my_progress_bar = Alfred::ProgressBar.new(@client, 
     title:'My Progress Bar',
     percent:0,
     text:'[0 of 100] Processing stuff...',
