@@ -115,34 +115,57 @@
       	</ul>
 
       <h5>Load a gem</h5>
+      <ul>
+    		<li>
+    			<pre><code class="ruby">b.gems(['plist', '~>3.1.0'])</code></pre>
+    		</li>
+    	</ul>
 
-        <ul>
-      		<li>
-      			<pre><code class="ruby">b.gems(['plist'])</code></pre>
-      		</li>
-      	</ul>
+      <h5>Load more than one Gem</h5>
+      <ul>
+        <li>
+          <pre><code class="ruby">bundler.gems( ['oauth'], ['plist', '~>3.1.0'])</code></pre>
+        </li>
+      </ul>
 
       <div class="panel callout">
-        Note: Do <em>not</em> use the bundler framework to install any gems that require compiling. You can and should expect that some users will not have the tools installed to compile the Gems. Requiring those will result in many errors and bug reports. If you do need to use gems that need to be compiled, then you should compile them on your system and make sure that they work with Ruby 1.9 and Ruby 2.0 at minimum.
+        Do <em>not</em> use the bundler framework to install any gems that require compiling.
+        You can and should expect that some users will not have the tools installed to compile the Gems.
+        Requiring those will result in many errors and bug reports. If you do need to use gems that need
+        to be compiled, then you should compile them on your system and make sure that they work with
+        Ruby 1.9 and Ruby 2.0 at minimum.
       </div>
 
       <h5>Load a Wrapper</h5>
       <ul>
       		<li>
-      			<pre><code class="ruby">$cd = $b-&gt;wrapper('cocoadialog');</code></pre>
+      			<pre><code class="ruby">cd = b.wrapper('cocoadialog');</code></pre>
       		</li>
       	</ul>
 
       <h5>Send a Notification</h5>
       <ul>
       		<li>
-      			<pre><code class="ruby">$b-&gt;notify('Message', 'Title', '/path/to/icon')</code></pre>
+      			<pre><code class="ruby">b.notify('Message', 'Title', '/path/to/icon')</code></pre>
       		</li>
       	</ul>
 
         <div class="panel callout">
-          Note: the icon argument falls back to the workflow icon's <code>icon.png</code> if it is available.
+          Note: the icon argument defaults to the workflow icon's <code>icon.png</code> if it is available.
         </div>
+       <h5>Logging</h5>
+          <p>In order to use the logs, you need to initialize the bundler differently:</p>
+        <ul>
+          <li>
+            <pre><code class="php">require_relative 'alfred.bundler.php'
+b = Alfred::Bundler.new({'wf_log' => true}</code></pre>
+          </li>
+        </ul>
+        <div class="panel callout">
+          The <code>wf_log</code> key will give you access to console logs as well as a default file log located in the workflow’s data directory named <code>{workflow-bundle-id}.log</code>. So, if your workflow’s bundle id is <code>com.spr.bundler.example</code>. The log will be located at <code>~/Library/Application Support/Alfred 2/Workflow Data/com.spr.bundler.example/com.spr.bundler.example.log</code>.
+        </div>
+
+
       </div>
     </div>
 
