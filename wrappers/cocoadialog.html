@@ -220,7 +220,7 @@ for n in range(101):
                     <div class="content" id="prog-update-php">
                         <pre><code class="php">foreach(range(0, 101) as $n) {
     //...< your process here >...
-    $my_progress_bar->update(percent=n, text=sprintf('[%d of 100] Processing stuff...', n));
+    $my_progress_bar->update($percent=$n, $text=sprintf('[%d of 100] Processing stuff...', $n));
     time_nanosleep(0, 100000000);
 }</code></pre>
                     </div>
@@ -274,8 +274,8 @@ for n in range(101):
 foreach(range(0, 101) as $n) {
     //...< your process here >...
     if($my_stoppable_progress_bar->update(
-        percent=n,
-        text=sprintf('[%d of 100] Syncing...', n)
+        $percent=$n,
+        $text=sprintf('[%d of 100] Syncing...', $n)
     ) == 0) {
         // User stopped progress bar...
         break;
