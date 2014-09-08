@@ -83,22 +83,22 @@
             <div class="small-12 columns">
                 <h3>Initializing The Client</h3>
                 <dl class="tabs vertical" data-tab style="padding-right: 30px;">
-                    <dd class="active"><a href="#init-client-py">Python</a></dd>
-                    <dd><a href="#init-client-php">PHP</a></dd>
+                    <dd class="active"><a href="#init-client-php">PHP</a></dd>
+                    <dd><a href="#init-client-py">Python</a></dd>
                     <dd><a href="#init-client-rb">Ruby</a></dd>
                 </dl>
                 <div class="tabs-content">
-                    <div class="content active" id="init-client-py">
-                        <pre><code class="python">client = bundler.wrapper('cocoadialog')</code></pre>
-                        <br>
-                        <p>If you wish to enabled debugging, set the debug parameter to true.</p>
-                        <pre><code class="python">client = bundler.wrapper('cocoadialog', debug=True)</code></pre>
-                    </div>
-                    <div class="content" id="init-client-php">
+                    <div class="content active" id="init-client-php">
                         <pre><code class="php">$client = $bundler->wrapper('cocoadilaog')</code></pre>
                         <br>
                         <p>If you wish to enabled debugging, set the debug parameter to true.</p>
                         <pre><code class="php">$client = $bundler->wrapper('cocoadilaog', $debug=true)</code></pre>
+                    </div>
+                    <div class="content" id="init-client-py">
+                        <pre><code class="python">client = bundler.wrapper('cocoadialog')</code></pre>
+                        <br>
+                        <p>If you wish to enabled debugging, set the debug parameter to true.</p>
+                        <pre><code class="python">client = bundler.wrapper('cocoadialog', debug=True)</code></pre>
                     </div>
                     <div class="content" id="init-client-rb">
                         <pre><code class="ruby">@client = @bundler.wrapper('cocoadialog')</code></pre>
@@ -119,22 +119,12 @@
                 <br><br><p><em>Following the format above, we can spawn the dialog above with the following client calls.</em></p>
                 <div class="row">
                 <dl class="tabs vertical" data-tab style="padding-right: 30px;">
-                    <dd class="active"><a href="#build-dialogs-py">Python</a></dd>
-                    <dd><a href="#build-dialogs-php">PHP</a></dd>
+                    <dd class="active"><a href="#build-dialogs-php">PHP</a></dd>
+                    <dd><a href="#build-dialogs-py">Python</a></dd>
                     <dd><a href="#build-dialogs-rb">Ruby</a></dd>
                 </dl>
                 <div class="tabs-content">
-                    <div class="content active" id="build-dialogs-py">
-                        <pre><code class="python">my_message_box = client.msgbox(
-    title='My Message Box',
-    text='This is the heading of my message box',
-    informative_text='Informational text goes in here',
-    button1='Click Me!',
-    button2='Don\'t click me...',
-    icon='info'
-)</code></pre>
-                    </div>
-                    <div class="content" id="build-dialogs-php">
+                    <div class="content active" id="build-dialogs-php">
                         <pre><code class="php">$my_message_box = $client->msgbox([
     'title'=>'My Message Box',
     'text'=>'This is the heading of my message box',
@@ -143,6 +133,16 @@
     'button2'=>"Don't click me...",
     'icon'=>'info'
 ]);</code></pre>
+                    </div>
+                    <div class="content" id="build-dialogs-py">
+                        <pre><code class="python">my_message_box = client.msgbox(
+    title='My Message Box',
+    text='This is the heading of my message box',
+    informative_text='Informational text goes in here',
+    button1='Click Me!',
+    button2='Don\'t click me...',
+    icon='info'
+)</code></pre>
                     </div>
                     <div class="content" id="build-dialogs-rb">
                         <pre><code class="ruby">my_message_box = @client.msgbox(
@@ -171,26 +171,26 @@
             <p><strong>Note</strong> that the Python variant of the CocoaDialog wrapper handles spawning progress bars differently from the PHP, and Ruby variants.</p>
             <div class="row" style="padding-top: 1px;">
                 <dl class="tabs vertical" data-tab style="padding-right: 30px;">
-                    <dd class="active"><a href="#init-prog-py">Python</a></dd>
-                    <dd><a href="#init-prog-php">PHP</a></dd>
+                    <dd class="active"><a href="#init-prog-php">PHP</a></dd>
+                    <dd><a href="#init-prog-py">Python</a></dd>
                     <dd><a href="#init-prog-rb">Ruby</a></dd>
                 </dl>
                 <div class="tabs-content">
-                    <div class="content active" id="init-prog-py">
-                        <pre><code class="python">my_progress_bar = client.progressbar(
-    title='My Progress Bar',
-    percent=0,
-    text='[0 of 100] Processing stuff...',
-    icon='finder'
-)</code></pre>
-                    </div>
-                    <div class="content" id="init-prog-php">
+                    <div class="content active" id="init-prog-php">
                         <pre><code class="php">$my_progress_bar = new ProgressBar($client, [
     'title'=>'My Progress Bar',
     'percent'=>0,
     'text'=>'[0 of 100] Processing stuff...',
     'icon'=>'finder'
 ]);</code></pre>
+                    </div>
+                    <div class="content" id="init-prog-py">
+                        <pre><code class="python">my_progress_bar = client.progressbar(
+    title='My Progress Bar',
+    percent=0,
+    text='[0 of 100] Processing stuff...',
+    icon='finder'
+)</code></pre>
                     </div>
                     <div class="content" id="init-prog-rb">
                         <pre><code class="ruby">my_progress_bar = Alfred::ProgressBar.new(@client,
@@ -205,24 +205,24 @@
             <p>Updating the progress bar is also very easy to implement. Simply call the <em>update</em> method in the progress bar class.<br>For this example implementation I'll use a random wait time to simmulate some process where you might need to use a progress bar.</p>
             <div class="row" style="padding-top: 1px;">
                 <dl class="tabs vertical" data-tab style="padding-right: 30px;">
-                    <dd class="active"><a href="#prog-update-py">Python</a></dd>
-                    <dd><a href="#prog-update-php">PHP</a></dd>
+                    <dd class="active"><a href="#prog-update-php">PHP</a></dd>
+                    <dd><a href="#prog-update-py">Python</a></dd>
                     <dd><a href="#prog-update-rb">Ruby</a></dd>
                 </dl>
                 <div class="tabs-content">
-                    <div class="content active" id="prog-update-py">
-                        <pre><code class="python">import time
-for n in range(101):
-    #...< your process here >...
-    my_progress_bar.update(percent=n, text='[%d of 100] Processing stuff...' % n)
-    time.sleep(0.1)</code></pre>
-                    </div>
-                    <div class="content" id="prog-update-php">
+                    <div class="content active" id="prog-update-php">
                         <pre><code class="php">foreach(range(0, 101) as $n) {
     //...< your process here >...
     $my_progress_bar->update(percent=n, text=sprintf('[%d of 100] Processing stuff...', n));
     time_nanosleep(0, 100000000);
 }</code></pre>
+                    </div>
+                    <div class="content" id="prog-update-py">
+                        <pre><code class="python">import time
+for n in range(101):
+    #...< your process here >...
+    my_progress_bar.update(percent=n, text='[%d of 100] Processing stuff...' % n)
+    time.sleep(0.1)</code></pre>
                     </div>
                     <div class="content" id="prog-update-rb">
                         <pre><code class="ruby">(0..100).step(1) do |n|
@@ -239,31 +239,12 @@ end</code></pre>
             <p>To catch the output of the <em>update</em> method, format your loop similar to the following example.</p>
             <div class="row" style="padding-top: 1px;">
                 <dl class="tabs vertical" data-tab style="padding-right: 30px;">
-                    <dd class="active"><a href="#stop-prog-py">Python</a></dd>
-                    <dd><a href="#stop-prog-php">PHP</a></dd>
+                    <dd class="active"><a href="#stop-prog-php">PHP</a></dd>
+                    <dd><a href="#stop-prog-py">Python</a></dd>
                     <dd><a href="#stop-prog-rb">Ruby</a></dd>
                 </dl>
                 <div class="tabs-content">
-                    <div class="content active" id="stop-prog-py">
-                        <pre><code class="python">my_stoppable_progress_bar = client.progressbar(
-    title='My Progress Bar',
-    percent=0,
-    text='[0 of 100] Syncing...',
-    icon='sync',
-    stoppable=True
-)
-import time
-for n in range(101):
-    #...< your process here >...
-    if my_stoppable_progress_bar.update(
-        percent=n,
-        text='[%d of 100] Syncing...' % n
-    ) == 0:
-        # User stopped progress bar...
-        break
-    time.sleep(0.1)</code></pre>
-                    </div>
-                    <div class="content" id="stop-prog-php">
+                    <div class="content active" id="stop-prog-php">
                         <pre><code class="php">$my_stoppable_progress_bar = new ProgressBar($client, [
     'title'=>'My Progress Bar',
     'percent'=>0,
@@ -282,6 +263,25 @@ foreach(range(0, 101) as $n) {
     }
     time_nanosleep(0, 100000000);
 }</code></pre>
+                    </div>
+                    <div class="content" id="stop-prog-py">
+                        <pre><code class="python">my_stoppable_progress_bar = client.progressbar(
+    title='My Progress Bar',
+    percent=0,
+    text='[0 of 100] Syncing...',
+    icon='sync',
+    stoppable=True
+)
+import time
+for n in range(101):
+    #...< your process here >...
+    if my_stoppable_progress_bar.update(
+        percent=n,
+        text='[%d of 100] Syncing...' % n
+    ) == 0:
+        # User stopped progress bar...
+        break
+    time.sleep(0.1)</code></pre>
                     </div>
                     <div class="content" id="stop-prog-rb">
                         <pre><code class="ruby">my_stoppable_progress_bar = Alfred::ProgressBar.new(@client,
