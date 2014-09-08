@@ -60,13 +60,17 @@
 
         <div class="row">
             <div class="large-12 columns">
-                <h1>TerminalNotifier Wrapper <small>in development...</small></h1>
+                <h2>The TerminalNotifier Wrapper</h2>
             </div>
         </div>
 
         <div class="row">
             <div class="small columns">
                 <div class="clear-fix"></div>
+                <div class="panel">
+                    <img align="left" src="../images/info.png" width="100" style="margin-right: 20px;">
+                    <p>This page is a simple introduction into using the TerminalNotifier wrappers supplied in The Alfred Bundler.<br>Although they are not shown here, there are other parameters that the wrapper can accept. To see the full documentation of the TerminalNotifier wrappers please see the <a href="terminalnotifier-reference.html">TerminalNotifier Reference</a> page.</p><br>
+                </div>
                 <div class="panel callout">
                     <p>In order for you to use the wrappers, you must already have initialized an object for the bundler.
                     For instructions on how to initialize the bundler please see the <a href="../quickstart-php.html">PHP</a>,
@@ -74,44 +78,41 @@
                 </div>
             </div>
         </div>
+
         <div class="row">
             <div class="small-12 columns">
                 <h3>Initializing The Client</h3>
                 <dl class="tabs vertical" data-tab style="padding-right: 30px;">
-                    <dd class="active"><a href="#init-client-py">Python</a></dd>
-                    <dd><a href="#init-client-php">PHP</a></dd>
+                    <dd class="active"><a href="#init-client-php">PHP</a></dd>
+                    <dd><a href="#init-client-py">Python</a></dd>
                     <dd><a href="#init-client-rb">Ruby</a></dd>
                 </dl>
                 <div class="tabs-content">
-                    <div class="content active" id="init-client-py">
-                        <pre><code class="python">client = bundler.wrapper('cocoadialog')</code></pre>
+                    <div class="content active" id="init-client-php">
+                        <pre><code class="php">$client = $bundler->wrapper('terminalnotifier')</code></pre>
                         <br>
                         <p>If you wish to enabled debugging, set the debug parameter to true.</p>
-                        <pre><code class="python">client = bundler.wrapper('cocoadialog', debug=True)</code></pre>
+                        <pre><code class="php">$client = $bundler->wrapper('terminalnotifier', $debug=true)</code></pre>
                     </div>
-                    <div class="content" id="init-client-php">
-                        <pre><code class="php">$client = $bundler->wrapper('cocoadilaog')</code></pre>
+                    <div class="content" id="init-client-py">
+                        <pre><code class="python">client = bundler.wrapper('terminalnotifier')</code></pre>
                         <br>
                         <p>If you wish to enabled debugging, set the debug parameter to true.</p>
-                        <pre><code class="php">$client = $bundler->wrapper('cocoadilaog', $debug=true)</code></pre>
+                        <pre><code class="python">client = bundler.wrapper('terminalnotifier', debug=True)</code></pre>
                     </div>
                     <div class="content" id="init-client-rb">
-                        <pre><code class="ruby">@client = @bundler.wrapper('cocoadialog')</code></pre>
+                        <pre><code class="ruby">@client = @bundler.wrapper('terminalnotifier')</code></pre>
                         <br>
                         <p>If you wish to enabled debugging, set the debug parameter to true.</p>
-                        <pre><code class="ruby">@client = @bundler.wrapper('cocoadialog', debug=true)</code></pre>
+                        <pre><code class="ruby">@client = @bundler.wrapper('terminalnotifier', debug=true)</code></pre>
                     </div>
                 </div>
             </div>
             <div class="small-12 columns">
-                <h3>Spawning Dialogs</h3>
+                <h3>Spawning Notifications</h3>
                 <img align="right" src="images/messagebox.png">
-                <p>If you want to spawn awesome dialog boxes like the one to the right, you must call the type of dialog you want using acceptable parameters.</p>
-                <p>A list of all available dialogs and accepted parameters can be found at the <a href="cocoadialog-reference.html">CocoaDialog Reference</a> page.</p>
+                <p>Creating cool MacOSX notifications is extremely easy using the Terminal Notifier wrappers. Simply call the notify function with acceptable parameters.</p><br><br><br><br>
                 <div class="row" style="padding-top: 50px;">
-                    <p>All dialogs are spawned in the same basic format...</p>
-                    <code><span data-tooltip aria-haspopup="true" class="has-tip tip-top" title="Variable that captures output from dialog">output_capture</span> = <span data-tooltip aria-haspopup="true" class="has-tip tip-top" title="Initialized client object (shown above)">client</span>.<span data-tooltip aria-haspopup="true" class="has-tip tip-top" title="Type of dialog to be spawned">dialog_type</span>(<span data-tooltip aria-haspopup="true" class="has-tip tip-top" title="Multiple valid argument parameters">**valid_argument</span>=<span data-tooltip aria-haspopup="true" class="has-tip tip-top" title="Multiple valid value parameters">**valid_value</span>)</code>
-                    <br><br><p><em>Following the format above, we can spawn the dialog above with the following client calls.</em></p>
                     <div class="row">
                         <dl class="tabs vertical" data-tab style="padding-right: 30px;">
                             <dd class="active"><a href="#build-dialogs-py">Python</a></dd>
