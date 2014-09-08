@@ -100,19 +100,13 @@
       </dl>
       <div class="tabs-content">
         <div class="fix-tab-content content active" id="init-applescript">
-          <pre><code class="applescript">on _bundler()
-  --# Get the workflow's root directory path (this script's parent directory)
-  set pwd to POSIX path of ((path to me as text) & "::")
-  --# Load the bundlet's script
-  set bundlet to load script pwd & "alfred.bundler.scpt"
-  --# Use the bundlet's `load_bundler()` function to load the bundler
-  set bundler to bundlet's load_bundler()
-end _bundler
-
-try
+          <pre><code class="applescript">try
   --# Try to initialize the bundler, 
   --# and so install it if necessary
-  set bundler to my _bundler()
+  --# Load the bundlet's script
+  set bundlet to load script (POSIX path of ((path to me as text) & "::")) & "alfred.bundler.scpt"
+  --# Use the bundlet's `load_bundler()` function to load the bundler
+  set bundler to bundlet's load_bundler()
 on error emsg number enum
   if enum = 23 then
     --# If the user stopped installation,
@@ -121,7 +115,7 @@ on error emsg number enum
     return 
     --# Or, display a dialog:
     display dialog "This workflow will not work without the Alfred Bundler."
-  else if {21, 21} contains enum then
+  else if {21, 22} contains enum then
     --# If there was a problem during installation,
     --# maybe display a dialog telling the user what happened
     display dialog emsg
