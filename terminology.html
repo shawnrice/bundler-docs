@@ -88,25 +88,23 @@
     <dt>Color Cache</dt>
     <dd>The set of files that translate a color value to its lighter or darker version.</dd>
     <dt>Composer</dt>
-    <dd> </dd>
-    <dt>Core</dt>
-    <dd> </dd>
+    <dd><a href="  https://getcomposer.org/">Composer</a> is a PHP dependency manager that interacts, mainly, with <a href="https://packagist.org/">Packagist</a></dd>
     <dt>Data Directory</dt>
     <dd>The place where the Bundler saves all data that has been downloaded as well as "meta" files. Located at: <code>~/Library/Application Support/Alfred 2/Workflow Data/alfred.bundler-{major version}</code>. Major versions are lowercased names.</dd>
     <dt>Gatekeeper</dt>
     <dd>Apple's security protocol that prevents unsigned applications from being opened unless white-listed. The Bundler will whitelist apps so that Gatekeeper will allow their use. <em>Note: users must authorize whitelisting with an Administrator password.</em></dd>
     <dt>Gem</dt>
-    <dd> </dd>
+    <dd>A Ruby package. Gems are, by default, pulled from <a href="https://rubygems.org/">Rubygems</a>.</dd>
     <dt>Generated Asset</dt>
-    <dd> </dd>
+    <dd>An asset that the Bundler generates rather than downloads.</dd>
     <dt>Icon Server</dt>
     <dd>An external server that has been setup as an endpoint to return icons to the Bundler.</dd>
     <dt>Implementation</dt>
     <dd>The language-specific form of the Bundler. Each of these relates to the bundlets, and each "backend" behaves differently in order to work with the specific language.</dd>
     <dt>Instance</dt>
-    <dd></dd>
+    <dd>An instantiated object of the bundler in class-based implementations of the Bundler (PHP and Ruby).</dd>
     <dt>Major Version</dt>
-    <dd>A named version of the Bundler (all are star-signs). Each major version has a consistent user-facing API.</dd>
+    <dd>A named version of the Bundler (all are star-signs). Each major version has a consistent user-facing API. See the <a href="versioning.html">versioning</a> page.</dd>
     <dt>Minor Version</dt>
     <dd>Subversions of a major version. Each minor version will not break the major version's API. Minor versions may included extended functionality or bug fixes / optimizations.</dd>
     <dt>Library</dt>
@@ -115,9 +113,10 @@
     <dd>A command line utility used to determine the "value" of the background of the current Alfred theme.</dd>
       <div class="panel callout"><code>LightOrDark</code> is used only with versions of Alfred previous to v2.4:277.</div>
     <dt>Log Instance</dt>
-    <dd> </dd>
+    <dd>An log object that has been instantiated in a class-based implementation of the Bundler (PHP and Ruby).</dd>
     <dt>Path Cache</dt>
     <dd>Paths to applications that have already been whitelisted with Gatekeeper.</dd>
+    <div class="panel callout">If you are running into issues with utilities that are not found, delete the path cache.</div>
     <dt>Pip</dt>
     <dd>The utility that the Python implementation uses to load Python dependencies.</dd>
     <dt>Registry</dt>
@@ -131,8 +130,8 @@
     <dt>Utility</dt>
     <dd>An application (command line utility or `.app` app) that needs to be invoked via a system command. Examples: CocoaDialog, Pashua, Terminal-Notifier.</dd>
     <dt>Wrapper</dt>
-    <dd>A simplified method to interact with certain assets. Generally, these are utilities (currently: CocoaDialog and Terminal Notifier), and the wrappers provide ways to use these assets without the need to send system commands. <em>Note: in <code>Aries</code> a wrapper was a <code>bundlet</code>.</em></dd>
-
+    <dd>A simplified method to interact with certain assets. Generally, these are utilities (currently: CocoaDialog and Terminal Notifier), and the wrappers provide ways to use these assets without the need to send system commands.</dd>
+    <div class="panel callout">In <code>Aries</code> a wrapper was a <code>bundlet</code>.</div>
 </dl>
 
 
