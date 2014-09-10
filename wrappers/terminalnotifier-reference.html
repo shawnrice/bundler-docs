@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>Alfred Bundler | TerminalNotifier Reference</title>
+        <link rel="stylesheet" href="../stylesheets/app.css"/>
+        <script src="../bower_components/modernizr/modernizr.js"></script>
+        <link href="https://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="../highlight/foundation.css">
+    </head>
+    <body>
+        <header>
+            <nav class="top-bar" data-topbar role="navigation">
+                <ul class="title-area">
+                    <li class="name">
+                        <h1><a href="../index.html">The Alfred Bundler</a></h1>
+                    </li>
+                    <li class="toggle-topbar menu-icon"><a href="#"><span> </span></a></li>
+                </ul>
+                <section class="top-bar-section">
+                    <ul class="right">
+                        <li class="has-dropdown active">
+                            <a href="../features.html">Features</a>
+                            <ul class="dropdown">
+                                <li><a href="../icons.html">Icons</a></li>
+                                <li><a href="../utilities.html">Utilities</a></li>
+                                <li class="active"><a href="../wrappers.html">Wrappers</a></li>
+                                <li><a href="../logs.html">Logging</a></li>
+                                <li><a href="../defaults.html">Defaults</a></li>
+                                <li><a href="../custom-assets.html">Custom</a></li>
+                            </ul>
+                        </li>
+                        <li class="has-dropdown">
+                            <a href="../quickstart.html">Quickstart</a>
+                            <ul class="dropdown">
+                                <li><a href="../quickstart-applescript.html">AppleScript</a></li>
+                                <li><a href="../quickstart-bash.html">Bash</a></li>
+                                <li><a href="../quickstart-php.html">PHP</a></li>
+                                <li><a href="../quickstart-python.html">Python</a></li>
+                                <li><a href="../quickstart-ruby.html">Ruby</a></li>
+                            </ul>
+                        </li>
+                        <li class="has-dropdown">
+                            <a href="#">Documentation</a>
+                            <ul class="dropdown">
+                                <li><a href="../bash.html">Bash</a></li>
+                                <li><a href="../docs/php/" target="_blank">PHP</a></li>
+                                <li><a href="../docs/python/" target="_blank">Python</a></li>
+                                <li><a href="../docs/ruby/frames.html" target="_blank">Ruby</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="https://github.com/shawnrice/alfred-bundler/tree/taurus">Github</a></li>
+                    </ul>
+                </section>
+            </nav>
+        </header>
+        <div class="separator">&nbsp;</div>
+        <div class="row">
+            <div class="large-12 columns">
+                <div class="panel">
+                    <h1>TerminalNotifier Reference</h1>
+                </div>
+            </div>
+            <div class="large-12 columns">
+                <h3>Accepted Parameters</h3>
+                <p>Here is the listing of all available parameters for the TerminalNotifier wrappers.<br>If for some reason you notice that one of these options isn't working for your dialog type, try running the TerminalNotifier wrapper with debugging enabled.</p>
+                <div class="row">
+                    <table class="features-table">
+                        <thead>
+                            <tr>
+                                <th width="150"><center>Parameter</center></th>
+                                <th width="150">Accepted Type</th>
+                                <th>Description</th>
+                                <th width="150">Required</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><center><strong>title</strong></center></td>
+                                <td><em>string</em></td>
+                                <td>The bold text at the top of the notification</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td><center><strong>subtitle</strong></center></td>
+                                <td><em>string</em></td>
+                                <td>The semi-bold text directly beneath the title of the notification</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td><center><strong>message</strong></center></td>
+                                <td><em>string</em></td>
+                                <td>The message of your notification</td>
+                                <td><img src="../images/yes.png"></td>
+                            </tr>
+                            <tr>
+                                <td><center><strong>sound</strong></center></td>
+                                <td><em>string</em></td>
+                                <td>The sound to be played when the notification is spawned, found in <em>Sound.prefpane</em><br>(case sensitive)</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td><center><strong>group</strong></center></td>
+                                <td><em>string</em></td>
+                                <td>The group ID for the notification<br>This can by any string you want, it is used for removing notifications</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td><center><strong>remove</strong></center></td>
+                                <td><em>string</em></td>
+                                <td>Group ID of notifications to be removed from the notification center<br>(adding this parameter will not show a notification)</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td><center><strong>activate</strong></center></td>
+                                <td><em>string</em></td>
+                                <td>Bundle ID of application to open on notification click<br>(not compatable with execute)</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td><center><strong>sender</strong></center></td>
+                                <td><em>string</em></td>
+                                <td>Bundle ID of application whose icon will be used for the notification</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td><center><strong>appIcon</strong></center></td>
+                                <td><em>string</em></td>
+                                <td>Absolute path to icon to be used as application icon<br>(only compatable with OSX 10.9+)</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td><center><strong>contentImage</strong></center></td>
+                                <td><em>string</em></td>
+                                <td>Absolute path to icon to be used in your notification<br>(only compatable with OSX 10.9+)</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td><center><strong>open</strong></center></td>
+                                <td><em>string</em></td>
+                                <td>URL to webpage to open on notification click<br>(not compatable with execute)</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td><center><strong>execute</strong></center></td>
+                                <td><em>string</em></td>
+                                <td>Command to execute on notification click</td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <div class="top-footer"></div>
+            <div class="bottom-footer">
+                <div class="row">
+                    <div class="right footer">
+                        <p>The Alfred Bundler is open source, released under the <a href="http://opensource.org/licenses/MIT">MIT</a> license.</p>
+                        <p>&copy; The Alfred Bundler Team, 2014</p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <script src="../bower_components/jquery/dist/jquery.min.js"></script>
+        <script src="../bower_components/foundation/js/foundation.min.js"></script>
+        <script src="../bower_components/foundation/js/foundation/foundation.equalizer.js"></script>
+        <script src="../js/app.js"></script>
+        <script src="../highlight/highlight.pack.js"></script>
+        <script>$(document).foundation();</script>
+        <script>hljs.initHighlightingOnLoad();</script>
+    </body>
+</html>

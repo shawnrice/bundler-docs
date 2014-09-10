@@ -110,44 +110,39 @@
             </div>
             <div class="small-12 columns">
                 <h3>Spawning Notifications</h3>
-                <img align="right" src="images/messagebox.png">
-                <p>Creating cool MacOSX notifications is extremely easy using the Terminal Notifier wrappers. Simply call the notify function with acceptable parameters.</p><br><br><br><br>
-                <div class="row" style="padding-top: 50px;">
+                <img align="right" src="images/notification.png">
+                <p>Creating cool MacOSX notifications is extremely easy using the Terminal Notifier wrappers. Simply call the notify function with acceptable parameters.</p>
+                <p>Keep in mind that notifications do not return any values. So any variable that catches the return of the notification call will recieve a null value.</p>
+                <div class="row">
                     <div class="row">
                         <dl class="tabs vertical" data-tab style="padding-right: 30px;">
-                            <dd class="active"><a href="#build-dialogs-py">Python</a></dd>
-                            <dd><a href="#build-dialogs-php">PHP</a></dd>
-                            <dd><a href="#build-dialogs-rb">Ruby</a></dd>
+                            <dd class="active"><a href="#build-notifications-php">PHP</a></dd>
+                            <dd><a href="#build-notifications-py">Python</a></dd>
+                            <dd><a href="#build-notifications-rb">Ruby</a></dd>
                         </dl>
                         <div class="tabs-content">
-                            <div class="content active" id="build-dialogs-py">
-                                <pre><code class="python">my_message_box = client.msgbox(
-    title='My Message Box',
-    text='This is the heading of my message box',
-    informative_text='Informational text goes in here',
-    button1='Click Me!',
-    button2='Don\'t click me...',
-    icon='info'
-)</code></pre>
-                            </div>
-                            <div class="content" id="build-dialogs-php">
-                                <pre><code class="php">$my_message_box = $client->msgbox([
-    'title'=>'My Message Box',
-    'text'=>'This is the heading of my message box',
-    'informative_text'='Informational text goes in here',
-    'button1'=>'Click Me!',
-    'button2'=>"Don't click me...",
-    'icon'=>'info'
+                            <div class="content active" id="build-notifications-php">
+                                <pre><code class="php">$client->notify([
+    'title'=>'My Notification',
+    'subtitle'=>'Here is a subtitle',
+    'message'=>'Your message goes here',
+    'sender'=>'com.runningwithcrayons.Alfred-2'
 ]);</code></pre>
                             </div>
-                            <div class="content" id="build-dialogs-rb">
-                                <pre><code class="ruby">my_message_box = @client.msgbox(
-    title:'My Message Box',
-    text:'This is the heading of my message box',
-    informative_text:'Informational text goes in here',
-    button1:'Click Me!',
-    button2:'Don\'t click me...',
-    icon:'info'
+                            <div class="content" id="build-notifications-py">
+                                <pre><code class="python">client.notify(
+    title='My Notification',
+    subtitle='Here is a subtitle',
+    message='Your message here',
+    sender='com.runningwithcrayons.Alfred-2'
+)</code></pre>
+                            </div>
+                            <div class="content" id="build-notifications-rb">
+                                <pre><code class="ruby">@client.notify(
+    title:'My Notification',
+    subtitle:'Here is a subtitle',
+    message:'Your message here',
+    sender:'com.runningwithcrayons.Alfred-2'
 )</code></pre>
                             </div>
                         </div>
