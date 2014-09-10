@@ -213,7 +213,8 @@
             <h4>Dialog Types</h4>
             <p>This is the listing of all available dialog types that the CocoaDialog wrapper currently supports.</p>
             <h4><small>To view detailed information about a dialog, click on it's image...</small></h4>
-            <div class="small-12 columns">
+
+            <div class="small-12 columns"> <!-- start notify -->
                 <div class="small-6 columns">
                     <h2>notify</h2>
                     <p>A message box dialog used to either present the user with important information or to allow the user to make a custom selection.</p>
@@ -292,20 +293,12 @@
                         </table>
                         <h5>Implementation</h5>
                         <dl class="tabs vertical" data-tab style="padding-right: 30px;">
-                            <dd class="active"><a href="#build-dialogs-py">Python</a></dd>
-                            <dd><a href="#build-dialogs-php">PHP</a></dd>
-                            <dd><a href="#build-dialogs-rb">Ruby</a></dd>
+                            <dd class="active"><a href="#build-notify-php">PHP</a></dd>
+                            <dd><a href="#build-notify-py">Python</a></dd>
+                            <dd><a href="#build-notify-rb">Ruby</a></dd>
                         </dl>
                         <div class="tabs-content">
-                            <div class="content active" id="build-dialogs-py">
-                                <pre><code class="python">my_notification = client.notify(
-    title='My Notification',
-    description='A description goes here',
-    no_growl=True,
-    icon='info'
-)</code></pre>
-                            </div>
-                            <div class="content" id="build-dialogs-php">
+                            <div class="content active" id="build-notify-php">
                                 <pre><code class="php">$my_notification = $client->notify([
     'title'=>'My Notification',
     'description'=>'A description goes here',
@@ -313,7 +306,15 @@
     'icon'=>'info'
 ]);</code></pre>
                             </div>
-                            <div class="content" id="build-dialogs-rb">
+                            <div class="content" id="build-notify-py">
+                                <pre><code class="python">my_notification = client.notify(
+    title='My Notification',
+    description='A description goes here',
+    no_growl=True,
+    icon='info'
+)</code></pre>
+                            </div>
+                            <div class="content" id="build-notify-rb">
                                 <pre><code class="ruby">my_notification = @client.notify(
     title:'My Notifiation',
     description:'A description goes here',
@@ -327,8 +328,133 @@
                         <a class="close-reveal-modal">&#215;</a>
                     </div>
                 </div>
-            </div>
-            <div class="small-12 columns">
+            </div> <!-- end notify -->
+
+            <div class="small-12 columns"> <!-- start checkbox TODO: Fix the image as well as the implementation and returns -->
+                <div class="small-6 columns">
+                    <h2>checkbox</h2>
+                    <p>A dialog that allows you to present several checkable boxes. This is useful for allowing your user to select special settings to enable in your workflow.</p>
+                </div>
+                <div class="small-6 columns">
+                    <a href="#" data-reveal-id="msgbox-modal"><img src="images/checkbox.png" align="middle"></a>
+                    <div id="msgbox-modal" class="reveal-modal xlarge" data-reveal>
+                        <h2>checkbox</h2>
+                        <hr>
+                        <h5>Additional Parameters</h5>
+                        <table class="features-table">
+                            <thead>
+                                <tr>
+                                    <th width="150"><center>Parameter</center></th>
+                                    <th width="150">Accepted Type</th>
+                                    <th>Description</th>
+                                    <th width="150">Required</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><center><strong>label</strong></center></td>
+                                    <td><em>string</em></td>
+                                    <td>The label above the list of checkboxes</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><center><strong>items</strong></center></td>
+                                    <td><em>list</em></td>
+                                    <td>The labels for the available checkboxes in the dialog</td>
+                                    <td><img src="../images/yes.png"></td>
+                                </tr>
+                                <tr>
+                                    <td><center><strong>checked</strong></center></td>
+                                    <td><em>list</em></td>
+                                    <td>A list of checkbox indices to check by default (corresponds to items)</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><center><strong>disabled</strong></center></td>
+                                    <td><em>list</em></td>
+                                    <td>A list of checkbox indices to disable by default (corresponds to items)</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><center><strong>button1</strong></center></td>
+                                    <td><em>string</em></td>
+                                    <td>The default and right-most button's label</td>
+                                    <td><img src="../images/yes.png"></td>
+                                </tr>
+                                <tr>
+                                    <td><center><strong>button2</strong></center></td>
+                                    <td><em>string</em></td>
+                                    <td>The center-most button's label</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><center><strong>button3</strong></center></td>
+                                    <td><em>string</em></td>
+                                    <td>The left-most button's label</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><center><strong>rows</strong></center></td>
+                                    <td><em>integer</em></td>
+                                    <td>The amount of available checkbox rows</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><center><strong>columns</strong></center></td>
+                                    <td><em>integer</em></td>
+                                    <td>The amount of available checkbox columns</td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <h5>Implementation</h5>
+                        <dl class="tabs vertical" data-tab style="padding-right: 30px;">
+                            <dd class="active"><a href="#build-checkbox-php">PHP</a></dd>
+                            <dd><a href="#build-checkbox-py">Python</a></dd>
+                            <dd><a href="#build-checkbox-rb">Ruby</a></dd>
+                        </dl>
+                        <div class="tabs-content">
+                            <div class="content active" id="build-checkbox-php">
+                                <pre><code class="php">$my_message_box = $client->msgbox([
+    'title'=>'My Message Box',
+    'text'=>'This is the heading of my message box',
+    'informative_text'='Informational text goes in here',
+    'button1'=>'Click Me!',
+    'button2'=>"Don't click me...",
+    'icon'=>'info'
+]);</code></pre>
+                            </div>
+                            <div class="content" id="build-checkbox-py">
+                                <pre><code class="python">my_message_box = client.msgbox(
+    title='My Message Box',
+    text='This is the heading of my message box',
+    informative_text='Informational text goes in here',
+    button1='Click Me!',
+    button2='Don\'t click me...',
+    icon='info'
+)</code></pre>
+                            </div>
+                            <div class="content" id="build-checkbox-rb">
+                                <pre><code class="ruby">my_message_box = @client.msgbox(
+    title:'My Message Box',
+    text:'This is the heading of my message box',
+    informative_text:'Informational text goes in here',
+    button1:'Click Me!',
+    button2:'Don\'t click me...',
+    icon:'info'
+)</code></pre>
+                            </div>
+                        </div>
+                        <h5>Returns</h5>
+                        <p>Unless the <code>string_output</code> parameter is set to true, the msgbox dialog returns the number of the button selected by the user as a string in an array. Suppose that the user clicks the button with the label <em>Click Me!</em><br></p>
+                        <p>The msgbox dialog would then return...</p>
+                        <pre><code>["1"]</code></pre>
+                        <a class="close-reveal-modal">&#215;</a>
+                    </div>
+                </div>
+            </div> <!-- end checkbox -->
+
+            <div class="small-12 columns"> <!-- start msgbox -->
                 <div class="small-6 columns">
                     <h2>msgbox</h2>
                     <p>A message box dialog used to either present the user with important information or to allow the user to make a custom selection.</p>
@@ -395,22 +521,12 @@
                         </table>
                         <h5>Implementation</h5>
                         <dl class="tabs vertical" data-tab style="padding-right: 30px;">
-                            <dd class="active"><a href="#build-dialogs-py">Python</a></dd>
-                            <dd><a href="#build-dialogs-php">PHP</a></dd>
-                            <dd><a href="#build-dialogs-rb">Ruby</a></dd>
+                            <dd class="active"><a href="#build-msgbox-php">PHP</a></dd>
+                            <dd><a href="#build-msgbox-py">Python</a></dd>
+                            <dd><a href="#build-msgbox-rb">Ruby</a></dd>
                         </dl>
                         <div class="tabs-content">
-                            <div class="content active" id="build-dialogs-py">
-                                <pre><code class="python">my_message_box = client.msgbox(
-    title='My Message Box',
-    text='This is the heading of my message box',
-    informative_text='Informational text goes in here',
-    button1='Click Me!',
-    button2='Don\'t click me...',
-    icon='info'
-)</code></pre>
-                            </div>
-                            <div class="content" id="build-dialogs-php">
+                            <div class="content active" id="build-msgbox-php">
                                 <pre><code class="php">$my_message_box = $client->msgbox([
     'title'=>'My Message Box',
     'text'=>'This is the heading of my message box',
@@ -420,7 +536,17 @@
     'icon'=>'info'
 ]);</code></pre>
                             </div>
-                            <div class="content" id="build-dialogs-rb">
+                            <div class="content" id="build-msgbox-py">
+                                <pre><code class="python">my_message_box = client.msgbox(
+    title='My Message Box',
+    text='This is the heading of my message box',
+    informative_text='Informational text goes in here',
+    button1='Click Me!',
+    button2='Don\'t click me...',
+    icon='info'
+)</code></pre>
+                            </div>
+                            <div class="content" id="build-msgbox-rb">
                                 <pre><code class="ruby">my_message_box = @client.msgbox(
     title:'My Message Box',
     text:'This is the heading of my message box',
@@ -438,7 +564,9 @@
                         <a class="close-reveal-modal">&#215;</a>
                     </div>
                 </div>
-            </div>
+            </div> <!-- end msgbox -->
+
+
         </div>
 
         <footer>
