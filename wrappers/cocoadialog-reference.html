@@ -336,8 +336,8 @@
                     <p>A dialog that allows you to present several checkable boxes. This is useful for allowing your user to select special settings to enable in your workflow.</p>
                 </div>
                 <div class="small-6 columns">
-                    <a href="#" data-reveal-id="msgbox-modal"><img src="images/checkbox.png" align="middle"></a>
-                    <div id="msgbox-modal" class="reveal-modal xlarge" data-reveal>
+                    <a href="#" data-reveal-id="checkbox-modal"><img src="images/checkbox.png" align="middle"></a>
+                    <div id="checkbox-modal" class="reveal-modal xlarge" data-reveal>
                         <h2>checkbox</h2>
                         <hr>
                         <h5>Additional Parameters</h5>
@@ -415,44 +415,235 @@
                         </dl>
                         <div class="tabs-content">
                             <div class="content active" id="build-checkbox-php">
-                                <pre><code class="php">$my_message_box = $client->msgbox([
-    'title'=>'My Message Box',
-    'text'=>'This is the heading of my message box',
-    'informative_text'='Informational text goes in here',
-    'button1'=>'Click Me!',
-    'button2'=>"Don't click me...",
-    'icon'=>'info'
-]);</code></pre>
+                                <pre><code class="php">...</code></pre>
                             </div>
                             <div class="content" id="build-checkbox-py">
-                                <pre><code class="python">my_message_box = client.msgbox(
-    title='My Message Box',
-    text='This is the heading of my message box',
-    informative_text='Informational text goes in here',
-    button1='Click Me!',
-    button2='Don\'t click me...',
-    icon='info'
-)</code></pre>
+                                <pre><code class="python">...</code></pre>
                             </div>
                             <div class="content" id="build-checkbox-rb">
-                                <pre><code class="ruby">my_message_box = @client.msgbox(
-    title:'My Message Box',
-    text:'This is the heading of my message box',
-    informative_text:'Informational text goes in here',
-    button1:'Click Me!',
-    button2:'Don\'t click me...',
-    icon:'info'
-)</code></pre>
+                                <pre><code class="ruby">...</code></pre>
                             </div>
                         </div>
                         <h5>Returns</h5>
-                        <p>Unless the <code>string_output</code> parameter is set to true, the msgbox dialog returns the number of the button selected by the user as a string in an array. Suppose that the user clicks the button with the label <em>Click Me!</em><br></p>
-                        <p>The msgbox dialog would then return...</p>
-                        <pre><code>["1"]</code></pre>
+                        <p>...</p>
                         <a class="close-reveal-modal">&#215;</a>
                     </div>
                 </div>
             </div> <!-- end checkbox -->
+
+            <div class="small-12 columns"> <!-- start radio  -->
+                <div class="small-6 columns">
+                    <h2>radio</h2>
+                    <p>A dialog that allows you to present multiple radio toggles. This is useful for allowing your user to enable or disable aspects of your workflow.</p>
+                </div>
+                <div class="small-6 columns">
+                    <a href="#" data-reveal-id="radio-modal"><img src="images/radio.png" align="middle"></a>
+                    <div id="radio-modal" class="reveal-modal xlarge" data-reveal>
+                        <h2>radio</h2>
+                        <hr>
+                        <h5>Additional Parameters</h5>
+                        <table class="features-table">
+                            <thead>
+                                <tr>
+                                    <th width="150"><center>Parameter</center></th>
+                                    <th width="150">Accepted Type</th>
+                                    <th>Description</th>
+                                    <th width="150">Required</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><center><strong>label</strong></center></td>
+                                    <td><em>string</em></td>
+                                    <td>The label above the list of radio toggles</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><center><strong>items</strong></center></td>
+                                    <td><em>list</em></td>
+                                    <td>The labels for the available radio toggles in the dialog</td>
+                                    <td><img src="../images/yes.png"></td>
+                                </tr>
+                                <tr>
+                                    <td><center><strong>selected</strong></center></td>
+                                    <td><em>list</em></td>
+                                    <td>A list of radio indices to select by default (corresponds to items)</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><center><strong>disabled</strong></center></td>
+                                    <td><em>list</em></td>
+                                    <td>A list of radio indices to disable by default (corresponds to items)</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><center><strong>button1</strong></center></td>
+                                    <td><em>string</em></td>
+                                    <td>The default and right-most button's label</td>
+                                    <td><img src="../images/yes.png"></td>
+                                </tr>
+                                <tr>
+                                    <td><center><strong>button2</strong></center></td>
+                                    <td><em>string</em></td>
+                                    <td>The center-most button's label</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><center><strong>button3</strong></center></td>
+                                    <td><em>string</em></td>
+                                    <td>The left-most button's label</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><center><strong>rows</strong></center></td>
+                                    <td><em>integer</em></td>
+                                    <td>The amount of available radio toggle rows</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><center><strong>columns</strong></center></td>
+                                    <td><em>integer</em></td>
+                                    <td>The amount of available radio toggle columns</td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <h5>Implementation</h5>
+                        <dl class="tabs vertical" data-tab style="padding-right: 30px;">
+                            <dd class="active"><a href="#build-radio-php">PHP</a></dd>
+                            <dd><a href="#build-radio-py">Python</a></dd>
+                            <dd><a href="#build-radio-rb">Ruby</a></dd>
+                        </dl>
+                        <div class="tabs-content">
+                            <div class="content active" id="build-radio-php">
+                                <pre><code class="php">...</code></pre>
+                            </div>
+                            <div class="content" id="build-radio-py">
+                                <pre><code class="python">...</code></pre>
+                            </div>
+                            <div class="content" id="build-radio-rb">
+                                <pre><code class="ruby">...</code></pre>
+                            </div>
+                        </div>
+                        <h5>Returns</h5>
+                        <p>...</p>
+                        <a class="close-reveal-modal">&#215;</a>
+                    </div>
+                </div>
+            </div> <!-- end radio -->
+
+            <div class="small-12 columns"> <!-- start slider TODO: Fix random "slider" below <h5></h5> -->
+                <div class="small-6 columns">
+                    <h2>slider</h2>
+                    <p>A dialog that presents the user with a movable slider widget. This dialog is useful for allowing your user to adjust some predefined quality.</p>
+                </div>
+                <div class="small-6 columns">
+                    <a href="#" data-reveal-id="slider-modal"><img src="images/slider.png" align="middle"></a>
+                    <div id="slider-modal" class="reveal-modal xlarge" data-reveal>
+                        <h2>slider</h2>
+                        <hr>
+                        <h5>Additional Parameters</h5>
+                        <table class="features-table">
+                            <thead>
+                                <tr>
+                                    <th width="150"><center>Parameter</center></th>
+                                    <th width="150">Accepted Type</th>
+                                    <th>Description</th>
+                                    <th width="150">Required</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><center><strong>label</strong></center></td>
+                                    <td><em>string</em></td>
+                                    <td>The label above the slider widget</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><center><strong>always_show_value</strong></center></td>
+                                    <td><em>boolean</em></td>
+                                    <td>Enable a second label to always show the slider's current value</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><center><strong>min</strong></center></td>
+                                    <td><em>integer</em>, <em>float</em></td>
+                                    <td>The minimum value of the slider</td>
+                                    <td><img src="../images/yes.png"></td>
+                                </tr>
+                                <tr>
+                                    <td><center><strong>max</strong></center></td>
+                                    <td><em>integer</em>, <em>float</em></td>
+                                    <td>The maximum value of the slider</td>
+                                    <td><img src="../images/yes.png"></td>
+                                </tr>
+                                <tr>
+                                    <td><center><strong>ticks</strong></center></td>
+                                    <td><em>integer</em></td>
+                                    <td>The amount of ticks on the slider widget</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><center><strong>slider_label</strong></center></td>
+                                    <td><em>string</em></td>
+                                    <td>The label tied to the slider widget</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><center><strong>value</strong></center></td>
+                                    <td><em>integer</em>, <em>float</em></td>
+                                    <td>The default value of the slider widget</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><center><strong>button1</strong></center></td>
+                                    <td><em>string</em></td>
+                                    <td>The default and right-most button's label</td>
+                                    <td><img src="../images/yes.png"></td>
+                                </tr>
+                                <tr>
+                                    <td><center><strong>button2</strong></center></td>
+                                    <td><em>string</em></td>
+                                    <td>The center-most button's label</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><center><strong>button3</strong></center></td>
+                                    <td><em>string</em></td>
+                                    <td>The left-most button's label</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><center><strong>return_float</strong></center></td>
+                                    <td><em>boolean</em></td>
+                                    <td>Force the slider widget to return a float value</td>
+                                    <td></td>
+                                </tr>slider
+                            </tbody>
+                        </table>
+                        <h5>Implementation</h5>
+                        <dl class="tabs vertical" data-tab style="padding-right: 30px;">
+                            <dd class="active"><a href="#build-slider-php">PHP</a></dd>
+                            <dd><a href="#build-slider-py">Python</a></dd>
+                            <dd><a href="#build-slider-rb">Ruby</a></dd>
+                        </dl>
+                        <div class="tabs-content">
+                            <div class="content active" id="build-slider-php">
+                                <pre><code class="php">...</code></pre>
+                            </div>
+                            <div class="content" id="build-slider-py">
+                                <pre><code class="python">...</code></pre>
+                            </div>
+                            <div class="content" id="build-slider-rb">
+                                <pre><code class="ruby">...</code></pre>
+                            </div>
+                        </div>
+                        <h5>Returns</h5>
+                        <p>...</p>
+                        <a class="close-reveal-modal">&#215;</a>
+                    </div>
+                </div>
+            </div> <!-- end slider -->
 
             <div class="small-12 columns"> <!-- start msgbox -->
                 <div class="small-6 columns">
@@ -460,7 +651,7 @@
                     <p>A message box dialog used to either present the user with important information or to allow the user to make a custom selection.</p>
                 </div>
                 <div class="small-6 columns">
-                    <a href="#" data-reveal-id="msgbox-modal"><img src="images/messagebox.png" align="middle"></a>
+                    <a href="#" data-reveal-id="msgbox-modal"><img src="images/msgbox.png" align="middle"></a>
                     <div id="msgbox-modal" class="reveal-modal xlarge" data-reveal>
                         <h2>msgbox</h2>
                         <hr>
@@ -566,6 +757,1032 @@
                 </div>
             </div> <!-- end msgbox -->
 
+        <div class="small-12 columns"> <!-- start ok_msgbox -->
+                <div class="small-6 columns">
+                    <h2>ok_msgbox</h2>
+                    <p>A simplified version of the msgbox dialog. This dialog has predefined buttons, used for presenting the user with a simple informational dailog.</p>
+                </div>
+                <div class="small-6 columns">
+                    <a href="#" data-reveal-id="ok_msgbox-modal"><img src="images/ok_msgbox.png" align="middle"></a>
+                    <div id="ok_msgbox-modal" class="reveal-modal xlarge" data-reveal>
+                        <h2>ok_msgbox</h2>
+                        <hr>
+                        <h5>Additional Parameters</h5>
+                        <table class="features-table">
+                            <thead>
+                                <tr>
+                                    <th width="150"><center>Parameter</center></th>
+                                    <th width="150">Accepted Type</th>
+                                    <th>Description</th>
+                                    <th width="150">Required</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><center><strong>text</strong></center></td>
+                                    <td><em>string</em></td>
+                                    <td>The bold text shown as a subheader in the dialog</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><center><strong>informative_text</strong></center></td>
+                                    <td><em>string</em></td>
+                                    <td>The light text below the the subheader used for displaying a message</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><center><strong>no_cancel</strong></center></td>
+                                    <td><em>boolean</em></td>
+                                    <td>Deny access to the cancel button (if available)</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><center><strong>float</strong></center></td>
+                                    <td><em>boolean</em></td>
+                                    <td>Force dialog to float above all other windows</td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <h5>Implementation</h5>
+                        <dl class="tabs vertical" data-tab style="padding-right: 30px;">
+                            <dd class="active"><a href="#build-ok_msgbox-php">PHP</a></dd>
+                            <dd><a href="#build-ok_msgbox-py">Python</a></dd>
+                            <dd><a href="#build-ok_msgbox-rb">Ruby</a></dd>
+                        </dl>
+                        <div class="tabs-content">
+                            <div class="content active" id="build-ok_msgbox-php">
+                                <pre><code class="php">...</code></pre>
+                            </div>
+                            <div class="content" id="build-ok_msgbox-py">
+                                <pre><code class="python">...</code></pre>
+                            </div>
+                            <div class="content" id="build-ok_msgbox-rb">
+                                <pre><code class="ruby">...</code></pre>
+                            </div>
+                        </div>
+                        <h5>Returns</h5>
+                        <p></p>
+                        <a class="close-reveal-modal">&#215;</a>
+                    </div>
+                </div>
+            </div> <!-- end ok_msgbox -->
+
+        <div class="small-12 columns"> <!-- start yesno_msgbox -->
+                <div class="small-6 columns">
+                    <h2>yesno_msgbox</h2>
+                    <p>A variation of the ok_msgbox dialog. This dialog has predefined buttons, used for presenting the user with a simple informational dailog.</p>
+                </div>
+                <div class="small-6 columns">
+                    <a href="#" data-reveal-id="yesno_msgbox-modal"><img src="images/yesno_msgbox.png" align="middle"></a>
+                    <div id="yesno_msgbox-modal" class="reveal-modal xlarge" data-reveal>
+                        <h2>yesno_msgbox</h2>
+                        <hr>
+                        <h5>Additional Parameters</h5>
+                        <table class="features-table">
+                            <thead>
+                                <tr>
+                                    <th width="150"><center>Parameter</center></th>
+                                    <th width="150">Accepted Type</th>
+                                    <th>Description</th>
+                                    <th width="150">Required</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><center><strong>text</strong></center></td>
+                                    <td><em>string</em></td>
+                                    <td>The bold text shown as a subheader in the dialog</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><center><strong>informative_text</strong></center></td>
+                                    <td><em>string</em></td>
+                                    <td>The light text below the the subheader used for displaying a message</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><center><strong>no_cancel</strong></center></td>
+                                    <td><em>boolean</em></td>
+                                    <td>Deny access to the cancel button (if available)</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><center><strong>float</strong></center></td>
+                                    <td><em>boolean</em></td>
+                                    <td>Force dialog to float above all other windows</td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <h5>Implementation</h5>
+                        <dl class="tabs vertical" data-tab style="padding-right: 30px;">
+                            <dd class="active"><a href="#build-yesno_msgbox-php">PHP</a></dd>
+                            <dd><a href="#build-yesno_msgbox-py">Python</a></dd>
+                            <dd><a href="#build-yesno_msgbox-rb">Ruby</a></dd>
+                        </dl>
+                        <div class="tabs-content">
+                            <div class="content active" id="build-yesno_msgbox-php">
+                                <pre><code class="php">...</code></pre>
+                            </div>
+                            <div class="content" id="build-yesno_msgbox-py">
+                                <pre><code class="python">...</code></pre>
+                            </div>
+                            <div class="content" id="build-yesno_msgbox-rb">
+                                <pre><code class="ruby">...</code></pre>
+                            </div>
+                        </div>
+                        <h5>Returns</h5>
+                        <p></p>
+                        <a class="close-reveal-modal">&#215;</a>
+                    </div>
+                </div>
+            </div> <!-- end yesno_msgbox -->
+
+            <div class="small-12 columns"> <!-- start inputbox -->
+                <div class="small-6 columns">
+                    <h2>inputbox</h2>
+                    <p>A input box dialog used to take input from the user. Used for allowing a user to accept somekind of specific string.</p>
+                </div>
+                <div class="small-6 columns">
+                    <a href="#" data-reveal-id="inputbox-modal"><img src="images/inputbox.png" align="middle"></a>
+                    <div id="inputbox-modal" class="reveal-modal xlarge" data-reveal>
+                        <h2>inputbox</h2>
+                        <hr>
+                        <h5>Additional Parameters</h5>
+                        <table class="features-table">
+                            <thead>
+                                <tr>
+                                    <th width="150"><center>Parameter</center></th>
+                                    <th width="150">Accepted Type</th>
+                                    <th>Description</th>
+                                    <th width="150">Required</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><center><strong>text</strong></center></td>
+                                    <td><em>string</em></td>
+                                    <td>The bold text shown as a subheader in the dialog</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><center><strong>informative_text</strong></center></td>
+                                    <td><em>string</em></td>
+                                    <td>The light text below the the subheader used for displaying a message</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><center><strong>button1</strong></center></td>
+                                    <td><em>string</em></td>
+                                    <td>The default and right-most button's label</td>
+                                    <td><img src="../images/yes.png"></td>
+                                </tr>
+                                <tr>
+                                    <td><center><strong>button2</strong></center></td>
+                                    <td><em>string</em></td>
+                                    <td>The center-most button's label</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><center><strong>button3</strong></center></td>
+                                    <td><em>string</em></td>
+                                    <td>The left-most button's label</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><center><strong>no_cancel</strong></center></td>
+                                    <td><em>boolean</em></td>
+                                    <td>Deny access to the cancel button (if available)</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><center><strong>float</strong></center></td>
+                                    <td><em>boolean</em></td>
+                                    <td>Force dialog to float above all other windows</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><center><strong>no_show</strong></center></td>
+                                    <td><em>boolean</em></td>
+                                    <td>Force input widget to mask input (password like)</td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <h5>Implementation</h5>
+                        <dl class="tabs vertical" data-tab style="padding-right: 30px;">
+                            <dd class="active"><a href="#build-inputbox-php">PHP</a></dd>
+                            <dd><a href="#build-inputbox-py">Python</a></dd>
+                            <dd><a href="#build-inputbox-rb">Ruby</a></dd>
+                        </dl>
+                        <div class="tabs-content">
+                            <div class="content active" id="build-inputbox-php">
+                                <pre><code class="php">...</code></pre>
+                            </div>
+                            <div class="content" id="build-inputbox-py">
+                                <pre><code class="python">...</code></pre>
+                            </div>
+                            <div class="content" id="build-inputbox-rb">
+                                <pre><code class="ruby">...</code></pre>
+                            </div>
+                        </div>
+                        <h5>Returns</h5>
+                        <p></p>
+                        <a class="close-reveal-modal">&#215;</a>
+                    </div>
+                </div>
+            </div> <!-- end inputbox -->
+
+            <div class="small-12 columns"> <!-- start standard_inputbox -->
+                <div class="small-6 columns">
+                    <h2>standard_inputbox</h2>
+                    <p>A simplified version of the inputbox dialog. This dialog has predefined buttons used for asking the user for simple input.</p>
+                </div>
+                <div class="small-6 columns">
+                    <a href="#" data-reveal-id="standard_inputbox-modal"><img src="images/standard_inputbox.png" align="middle"></a>
+                    <div id="standard_inputbox-modal" class="reveal-modal xlarge" data-reveal>
+                        <h2>standard_inputbox</h2>
+                        <hr>
+                        <h5>Additional Parameters</h5>
+                        <table class="features-table">
+                            <thead>
+                                <tr>
+                                    <th width="150"><center>Parameter</center></th>
+                                    <th width="150">Accepted Type</th>
+                                    <th>Description</th>
+                                    <th width="150">Required</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><center><strong>text</strong></center></td>
+                                    <td><em>string</em></td>
+                                    <td>The bold text shown as a subheader in the dialog</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><center><strong>informative_text</strong></center></td>
+                                    <td><em>string</em></td>
+                                    <td>The light text below the the subheader used for displaying a message</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><center><strong>no_cancel</strong></center></td>
+                                    <td><em>boolean</em></td>
+                                    <td>Deny access to the cancel button (if available)</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><center><strong>float</strong></center></td>
+                                    <td><em>boolean</em></td>
+                                    <td>Force dialog to float above all other windows</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><center><strong>no_show</strong></center></td>
+                                    <td><em>boolean</em></td>
+                                    <td>Force input widget to mask input (password like)</td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <h5>Implementation</h5>
+                        <dl class="tabs vertical" data-tab style="padding-right: 30px;">
+                            <dd class="active"><a href="#build-standard_inputbox-php">PHP</a></dd>
+                            <dd><a href="#build-standard_inputbox-py">Python</a></dd>
+                            <dd><a href="#build-standard_inputbox-rb">Ruby</a></dd>
+                        </dl>
+                        <div class="tabs-content">
+                            <div class="content active" id="build-standard_inputbox-php">
+                                <pre><code class="php">...</code></pre>
+                            </div>
+                            <div class="content" id="build-standard_inputbox-py">
+                                <pre><code class="python">...</code></pre>
+                            </div>
+                            <div class="content" id="build-standard_inputbox-rb">
+                                <pre><code class="ruby">...</code></pre>
+                            </div>
+                        </div>
+                        <h5>Returns</h5>
+                        <p></p>
+                        <a class="close-reveal-modal">&#215;</a>
+                    </div>
+                </div>
+            </div> <!-- end standard_inputbox -->
+
+            <div class="small-12 columns"> <!-- start secure_inputbox -->
+                <div class="small-6 columns">
+                    <h2>secure_inputbox</h2>
+                    <p>A secured input box dialog used to take input from the user. Useful for allowing the user to enter some kind of password.</p>
+                </div>
+                <div class="small-6 columns">
+                    <a href="#" data-reveal-id="secure_inputbox-modal"><img src="images/secure_inputbox.png" align="middle"></a>
+                    <div id="secure_inputbox-modal" class="reveal-modal xlarge" data-reveal>
+                        <h2>secure_inputbox</h2>
+                        <hr>
+                        <h5>Additional Parameters</h5>
+                        <table class="features-table">
+                            <thead>
+                                <tr>
+                                    <th width="150"><center>Parameter</center></th>
+                                    <th width="150">Accepted Type</th>
+                                    <th>Description</th>
+                                    <th width="150">Required</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><center><strong>text</strong></center></td>
+                                    <td><em>string</em></td>
+                                    <td>The bold text shown as a subheader in the dialog</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><center><strong>informative_text</strong></center></td>
+                                    <td><em>string</em></td>
+                                    <td>The light text below the the subheader used for displaying a message</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><center><strong>button1</strong></center></td>
+                                    <td><em>string</em></td>
+                                    <td>The default and right-most button's label</td>
+                                    <td><img src="../images/yes.png"></td>
+                                </tr>
+                                <tr>
+                                    <td><center><strong>button2</strong></center></td>
+                                    <td><em>string</em></td>
+                                    <td>The center-most button's label</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><center><strong>button3</strong></center></td>
+                                    <td><em>string</em></td>
+                                    <td>The left-most button's label</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><center><strong>float</strong></center></td>
+                                    <td><em>boolean</em></td>
+                                    <td>Force dialog to float above all other windows</td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <h5>Implementation</h5>
+                        <dl class="tabs vertical" data-tab style="padding-right: 30px;">
+                            <dd class="active"><a href="#build-secure_inputbox-php">PHP</a></dd>
+                            <dd><a href="#build-secure_inputbox-py">Python</a></dd>
+                            <dd><a href="#build-secure_inputbox-rb">Ruby</a></dd>
+                        </dl>
+                        <div class="tabs-content">
+                            <div class="content active" id="build-secure_inputbox-php">
+                                <pre><code class="php">...</code></pre>
+                            </div>
+                            <div class="content" id="build-secure_inputbox-py">
+                                <pre><code class="python">...</code></pre>
+                            </div>
+                            <div class="content" id="build-secure_inputbox-rb">
+                                <pre><code class="ruby">...</code></pre>
+                            </div>
+                        </div>
+                        <h5>Returns</h5>
+                        <p></p>
+                        <a class="close-reveal-modal">&#215;</a>
+                    </div>
+                </div>
+            </div> <!-- end secure_inputbox -->
+
+            <div class="small-12 columns"> <!-- start secure_standard_inputbox -->
+                <div class="small-6 columns">
+                    <h2>secure_standard_inputbox</h2>
+                    <p>A combination of the secure and standard inputbox dialogs. This dialog has predefined buttons and a secure input field.</p>
+                </div>
+                <div class="small-6 columns">
+                    <a href="#" data-reveal-id="secure_standard_inputbox-modal"><img src="images/secure_standard_inputbox.png" align="middle"></a>
+                    <div id="secure_standard_inputbox-modal" class="reveal-modal xlarge" data-reveal>
+                        <h2>secure_standard_inputbox</h2>
+                        <hr>
+                        <h5>Additional Parameters</h5>
+                        <table class="features-table">
+                            <thead>
+                                <tr>
+                                    <th width="150"><center>Parameter</center></th>
+                                    <th width="150">Accepted Type</th>
+                                    <th>Description</th>
+                                    <th width="150">Required</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><center><strong>text</strong></center></td>
+                                    <td><em>string</em></td>
+                                    <td>The bold text shown as a subheader in the dialog</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><center><strong>informative_text</strong></center></td>
+                                    <td><em>string</em></td>
+                                    <td>The light text below the the subheader used for displaying a message</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><center><strong>no_cancel</strong></center></td>
+                                    <td><em>boolean</em></td>
+                                    <td>Deny access to the cancel button (if available)</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><center><strong>float</strong></center></td>
+                                    <td><em>boolean</em></td>
+                                    <td>Force dialog to float above all other windows</td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <h5>Implementation</h5>
+                        <dl class="tabs vertical" data-tab style="padding-right: 30px;">
+                            <dd class="active"><a href="#build-secure_standard_inputbox-php">PHP</a></dd>
+                            <dd><a href="#build-secure_standard_inputbox-py">Python</a></dd>
+                            <dd><a href="#build-secure_standard_inputbox-rb">Ruby</a></dd>
+                        </dl>
+                        <div class="tabs-content">
+                            <div class="content active" id="build-secure_standard_inputbox-php">
+                                <pre><code class="php">...</code></pre>
+                            </div>
+                            <div class="content" id="build-secure_standard_inputbox-py">
+                                <pre><code class="python">...</code></pre>
+                            </div>
+                            <div class="content" id="build-secure_standard_inputbox-rb">
+                                <pre><code class="ruby">...</code></pre>
+                            </div>
+                        </div>
+                        <h5>Returns</h5>
+                        <p></p>
+                        <a class="close-reveal-modal">&#215;</a>
+                    </div>
+                </div>
+            </div> <!-- end secure_standard_inputbox -->
+
+            <div class="small-12 columns"> <!-- start fileselect -->
+                <div class="small-6 columns">
+                    <h2>fileselect</h2>
+                    <p>This dialog allows you to navigate and select a file off the system. This dialog is useful for asking a user to select some file.</p>
+                </div>
+                <div class="small-6 columns">
+                    <a href="#" data-reveal-id="fileselect-modal"><img src="images/fileselect.png" align="middle"></a>
+                    <div id="fileselect-modal" class="reveal-modal xlarge" data-reveal>
+                        <h2>fileselect</h2>
+                        <hr>
+                        <h5>Additional Parameters</h5>
+                        <table class="features-table">
+                            <thead>
+                                <tr>
+                                    <th width="150"><center>Parameter</center></th>
+                                    <th width="150">Accepted Type</th>
+                                    <th>Description</th>
+                                    <th width="150">Required</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><center><strong>text</strong></center></td>
+                                    <td><em>string</em></td>
+                                    <td>The bold text shown as a subheader in the dialog</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><center><strong>select_directories</strong></center></td>
+                                    <td><em>boolean</em></td>
+                                    <td>Allow the user to select directories as well as files</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><center><strong>select_only_directories</strong></center></td>
+                                    <td><em>boolean</em></td>
+                                    <td>Force the user to only select directories</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><center><strong>select_multiple</strong></center></td>
+                                    <td><em>boolean</em></td>
+                                    <td>Allow the user to make multiple selections</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><center><strong>with_extensions</strong></center></td>
+                                    <td><em>list</em></td>
+                                    <td>Force the user to only select files with an extension from this list</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><center><strong>with_directory</strong></center></td>
+                                    <td><em>string</em></td>
+                                    <td>Absolute path to directory to select by default</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><center><strong>with_file</strong></center></td>
+                                    <td><em>string</em></td>
+                                    <td>Absolute path to file to select by default</td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <h5>Implementation</h5>
+                        <dl class="tabs vertical" data-tab style="padding-right: 30px;">
+                            <dd class="active"><a href="#build-fileselect-php">PHP</a></dd>
+                            <dd><a href="#build-fileselect-py">Python</a></dd>
+                            <dd><a href="#build-fileselect-rb">Ruby</a></dd>
+                        </dl>
+                        <div class="tabs-content">
+                            <div class="content active" id="build-fileselect-php">
+                                <pre><code class="php">...</code></pre>
+                            </div>
+                            <div class="content" id="build-fileselect-py">
+                                <pre><code class="python">...</code></pre>
+                            </div>
+                            <div class="content" id="build-fileselect-rb">
+                                <pre><code class="ruby">...</code></pre>
+                            </div>
+                        </div>
+                        <h5>Returns</h5>
+                        <p></p>
+                        <a class="close-reveal-modal">&#215;</a>
+                    </div>
+                </div>
+            </div> <!-- end fileselect -->
+
+            <div class="small-12 columns"> <!-- start filesave -->
+                <div class="small-6 columns">
+                    <h2>filesave</h2>
+                    <p>This dialog allows you to navigate and select a file off the system. This dialog is useful for asking a user to select some file.</p>
+                </div>
+                <div class="small-6 columns">
+                    <a href="#" data-reveal-id="filesave-modal"><img src="images/filesave.png" align="middle"></a>
+                    <div id="filesave-modal" class="reveal-modal xlarge" data-reveal>
+                        <h2>filesave</h2>
+                        <hr>
+                        <h5>Additional Parameters</h5>
+                        <table class="features-table">
+                            <thead>
+                                <tr>
+                                    <th width="150"><center>Parameter</center></th>
+                                    <th width="150">Accepted Type</th>
+                                    <th>Description</th>
+                                    <th width="150">Required</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><center><strong>text</strong></center></td>
+                                    <td><em>string</em></td>
+                                    <td>The bold text shown as a subheader in the dialog</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><center><strong>packages_as_directories</strong></center></td>
+                                    <td><em>boolean</em></td>
+                                    <td>Treat package files as directories</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><center><strong>no_create_directories</strong></center></td>
+                                    <td><em>boolean</em></td>
+                                    <td>Don't allow users to create directories from the dialog</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><center><strong>with_extensions</strong></center></td>
+                                    <td><em>list</em></td>
+                                    <td>Force the user to only save files with an extension from this list</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><center><strong>with_directory</strong></center></td>
+                                    <td><em>string</em></td>
+                                    <td>Absolute path to directory to select by default</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><center><strong>with_file</strong></center></td>
+                                    <td><em>string</em></td>
+                                    <td>Absolute path to file to select by default</td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <h5>Implementation</h5>
+                        <dl class="tabs vertical" data-tab style="padding-right: 30px;">
+                            <dd class="active"><a href="#build-filesave-php">PHP</a></dd>
+                            <dd><a href="#build-filesave-py">Python</a></dd>
+                            <dd><a href="#build-filesave-rb">Ruby</a></dd>
+                        </dl>
+                        <div class="tabs-content">
+                            <div class="content active" id="build-filesave-php">
+                                <pre><code class="php">...</code></pre>
+                            </div>
+                            <div class="content" id="build-filesave-py">
+                                <pre><code class="python">...</code></pre>
+                            </div>
+                            <div class="content" id="build-filesave-rb">
+                                <pre><code class="ruby">...</code></pre>
+                            </div>
+                        </div>
+                        <h5>Returns</h5>
+                        <p></p>
+                        <a class="close-reveal-modal">&#215;</a>
+                    </div>
+                </div>
+            </div> <!-- end filesave -->
+
+            <div class="small-12 columns"> <!-- start textbox -->
+                <div class="small-6 columns">
+                    <h2>textbox</h2>
+                    <p>A box with a large textbox widget. Used to allow the user to view or edit the contents of a file.</p>
+                </div>
+                <div class="small-6 columns">
+                    <a href="#" data-reveal-id="textbox-modal"><img src="images/textbox.png" align="middle"></a>
+                    <div id="textbox-modal" class="reveal-modal xlarge" data-reveal>
+                        <h2>textbox</h2>
+                        <hr>
+                        <h5>Additional Parameters</h5>
+                        <table class="features-table">
+                            <thead>
+                                <tr>
+                                    <th width="150"><center>Parameter</center></th>
+                                    <th width="150">Accepted Type</th>
+                                    <th>Description</th>
+                                    <th width="150">Required</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><center><strong>text</strong></center></td>
+                                    <td><em>string</em></td>
+                                    <td>The bold text shown as a subheader in the dialog</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><center><strong>informative_text</strong></center></td>
+                                    <td><em>string</em></td>
+                                    <td>The light text below the the subheader used for displaying a message</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><center><strong>text_from_file</strong></center></td>
+                                    <td><em>string</em></td>
+                                    <td>Absolute path to file from which to load text into the textbox widget</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><center><strong>button1</strong></center></td>
+                                    <td><em>string</em></td>
+                                    <td>The default and right-most button's label</td>
+                                    <td><img src="../images/yes.png"></td>
+                                </tr>
+                                <tr>
+                                    <td><center><strong>button2</strong></center></td>
+                                    <td><em>string</em></td>
+                                    <td>The center-most button's label</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><center><strong>button3</strong></center></td>
+                                    <td><em>string</em></td>
+                                    <td>The left-most button's label</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><center><strong>editable</strong></center></td>
+                                    <td><em>boolean</em></td>
+                                    <td>Allow the user to edit the text in the textbox widget</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><center><strong>focus_textbox</strong></center></td>
+                                    <td><em>boolean</em></td>
+                                    <td>Focus on the textbox widget on dialog spawn</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><center><strong>selected</strong></center></td>
+                                    <td><em>boolean</em></td>
+                                    <td>Select all the text in the textbox widget on dialog spawn</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><center><strong>scroll_to</strong></center></td>
+                                    <td><em>string</em></td>
+                                    <td>Scroll down to the given text in the textbox widget</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><center><strong>float</strong></center></td>
+                                    <td><em>boolean</em></td>
+                                    <td>Force dialog to float above all other windows</td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <h5>Implementation</h5>
+                        <dl class="tabs vertical" data-tab style="padding-right: 30px;">
+                            <dd class="active"><a href="#build-textbox-php">PHP</a></dd>
+                            <dd><a href="#build-textbox-py">Python</a></dd>
+                            <dd><a href="#build-textbox-rb">Ruby</a></dd>
+                        </dl>
+                        <div class="tabs-content">
+                            <div class="content active" id="build-textbox-php">
+                                <pre><code class="php">...</code></pre>
+                            </div>
+                            <div class="content" id="build-textbox-py">
+                                <pre><code class="python">...</code></pre>
+                            </div>
+                            <div class="content" id="build-textbox-rb">
+                                <pre><code class="ruby">...</code></pre>
+                            </div>
+                        </div>
+                        <h5>Returns</h5>
+                        <p></p>
+                        <a class="close-reveal-modal">&#215;</a>
+                    </div>
+                </div>
+            </div> <!-- end textbox -->
+
+            <div class="small-12 columns"> <!-- start dropdown -->
+                <div class="small-6 columns">
+                    <h2>dropdown</h2>
+                    <p>A box with a dropdown widget. Used to allow the user to select a single element from some list.</p>
+                </div>
+                <div class="small-6 columns">
+                    <a href="#" data-reveal-id="dropdown-modal"><img src="images/dropdown.png" align="middle"></a>
+                    <div id="dropdown-modal" class="reveal-modal xlarge" data-reveal>
+                        <h2>dropdown</h2>
+                        <hr>
+                        <h5>Additional Parameters</h5>
+                        <table class="features-table">
+                            <thead>
+                                <tr>
+                                    <th width="150"><center>Parameter</center></th>
+                                    <th width="150">Accepted Type</th>
+                                    <th>Description</th>
+                                    <th width="150">Required</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><center><strong>text</strong></center></td>
+                                    <td><em>string</em></td>
+                                    <td>The bold text shown as a subheader in the dialog</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><center><strong>items</strong></center></td>
+                                    <td><em>list</em></td>
+                                    <td>The available items in the dropdown widget</td>
+                                    <td><img src="../images/yes.png"></td>
+                                </tr>
+                                <tr>
+                                    <td><center><strong>button1</strong></center></td>
+                                    <td><em>string</em></td>
+                                    <td>The default and right-most button's label</td>
+                                    <td><img src="../images/yes.png"></td>
+                                </tr>
+                                <tr>
+                                    <td><center><strong>button2</strong></center></td>
+                                    <td><em>string</em></td>
+                                    <td>The center-most button's label</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><center><strong>button3</strong></center></td>
+                                    <td><em>string</em></td>
+                                    <td>The left-most button's label</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><center><strong>pulldown</strong></center></td>
+                                    <td><em>boolean</em></td>
+                                    <td>Enable the pulldown style for the dropdown widget</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><center><strong>exit_onchange</strong></center></td>
+                                    <td><em>boolean</em></td>
+                                    <td>Exit the dialog as soon as the dropdown selection is changed</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><center><strong>float</strong></center></td>
+                                    <td><em>boolean</em></td>
+                                    <td>Force dialog to float above all other windows</td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <h5>Implementation</h5>
+                        <dl class="tabs vertical" data-tab style="padding-right: 30px;">
+                            <dd class="active"><a href="#build-dropdown-php">PHP</a></dd>
+                            <dd><a href="#build-dropdown-py">Python</a></dd>
+                            <dd><a href="#build-dropdown-rb">Ruby</a></dd>
+                        </dl>
+                        <div class="tabs-content">
+                            <div class="content active" id="build-dropdown-php">
+                                <pre><code class="php">...</code></pre>
+                            </div>
+                            <div class="content" id="build-dropdown-py">
+                                <pre><code class="python">...</code></pre>
+                            </div>
+                            <div class="content" id="build-dropdown-rb">
+                                <pre><code class="ruby">...</code></pre>
+                            </div>
+                        </div>
+                        <h5>Returns</h5>
+                        <p></p>
+                        <a class="close-reveal-modal">&#215;</a>
+                    </div>
+                </div>
+            </div> <!-- end dropdown -->
+
+            <div class="small-12 columns"> <!-- start standard_dropdown -->
+                <div class="small-6 columns">
+                    <h2>standard_dropdown</h2>
+                    <p>A simplified version of the dropdown dialog. This dialog has predefined buttons.</p>
+                </div>
+                <div class="small-6 columns">
+                    <a href="#" data-reveal-id="standard_dropdown-modal"><img src="images/standard_dropdown.png" align="middle"></a>
+                    <div id="standard_dropdown-modal" class="reveal-modal xlarge" data-reveal>
+                        <h2>standard_dropdown</h2>
+                        <hr>
+                        <h5>Additional Parameters</h5>
+                        <table class="features-table">
+                            <thead>
+                                <tr>
+                                    <th width="150"><center>Parameter</center></th>
+                                    <th width="150">Accepted Type</th>
+                                    <th>Description</th>
+                                    <th width="150">Required</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><center><strong>text</strong></center></td>
+                                    <td><em>string</em></td>
+                                    <td>The bold text shown as a subheader in the dialog</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><center><strong>items</strong></center></td>
+                                    <td><em>list</em></td>
+                                    <td>The available items in the dropdown widget</td>
+                                    <td><img src="../images/yes.png"></td>
+                                </tr>
+                                <tr>
+                                    <td><center><strong>pulldown</strong></center></td>
+                                    <td><em>boolean</em></td>
+                                    <td>Enable the pulldown style for the dropdown widget</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><center><strong>exit_onchange</strong></center></td>
+                                    <td><em>boolean</em></td>
+                                    <td>Exit the dialog as soon as the dropdown selection is changed</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><center><strong>float</strong></center></td>
+                                    <td><em>boolean</em></td>
+                                    <td>Force dialog to float above all other windows</td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <h5>Implementation</h5>
+                        <dl class="tabs vertical" data-tab style="padding-right: 30px;">
+                            <dd class="active"><a href="#build-standard_dropdown-php">PHP</a></dd>
+                            <dd><a href="#build-standard_dropdown-py">Python</a></dd>
+                            <dd><a href="#build-standard_dropdown-rb">Ruby</a></dd>
+                        </dl>
+                        <div class="tabs-content">
+                            <div class="content active" id="build-standard_dropdown-php">
+                                <pre><code class="php">...</code></pre>
+                            </div>
+                            <div class="content" id="build-standard_dropdown-py">
+                                <pre><code class="python">...</code></pre>
+                            </div>
+                            <div class="content" id="build-standard_dropdown-rb">
+                                <pre><code class="ruby">...</code></pre>
+                            </div>
+                        </div>
+                        <h5>Returns</h5>
+                        <p></p>
+                        <a class="close-reveal-modal">&#215;</a>
+                    </div>
+                </div>
+            </div> <!-- end standard_dropdown -->
+
+            <div class="small-12 columns"> <!-- start progressbar -->
+                <div class="small-6 columns">
+                    <h2>progressbar</h2>
+                    <p>A dialog that allows you to present a progress bar to the user. This is useful for showing the progress of some process.</p>
+                </div>
+                <div class="small-6 columns">
+                    <a href="#" data-reveal-id="progressbar-modal"><img src="images/progressbar.png" align="middle"></a>
+                    <div id="progressbar-modal" class="reveal-modal xlarge" data-reveal>
+                        <h2>progressbar</h2>
+                        <hr>
+                        <h5>Additional Parameters</h5>
+                        <table class="features-table">
+                            <thead>
+                                <tr>
+                                    <th width="150"><center>Parameter</center></th>
+                                    <th width="150">Accepted Type</th>
+                                    <th>Description</th>
+                                    <th width="150">Required</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><center><strong>text</strong></center></td>
+                                    <td><em>string</em></td>
+                                    <td>The bold text shown as a subheader in the dialog</td>
+                                    <td><img src="../images/yes.png"></td>
+                                </tr>
+                                <tr>
+                                    <td><center><strong>percent</strong></center></td>
+                                    <td><em>integer</em>, <em>float</em></td>
+                                    <td>The percent of the progress bar on dialog spawn</td>
+                                    <td><img src="../images/yes.png"></td>
+                                </tr>
+                                <tr>
+                                    <td><center><strong>indeterminite</strong></center></td>
+                                    <td><em>boolean</em></td>
+                                    <td>Force the dialog to show an indeterminate progress bar</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><center><strong>stoppable</strong></center></td>
+                                    <td><em>boolean</em></td>
+                                    <td>Allow the progress bar dialog to be stopped</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td><center><strong>float</strong></center></td>
+                                    <td><em>boolean</em></td>
+                                    <td>Force dialog to float above all other windows</td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <h5>Methods</h5>
+                        <table class="features-table">
+                            <thead>
+                                <tr>
+                                    <th width="150"><center>Method</center></th>
+                                    <th width="150"><center>Parameters</center></th>
+                                    <th><center>Returns</center></th>
+                                    <th>Description</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><center><strong>update</strong></center></td>
+                                    <td><code>text</code> <code>percent</code></td>
+                                    <td><code>1</code> if dialog is still alive <code>0</code> if dialog is dead</td>
+                                    <td>Updates the state of the progress bar.<br><em>Parameters are passed explicitly</em></td>
+                                </tr>
+                                <tr>
+                                    <td><center><strong>finish</strong></center></td>
+                                    <td></td>
+                                    <td><code>0</code></td>
+                                    <td>Kills the current instance of the progress bar.<br><em>Refrain from using this method.</em></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <h5>Implementation</h5>
+                        <dl class="tabs vertical" data-tab style="padding-right: 30px;">
+                            <dd class="active"><a href="#build-progressbar-php">PHP</a></dd>
+                            <dd><a href="#build-progressbar-py">Python</a></dd>
+                            <dd><a href="#build-progressbar-rb">Ruby</a></dd>
+                        </dl>
+                        <div class="tabs-content">
+                            <div class="content active" id="build-progressbar-php">
+                                <pre><code class="php">...</code></pre>
+                            </div>
+                            <div class="content" id="build-progressbar-py">
+                                <pre><code class="python">...</code></pre>
+                            </div>
+                            <div class="content" id="build-progressbar-rb">
+                                <pre><code class="ruby">...</code></pre>
+                            </div>
+                        </div>
+                        <h5>Returns</h5>
+                        <p></p>
+                        <a class="close-reveal-modal">&#215;</a>
+                    </div>
+                </div>
+            </div> <!-- end progressbar -->
 
         </div>
 
